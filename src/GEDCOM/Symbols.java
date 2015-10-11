@@ -3,7 +3,7 @@ package GEDCOM;
 /**
  *  Contains the list of symbols for the parser to "accept" when reading a GEDCOM document
  */
-public enum GEDCOM_Symbols {
+public enum Symbols {
 
 
     /* NON-TERMINALS */
@@ -30,7 +30,7 @@ public enum GEDCOM_Symbols {
     terminator("<terminator>"),
     xref_ID("<xref_ID");
 
-    GEDCOM_Symbols(String input){
+    Symbols(String input){
 
 
     }

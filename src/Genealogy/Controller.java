@@ -1,4 +1,5 @@
-package Genealogy.Driver;
+package Genealogy;
 
 public class Controller {
+
 }

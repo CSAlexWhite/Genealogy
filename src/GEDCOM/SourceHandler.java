@@ -5,14 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
-public class GEDCOM_Input {
+public class SourceHandler {
 
     private int currentChar;
     private LineNumberReader sourceFileReader;
 
     /********** CONSTRUCTOR(S) **********/
 
-    public GEDCOM_Input(String filename){
+    public SourceHandler(String filename){
 
         openSourceFile(filename);
         //printLineNumber();
