@@ -1,11 +1,11 @@
 package GEDCOM;
 
 
-public class Compiler {
+public class Importer {
 
     public SourceHandler input;
 
-    public Compiler(String inputFileName){
+    public Importer(String inputFileName){
 
         try
         {
@@ -14,16 +14,12 @@ public class Compiler {
             Lexer.setIO(input);
             Lexer.nextToken();
 
-            Parser.program();
-
-            if(true) throw new SourceException("Fuck this");
-
-
+//            Parser.program();
         }
 
         catch (SourceException error)
         {
-
+            error.printStackTrace();
         }
     }
 }

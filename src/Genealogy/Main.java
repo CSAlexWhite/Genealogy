@@ -1,5 +1,8 @@
 package Genealogy;
 
+import GEDCOM.Importer;
+import GEDCOM.Lexer;
+import GEDCOM.SourceException;
 import GEDCOM.SourceHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +12,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    public static SourceHandler test;
+    public static SourceHandler input;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -21,11 +24,26 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        //launch(args);
+//        try{
 
-        test = new SourceHandler("test.txt");
-        for(int i=0; i<50; i++){
-            test.nextChar();
-        }
+            String inFile = "test.txt";
+
+            new Importer(inFile);
+
+//            input = new SourceHandler(inFile);
+//            Lexer.setIO(input);
+//            Lexer.nextToken();
+//
+//            //launch(args);
+//
+//            for(int i=0; i<100; i++){
+//                input.nextChar();
+//            }
+//        }
+
+//        catch(SourceException error){
+//
+//            error.printStackTrace();
+//        }
     }
 }

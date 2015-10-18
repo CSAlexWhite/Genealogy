@@ -88,6 +88,11 @@ public class SourceHandler {
         return currentChar;
     }
 
+    public int getLineNumber(){
+
+        return sourceFileReader.getLineNumber();
+    }
+
     /********** UTILITIES **********/
 
     private LineNumberReader getSourceFileReader(){

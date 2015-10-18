@@ -7,9 +7,13 @@ package GEDCOM;
 public enum Symbols {
 
 
-    /* FICTITIOUS TOKENS */
+    /* TOKENS */
 
-    NONE (""),
+    NONE (""),      //
+    POINTER (""),   // a reference to an instantiated genealobject
+    USER_TAG(""),   // indicates a user-defined tag, special delimiter "_" before
+    IDENT(""),      // indicates either a tag, or a non numeric value
+    INTEGER(""),    // indicates an integer
 
     /* NON-TERMINALS */
 
