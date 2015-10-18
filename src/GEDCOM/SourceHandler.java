@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
+/**
+ * its main method nextChar() retrieves the next character from the specified
+ * source file, sets that as its "currentChar" and prints it to the console
+ */
 public class SourceHandler {
 
     private int currentChar;
@@ -15,14 +19,15 @@ public class SourceHandler {
     public SourceHandler(String filename){
 
         openSourceFile(filename);
-        //printLineNumber();
+        printLineNumber();
         nextChar();
     }
 
     /********** MAIN METHODS  **********/
 
     /**
-     * reads a single character of the input file and sets it to the currentChar variable, to be read by another
+     * reads a single character of the input file and sets it to the currentChar
+     * variable, to be read by another
      * class when necessary
      */
     public void nextChar() {

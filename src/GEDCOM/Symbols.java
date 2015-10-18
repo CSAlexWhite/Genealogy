@@ -1,10 +1,15 @@
 package GEDCOM;
 
 /**
- *  Contains the list of symbols for the parser to "accept" when reading a GEDCOM document
+ *  Contains the list of symbols for the parser to "accept" when reading a
+ *  GEDCOM document
  */
 public enum Symbols {
 
+
+    /* FICTITIOUS TOKENS */
+
+    NONE (""),
 
     /* NON-TERMINALS */
 
@@ -29,6 +34,7 @@ public enum Symbols {
     tag("<tag>"),
     terminator("<terminator>"),
     xref_ID("<xref_ID");
+
 
     Symbols(String input){
 

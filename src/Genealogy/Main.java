@@ -1,5 +1,6 @@
 package Genealogy;
 
+import GEDCOM.SourceHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+    public static SourceHandler test;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,5 +22,10 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         //launch(args);
+
+        test = new SourceHandler("test.txt");
+        for(int i=0; i<50; i++){
+            test.nextChar();
+        }
     }
 }

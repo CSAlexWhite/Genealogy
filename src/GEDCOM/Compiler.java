@@ -1,8 +1,6 @@
 package GEDCOM;
 
-/**
- * Created by Alex on 10/11/2015.
- */
+
 public class Compiler {
 
     public SourceHandler input;
@@ -12,9 +10,18 @@ public class Compiler {
         try
         {
             input = new SourceHandler(inputFileName);
+
+            Lexer.setIO(input);
+            Lexer.nextToken();
+
+            Parser.program();
+
+            if(true) throw new SourceException("Fuck this");
+
+
         }
 
-        catch (SourceFileErrorException error)
+        catch (SourceException error)
         {
 
         }
