@@ -1,9 +1,6 @@
 package GEDCOM;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
+import java.io.*;
 
 /**
  * its main method nextChar() retrieves the next character from the specified
@@ -14,13 +11,25 @@ public class SourceHandler {
     private int currentChar;
     private LineNumberReader sourceFileReader;
 
+    PrintWriter output;
+
+
+
     /********** CONSTRUCTOR(S) **********/
 
-    public SourceHandler(String filename){
+    public SourceHandler(String infilename){
 
-        openSourceFile(filename);
-        printLineNumber();
+        try{
+
+            output = new PrintWriter("output.txt");
+
+        } catch(FileNotFoundException error){ error.printStackTrace();}
+
+        openSourceFile(infilename);
+        //printLineNumber();
         nextChar();
+
+        output.println("SOMETHING SOMETHING!!!");
     }
 
     /********** MAIN METHODS  **********/
@@ -38,7 +47,7 @@ public class SourceHandler {
 
                 case '\n':
                     currentChar = ' ';
-                    System.out.println();
+                    output.println();
                     printLineNumber();
                     return;
 
@@ -52,11 +61,11 @@ public class SourceHandler {
 
                 case '\t':
                     currentChar = ' ';
-                    System.out.println('\t');
+                    output.println('\t');
                     return;
 
                 default:
-                    System.out.print((char) currentChar);
+                    output.print((char) currentChar);
                     return;
             }
         }

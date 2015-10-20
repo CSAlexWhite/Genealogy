@@ -54,6 +54,7 @@ public class Lexer {
 
             currentToken = IDENT;
 
+            System.out.println(currentToken);
             return;
         }
 
@@ -77,6 +78,9 @@ public class Lexer {
 
                     // TODO Datees and Times case here?
 
+                    System.out.println(currentToken + " " + tokenValue);
+                    return;
+
                 case '@':
 
                     currentToken = POINTER;
@@ -88,6 +92,7 @@ public class Lexer {
                     
                     currentTokenString.append('@');
 
+                    System.out.println(currentToken);
                     return;
 
                 case '_':
@@ -102,13 +107,15 @@ public class Lexer {
                         // TODO is this exception sufficient?
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
+                    System.out.println(currentToken);
+                    return;
+
                 default:
 
                     throw new SourceException("Bad token at line " + input.getLineNumber());
             }
         }
     }
-
 
     public static void setIO(SourceHandler inputHandler) {
 
