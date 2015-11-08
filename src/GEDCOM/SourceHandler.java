@@ -14,7 +14,6 @@ public class SourceHandler {
     PrintWriter output;
 
 
-
     /********** CONSTRUCTOR(S) **********/
 
     public SourceHandler(String infilename){
@@ -29,6 +28,7 @@ public class SourceHandler {
         //printLineNumber();
         nextChar();
 
+        // TODO get output working
         output.println("SOMETHING SOMETHING!!!");
     }
 
@@ -48,7 +48,7 @@ public class SourceHandler {
                 case '\n':
                     currentChar = ' ';
                     output.println();
-                    printLineNumber();
+                    //printLineNumber();
                     return;
 
                 case '\r':

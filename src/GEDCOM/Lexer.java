@@ -30,6 +30,7 @@ public class Lexer {
     public static void nextToken() throws SourceException {
 
         // TODO print the current token somewhere?
+        //System.out.println("Current token is " + currentToken);
 
         if (currentTokenNeedsToBeInspected)
             throw new SourceException("Error in parser: token not read");
@@ -48,13 +49,14 @@ public class Lexer {
             do {
                 currentTokenString.append((char) input.getCurrentChar());
                 input.nextChar();
-            } while (Character.isLetterOrDigit((char) input.getCurrentChar()));
+            } while (Character.isLetterOrDigit((char) input.getCurrentChar())
+                    || input.getCurrentChar() == '_');
 
             currentSpelling = currentTokenString.toString();
 
             currentToken = IDENT;
 
-            System.out.println(currentToken);
+            System.out.println(currentToken + ": " + currentSpelling);
             return;
         }
 
@@ -78,12 +80,12 @@ public class Lexer {
 
                     // TODO Datees and Times case here?
 
-                    System.out.println(currentToken + " " + tokenValue);
+                    System.out.println(currentToken + ": " + tokenValue);
                     return;
 
                 case '@':
 
-                    currentToken = POINTER;
+                    currentToken = POINTER; // TODO Only if at beginning - else throw error
 
                     do {
                         currentTokenString.append((char) input.getCurrentChar());
@@ -92,22 +94,22 @@ public class Lexer {
                     
                     currentTokenString.append('@');
 
-                    System.out.println(currentToken);
+                    System.out.println(currentToken + ": " + currentTokenString);
                     return;
 
                 case '_':
 
-                    currentToken = USER_TAG;
+                    currentToken = USER_TAG; // TODO Only if at the beginning
 
                     do {
                         currentTokenString.append((char) input.getCurrentChar());
                         input.nextChar();
                         if(Character.isDigit(input.getCurrentChar()))
-                            throw new SourceException("Unexpected numberal in user tag");
+                            throw new SourceException("Unexpected numeral in user tag");
                         // TODO is this exception sufficient?
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
-                    System.out.println(currentToken);
+                    System.out.println(currentToken + ": " + currentTokenString);
                     return;
 
                 default:

@@ -23,7 +23,7 @@ public enum Symbols {
     any_char("<any_char"),
     delim("<delim>"),
     digit("<digit>"),
-    escape("<escapte>"),
+    escape("<escape>"),
     escape_text("<escape_text>"),
     level("<level>"),
     line_item("<line_item>"),
