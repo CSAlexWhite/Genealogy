@@ -25,7 +25,7 @@ public class Lexer {
     /**
      * the name, age, birthdate, etc. for the current entry
      */
-    private static int currentValue;
+    private static double currentValue;
 
     public static void nextToken() throws SourceException {
 
@@ -44,13 +44,16 @@ public class Lexer {
 
         tokenValue = null;
 
-        if (Character.isLetter((char) input.getCurrentChar())) {
+        if (Character.isLetter((char) input.getCurrentChar())
+                || input.getCurrentChar() == '/') {
 
             do {
                 currentTokenString.append((char) input.getCurrentChar());
                 input.nextChar();
             } while (Character.isLetterOrDigit((char) input.getCurrentChar())
-                    || input.getCurrentChar() == '_');
+                    || input.getCurrentChar() == '_'
+                    || input.getCurrentChar() == '-'
+                    || input.getCurrentChar() == '/'); // TODO more character cases
 
             currentSpelling = currentTokenString.toString();
 
@@ -69,18 +72,37 @@ public class Lexer {
                 case '0':case '1':case '2':case '3':case '4':
                 case '5':case '6':case '7':case '8':case '9':
 
-                    currentToken = INTEGER;
+                    byte numDots = 0;
+                    currentToken = NUMERIC;
+
                     do{
+                        if (input.getCurrentChar() == '.'){
+
+                            numDots ++;
+                        }
+
                         currentTokenString.append((char) input.getCurrentChar());
                         input.nextChar();
-                    } while (input.getCurrentChar() >= '0' && input.getCurrentChar() <= '9');
 
-                    currentValue = Integer.parseInt(currentTokenString.toString());
-                    tokenValue = currentValue;
+                    } while ((input.getCurrentChar() >= '0' && input.getCurrentChar() <= '9')
+                            || input.getCurrentChar() == '.');
+
+                     if(numDots <= 1){
+
+                        currentValue = Double.parseDouble(currentTokenString.toString());
+                        tokenValue = currentValue;
+                        System.out.println(currentToken + ": " + tokenValue);
+                    }
+
+                    else {
+
+                        currentSpelling = currentTokenString.toString();
+                        System.out.println(currentToken + ": " + currentSpelling);
+                    }
 
                     // TODO Datees and Times case here?
 
-                    System.out.println(currentToken + ": " + tokenValue);
+
                     return;
 
                 case '@':
@@ -93,6 +115,7 @@ public class Lexer {
                     } while(input.getCurrentChar() != '@');
                     
                     currentTokenString.append('@');
+                    input.nextChar();
 
                     System.out.println(currentToken + ": " + currentTokenString);
                     return;
@@ -114,7 +137,8 @@ public class Lexer {
 
                 default:
 
-                    throw new SourceException("Bad token at line " + input.getLineNumber());
+                    throw new SourceException("Bad token at line " + input.getLineNumber() +
+                            " on " + currentToken + ": " + currentTokenString + tokenValue);
             }
         }
     }
@@ -129,7 +153,7 @@ public class Lexer {
         return currentToken;
     }
 
-    public static int getCurrentValue(){
+    public static double getCurrentValue(){
 
         return currentValue;
     }
