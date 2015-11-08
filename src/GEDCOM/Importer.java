@@ -15,9 +15,11 @@ public class Importer {
             Lexer.nextToken();
             //System.out.println();
 
-            for(int i=0; i<50; i++){
-                Lexer.nextToken();
-            }
+//            for(int i=0; i<50; i++){
+//                Lexer.nextToken();
+//            }
+
+            while(Lexer.nextToken());
 
 //            Parser.program();
         }

@@ -27,7 +27,9 @@ public class Lexer {
      */
     private static double currentValue;
 
-    public static void nextToken() throws SourceException {
+    public static boolean nextToken() throws SourceException {
+
+        if(input.getCurrentChar() == -1) return false;
 
         // TODO print the current token somewhere?
         //System.out.println("Current token is " + currentToken);
@@ -60,7 +62,7 @@ public class Lexer {
             currentToken = IDENT;
 
             System.out.println(currentToken + ": " + currentSpelling);
-            return;
+            return true;
         }
 
         else {
@@ -103,7 +105,7 @@ public class Lexer {
                     // TODO Datees and Times case here?
 
 
-                    return;
+                    return true;
 
                 case '@':
 
@@ -118,7 +120,7 @@ public class Lexer {
                     input.nextChar();
 
                     System.out.println(currentToken + ": " + currentTokenString);
-                    return;
+                    return true;
 
                 case '_':
 
@@ -133,7 +135,7 @@ public class Lexer {
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
                     System.out.println(currentToken + ": " + currentTokenString);
-                    return;
+                    return true;
 
                 default:
 
