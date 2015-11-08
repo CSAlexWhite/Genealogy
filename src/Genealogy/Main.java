@@ -3,6 +3,7 @@ package Genealogy;
 import GEDCOM.Importer;
 import GEDCOM.SourceHandler;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -43,5 +44,6 @@ public class Main extends Application {
 //
 //            error.printStackTrace();
 //        }
+        Platform.exit();
     }
 }

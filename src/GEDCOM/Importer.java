@@ -1,5 +1,5 @@
 package GEDCOM;
-
+import static GEDCOM.Symbols.*;
 
 public class Importer {
 
@@ -12,14 +12,10 @@ public class Importer {
             input = new SourceHandler(inputFileName);
 
             Lexer.setIO(input);
-            Lexer.nextToken();
-            //System.out.println();
 
-//            for(int i=0; i<50; i++){
-//                Lexer.nextToken();
-//            }
+            while(Lexer.nextToken()){}
 
-            while(Lexer.nextToken());
+            System.out.println("DONE");
 
 //            Parser.program();
         }

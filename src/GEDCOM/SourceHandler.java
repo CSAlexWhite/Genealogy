@@ -1,7 +1,5 @@
 package GEDCOM;
 
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
-
 import java.io.*;
 
 /**
@@ -12,8 +10,6 @@ public class SourceHandler {
 
     private int currentChar;
     private LineNumberReader sourceFileReader;
-    public int lexerLineNumber = 0;
-    public int currentLineNumber = 0;
 
     PrintWriter output;
 
@@ -29,7 +25,6 @@ public class SourceHandler {
         } catch(FileNotFoundException error){ error.printStackTrace();}
 
         openSourceFile(infilename);
-        //printLineNumber();
         nextChar();
 
         // TODO get output working

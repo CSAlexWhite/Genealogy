@@ -10,17 +10,14 @@ public class Lexer {
 
 
     private static SourceHandler input;
-    //private static OutputFileHandler output;
-    //public static int stringTable[];
 
     private static Symbols currentToken = NONE;
     private static boolean currentTokenNeedsToBeInspected;
     private static boolean isAllCaps = true;
     private static boolean newLine = true;
 
-    private static String currentSpelling;
+    private static String currentSpelling = "";
     private static int endOfString = -1;
-    private static int tokenLength = 0;
     private static int linePosition = 0;
     private static Object tokenValue;
 
@@ -31,13 +28,23 @@ public class Lexer {
 
     public static boolean nextToken() throws SourceException {
 
-        if(newLine) linePosition = 0;
+//        if(currentSpelling.equals("allowed")){
+//
+//            System.out.println("What the fuck");
+//            return false;
+//        }
+
+        if(newLine) {
+
+            System.out.println();
+            linePosition = 0;
+        }
+
         else linePosition++;
 
-        if(input.getCurrentChar() == endOfString) return false;
+        System.out.print(input.getLineNumber() + "." + linePosition + "\t");
 
         // TODO print the current token somewhere?
-        //System.out.println("Current token is " + currentToken);
 
         if (currentTokenNeedsToBeInspected)
             throw new SourceException("Error in parser: token not read");
@@ -45,36 +52,27 @@ public class Lexer {
 
         /* to store the current string */
         StringBuffer currentTokenString = new StringBuffer(10);
-
-        /* skip whitespace */
         while (input.getCurrentChar() == ' ') newLine = input.nextChar();
 
         tokenValue = null;
-        tokenLength = 0;
-        isAllCaps = true;
 
         if (!(input.getCurrentChar() == '_')
                 && !(input.getCurrentChar() == '@')
-                && !Character.isDigit((char) input.getCurrentChar()))
-        {
+                && !Character.isDigit((char) input.getCurrentChar())){
             do {
-                if(!Character.isUpperCase((char) input.getCurrentChar()))
-                    isAllCaps = false;
-
                 currentTokenString.append((char) input.getCurrentChar());
-                tokenLength++;
                 newLine = input.nextChar();
 
-            } while (input.getCurrentChar() != ' '); // TODO more character cases
+            } while (Character.isAlphabetic((char) input.getCurrentChar())); // TODO more character cases
 
             currentSpelling = currentTokenString.toString();
-
-            if(tokenLength == 4 && isAllCaps) currentToken = TAG;
-            else currentToken = IDENT;
+            
+            if(linePosition == 1) currentToken = TAG;
+            else currentToken = STRING;
 
             System.out.println(currentToken + ": " + currentSpelling);
-            if(currentSpelling == "TRLR") return false;
 
+            if(currentSpelling.equals("TRLR")) return false;
             return true;
         }
 
@@ -90,7 +88,10 @@ public class Lexer {
                     boolean mixed = false;
                     byte dots = 0;
                     byte nonNumerics = 0;
-                    currentToken = NUMERIC;
+
+                    if(linePosition == 0) currentToken = LEVEL;
+                    // TODO throw error if level is not an integer
+                    else currentToken = NUMERIC;
 
                     do{
                         if (!Character.isDigit((char) input.getCurrentChar()))
@@ -158,7 +159,6 @@ public class Lexer {
 
                     throw new SourceException("Bad token at line " + input.getLineNumber() +
                             " on " + currentToken + ": " + currentTokenString + tokenValue);
-
             }
         }
     }
