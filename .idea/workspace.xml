@@ -4,12 +4,9 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Importer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Importer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Lexer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Lexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/Genealogy/Main.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/Genealogy/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/SourceHandler.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/SourceHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Symbols.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Symbols.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Importer.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Importer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Lexer.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Lexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Genealogy/Main.java" afterPath="$PROJECT_DIR$/src/Genealogy/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" afterPath="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Symbols.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Symbols.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -70,38 +67,56 @@
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
-            <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/test.txt">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0">
-                    <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="output.txt" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/output.txt">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0">
-                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="test_large.txt" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/test_large.txt">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-0.36617842">
-                    <caret line="1110" column="16" selection-start-line="1110" selection-start-column="16" selection-end-line="1110" selection-end-column="16" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
+          <splitter split-orientation="horizontal" split-proportion="0.5">
+            <split-first>
+              <leaf>
+                <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/test.txt">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="0.0">
+                        <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="output.txt" pinned="false" current-in-tab="false">
+                  <entry file="file://$PROJECT_DIR$/output.txt">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="0.0">
+                        <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+                <file leaf-file-name="test_large.txt" pinned="false" current-in-tab="true">
+                  <entry file="file://$PROJECT_DIR$/test_large.txt">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="0.30359522">
+                        <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+              </leaf>
+            </split-first>
+            <split-second>
+              <leaf>
+                <file leaf-file-name="input_log.txt" pinned="false" current-in-tab="true">
+                  <entry file="file://$PROJECT_DIR$/input_log.txt">
+                    <provider selected="true" editor-type-id="text-editor">
+                      <state vertical-scroll-proportion="5.6165113">
+                        <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
+                        <folding />
+                      </state>
+                    </provider>
+                  </entry>
+                </file>
+              </leaf>
+            </split-second>
+          </splitter>
         </state>
       </content>
     </window>
@@ -111,7 +126,7 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3675577">
+    <splitter split-orientation="horizontal" split-proportion="0.48420414">
       <split-first>
         <leaf>
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -129,8 +144,8 @@
           <file leaf-file-name="Importer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Importer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.139413">
-                  <caret line="7" column="33" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="33" />
+                <state vertical-scroll-proportion="0.07966457">
+                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -152,7 +167,7 @@
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -165,9 +180,13 @@
           <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.560529">
-                  <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-                  <folding />
+                <state vertical-scroll-proportion="3.9433963">
+                  <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#6892#6893#0" expanded="true" />
+                    <element signature="e#6930#6931#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -175,8 +194,8 @@
           <file leaf-file-name="SourceHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/SourceHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.931034">
-                  <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+                <state vertical-scroll-proportion="-13.75862">
+                  <caret line="21" column="21" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -226,11 +245,11 @@
         <option value="$PROJECT_DIR$/output.txt" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Parser.java" />
         <option value="$PROJECT_DIR$/src/test_large.txt" />
-        <option value="$PROJECT_DIR$/src/GEDCOM/Symbols.java" />
-        <option value="$PROJECT_DIR$/src/GEDCOM/Importer.java" />
         <option value="$PROJECT_DIR$/src/Genealogy/Main.java" />
         <option value="$PROJECT_DIR$/test_large.txt" />
         <option value="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" />
+        <option value="$PROJECT_DIR$/src/GEDCOM/Importer.java" />
+        <option value="$PROJECT_DIR$/src/GEDCOM/Symbols.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Lexer.java" />
       </list>
     </option>
@@ -624,14 +643,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.18423855" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="-797" y="625" width="791" height="234" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.18423855" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="-530" y="625" width="524" height="234" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.33214286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="-788" y="11" width="777" height="611" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.33214286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="-531" y="11" width="520" height="607" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12260128" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -745,7 +764,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6930#6931#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -813,7 +836,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6930#6931#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -881,7 +908,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6930#6931#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -954,7 +985,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6930#6931#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,14 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/SourceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.931034">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Genealogy/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1073,14 +1100,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,26 +1111,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_large.txt">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/SourceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.36617842">
-          <caret line="1110" column="16" selection-start-line="1110" selection-start-column="16" selection-end-line="1110" selection-end-column="16" />
+        <state vertical-scroll-proportion="-13.75862">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Importer.java">
+    <entry file="file://$PROJECT_DIR$/test_large.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.139413">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.30359522">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.6165113">
+          <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.560529">
-          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+        <state vertical-scroll-proportion="3.9433963">
+          <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6892#6893#0" expanded="true" />
+            <element signature="e#6930#6931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Importer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07966457">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

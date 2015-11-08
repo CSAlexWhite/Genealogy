@@ -4,6 +4,7 @@ import static GEDCOM.Symbols.*;
 public class Importer {
 
     public SourceHandler input;
+    public Lexer currentLexer;
 
     public Importer(String inputFileName){
 
@@ -11,6 +12,7 @@ public class Importer {
         {
             input = new SourceHandler(inputFileName);
 
+            currentLexer = new Lexer("input_log.txt");
             Lexer.setIO(input);
 
             while(Lexer.nextToken()){}

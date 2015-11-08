@@ -11,24 +11,12 @@ public class SourceHandler {
     private int currentChar;
     private LineNumberReader sourceFileReader;
 
-    PrintWriter output;
-
-
     /********** CONSTRUCTOR(S) **********/
 
     public SourceHandler(String infilename){
 
-        try{
-
-            output = new PrintWriter("output.txt");
-
-        } catch(FileNotFoundException error){ error.printStackTrace();}
-
         openSourceFile(infilename);
         nextChar();
-
-        // TODO get output working
-        output.println("SOMETHING SOMETHING!!!");
     }
 
     /********** MAIN METHODS  **********/
@@ -63,12 +51,10 @@ public class SourceHandler {
                 case '\t':
 
                     currentChar = ' ';
-                    output.println('\t');
                     return false;
 
                 default:
 
-                    output.print((char) currentChar);
                     return false;
             }
         }

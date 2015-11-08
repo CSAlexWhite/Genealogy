@@ -1,5 +1,8 @@
 package GEDCOM;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 import static GEDCOM.Symbols.*;
 
 /**
@@ -8,74 +11,91 @@ import static GEDCOM.Symbols.*;
  */
 public class Lexer {
 
+    /********** STATIC VARIABLES  **********/
 
+    private static PrintWriter output;
     private static SourceHandler input;
 
+    private static Symbols previousToken = NONE;
     private static Symbols currentToken = NONE;
+
     private static boolean currentTokenNeedsToBeInspected;
-    private static boolean isAllCaps = true;
     private static boolean newLine = true;
 
     private static String currentSpelling = "";
-    private static int endOfString = -1;
-    private static int linePosition = 0;
-    private static Object tokenValue;
+    private static String specialChars = ":;-~/*!@#$%^&*()\"{}_[]|\\?/<>,.";
 
-    /**
-     * the name, age, birthdate, etc. for the current entry
-     */
+    private static int linePosition = 0;
+    private static int currentLevel = 0;
     private static double currentValue;
 
+    private static Object tokenValue;
+
+    /********** CONSTRUCTOR  **********/
+
+    public Lexer(String outfilename){
+
+        try{
+
+            output = new PrintWriter(outfilename);
+
+        } catch(FileNotFoundException error){ error.printStackTrace();}
+    }
+
+    /********** MAIN METHOD  **********/
+    /**
+     * Sets the value and type of the next token to be read from the input file
+     * @return
+     * @throws SourceException
+     */
     public static boolean nextToken() throws SourceException {
 
-//        if(currentSpelling.equals("allowed")){
-//
-//            System.out.println("What the fuck");
-//            return false;
-//        }
+        previousToken = currentToken;
+        tokenValue = null;
 
+        /* Keep track of the position of each token on the line */
         if(newLine) {
-
-            System.out.println();
+            output.println();
             linePosition = 0;
-        }
+        } else linePosition++;
 
-        else linePosition++;
-
-        System.out.print(input.getLineNumber() + "." + linePosition + "\t");
+        /* Print the current line to the input logfile */
+        output.print((input.getLineNumber() + 1) + "." + linePosition + "\t");
 
         // TODO print the current token somewhere?
-
-        if (currentTokenNeedsToBeInspected)
-            throw new SourceException("Error in parser: token not read");
-        else currentTokenNeedsToBeInspected = false;
-
-        /* to store the current string */
         StringBuffer currentTokenString = new StringBuffer(10);
         while (input.getCurrentChar() == ' ') newLine = input.nextChar();
 
-        tokenValue = null;
-
+        /* Scan for Tags and strings only, identify as such */
         if (!(input.getCurrentChar() == '_')
                 && !(input.getCurrentChar() == '@')
-                && !Character.isDigit((char) input.getCurrentChar())){
+                && !Character.isDigit((char) input.getCurrentChar()))
+        {
             do {
                 currentTokenString.append((char) input.getCurrentChar());
                 newLine = input.nextChar();
 
-            } while (Character.isAlphabetic((char) input.getCurrentChar())); // TODO more character cases
+            } while (Character.isLetterOrDigit((char) input.getCurrentChar())
+                    || specialChars.contains(
+                        Character.toString((char) input.getCurrentChar())));
+
+            // TODO more character cases
 
             currentSpelling = currentTokenString.toString();
-            
+
+            /* Mark tags if positioned properly */
             if(linePosition == 1) currentToken = TAG;
+            if(linePosition == 2 && previousToken == POINTER) currentToken = TAG;
             else currentToken = STRING;
 
-            System.out.println(currentToken + ": " + currentSpelling);
+            output.println(currentToken + ": " + currentSpelling);
 
+            /* End of File at TRLR */
             if(currentSpelling.equals("TRLR")) return false;
             return true;
         }
 
+        /* Handle other cases: numeric entries and user tags */
         else {
 
             // TODO Handle Dates and Times
@@ -90,6 +110,7 @@ public class Lexer {
                     byte nonNumerics = 0;
 
                     if(linePosition == 0) currentToken = LEVEL;
+
                     // TODO throw error if level is not an integer
                     else currentToken = NUMERIC;
 
@@ -112,14 +133,18 @@ public class Lexer {
 
                         currentValue = Double.parseDouble(currentTokenString.toString());
                         tokenValue = currentValue;
-                        System.out.println(currentToken + ": " + tokenValue);
+
+                        if(currentToken == LEVEL) output.println(currentToken + ": " + (int) currentValue);
+                        else output.println(currentToken + ": " + tokenValue);
                     }
 
                     else {
 
                         currentSpelling = currentTokenString.toString();
-                        System.out.println(currentToken + ": " + currentSpelling);
+                        output.println(currentToken + ": " + currentSpelling);
                     }
+
+                    if(currentToken == LEVEL) currentLevel = (int) currentValue;
 
                     // TODO Datees and Times case here?
 
@@ -137,7 +162,7 @@ public class Lexer {
                     currentTokenString.append('@');
                     newLine = input.nextChar();
 
-                    System.out.println(currentToken + ": " + currentTokenString);
+                    output.println(currentToken + ": " + currentTokenString);
                     return true;
 
                 case '_':
@@ -152,7 +177,7 @@ public class Lexer {
                         // TODO is this exception sufficient?
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
-                    System.out.println(currentToken + ": " + currentTokenString);
+                    output.println(currentToken + ": " + currentTokenString);
                     return true;
 
                 default:
@@ -168,13 +193,24 @@ public class Lexer {
         input = inputHandler;
     }
 
+    /********** GETTERS  **********/
+
     public static Symbols getCurrentToken(){
         currentTokenNeedsToBeInspected = false;
         return currentToken;
     }
 
+    public static String getCurrentSpelling(){
+        return currentSpelling;
+    }
+
     public static double getCurrentValue(){
 
         return currentValue;
+    }
+
+    public static int getCurrentLevel(){
+
+        return currentLevel;
     }
 }
