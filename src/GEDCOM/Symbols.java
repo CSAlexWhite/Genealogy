@@ -11,10 +11,9 @@ public enum Symbols {
 
     NONE (""),      //
     POINTER ("POINTER"),   // a reference to an instantiated genealobject
+    TAG ("TAG"),
     USER_TAG("USER DEFINED TAG"),   // indicates a user-defined tag, special delimiter "_" before
     IDENT("IDENTIFIER"),      // indicates either a tag, or a non numeric value
-    INTEGER("INTEGER"),
-    REAL("REALNUMBER"),
     NUMERIC("NUMERIC"),    // indicates an integer
 
     /* NON-TERMINALS */

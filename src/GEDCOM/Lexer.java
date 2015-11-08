@@ -1,7 +1,5 @@
 package GEDCOM;
 
-import javax.xml.transform.Source;
-
 import static GEDCOM.Symbols.*;
 
 /**
@@ -17,9 +15,13 @@ public class Lexer {
 
     private static Symbols currentToken = NONE;
     private static boolean currentTokenNeedsToBeInspected;
+    private static boolean isAllCaps = true;
+    private static boolean newLine = true;
 
     private static String currentSpelling;
     private static int endOfString = -1;
+    private static int tokenLength = 0;
+    private static int linePosition = 0;
     private static Object tokenValue;
 
     /**
@@ -29,7 +31,10 @@ public class Lexer {
 
     public static boolean nextToken() throws SourceException {
 
-        if(input.getCurrentChar() == -1) return false;
+        if(newLine) linePosition = 0;
+        else linePosition++;
+
+        if(input.getCurrentChar() == endOfString) return false;
 
         // TODO print the current token somewhere?
         //System.out.println("Current token is " + currentToken);
@@ -42,26 +47,34 @@ public class Lexer {
         StringBuffer currentTokenString = new StringBuffer(10);
 
         /* skip whitespace */
-        while (input.getCurrentChar() == ' ') input.nextChar();
+        while (input.getCurrentChar() == ' ') newLine = input.nextChar();
 
         tokenValue = null;
+        tokenLength = 0;
+        isAllCaps = true;
 
-        if (Character.isLetter((char) input.getCurrentChar())
-                || input.getCurrentChar() == '/') {
-
+        if (!(input.getCurrentChar() == '_')
+                && !(input.getCurrentChar() == '@')
+                && !Character.isDigit((char) input.getCurrentChar()))
+        {
             do {
+                if(!Character.isUpperCase((char) input.getCurrentChar()))
+                    isAllCaps = false;
+
                 currentTokenString.append((char) input.getCurrentChar());
-                input.nextChar();
-            } while (Character.isLetterOrDigit((char) input.getCurrentChar())
-                    || input.getCurrentChar() == '_'
-                    || input.getCurrentChar() == '-'
-                    || input.getCurrentChar() == '/'); // TODO more character cases
+                tokenLength++;
+                newLine = input.nextChar();
+
+            } while (input.getCurrentChar() != ' '); // TODO more character cases
 
             currentSpelling = currentTokenString.toString();
 
-            currentToken = IDENT;
+            if(tokenLength == 4 && isAllCaps) currentToken = TAG;
+            else currentToken = IDENT;
 
             System.out.println(currentToken + ": " + currentSpelling);
+            if(currentSpelling == "TRLR") return false;
+
             return true;
         }
 
@@ -74,22 +87,27 @@ public class Lexer {
                 case '0':case '1':case '2':case '3':case '4':
                 case '5':case '6':case '7':case '8':case '9':
 
-                    byte numDots = 0;
+                    boolean mixed = false;
+                    byte dots = 0;
+                    byte nonNumerics = 0;
                     currentToken = NUMERIC;
 
                     do{
-                        if (input.getCurrentChar() == '.'){
+                        if (!Character.isDigit((char) input.getCurrentChar()))
+                            nonNumerics++;
 
-                            numDots ++;
-                        }
+                        if(nonNumerics >0 && dots != 1) mixed = true;
 
                         currentTokenString.append((char) input.getCurrentChar());
-                        input.nextChar();
+                        newLine = input.nextChar();
 
                     } while ((input.getCurrentChar() >= '0' && input.getCurrentChar() <= '9')
-                            || input.getCurrentChar() == '.');
+                            || input.getCurrentChar() == '.'
+                            || input.getCurrentChar() == ':'
+                            || input.getCurrentChar() == '-'
+                            || input.getCurrentChar() == '/');
 
-                     if(numDots <= 1){
+                    if(!mixed){
 
                         currentValue = Double.parseDouble(currentTokenString.toString());
                         tokenValue = currentValue;
@@ -104,7 +122,6 @@ public class Lexer {
 
                     // TODO Datees and Times case here?
 
-
                     return true;
 
                 case '@':
@@ -113,11 +130,11 @@ public class Lexer {
 
                     do {
                         currentTokenString.append((char) input.getCurrentChar());
-                        input.nextChar();
+                        newLine = input.nextChar();
                     } while(input.getCurrentChar() != '@');
                     
                     currentTokenString.append('@');
-                    input.nextChar();
+                    newLine = input.nextChar();
 
                     System.out.println(currentToken + ": " + currentTokenString);
                     return true;
@@ -128,7 +145,7 @@ public class Lexer {
 
                     do {
                         currentTokenString.append((char) input.getCurrentChar());
-                        input.nextChar();
+                        newLine = input.nextChar();
                         if(Character.isDigit(input.getCurrentChar()))
                             throw new SourceException("Unexpected numeral in user tag");
                         // TODO is this exception sufficient?
@@ -141,6 +158,7 @@ public class Lexer {
 
                     throw new SourceException("Bad token at line " + input.getLineNumber() +
                             " on " + currentToken + ": " + currentTokenString + tokenValue);
+
             }
         }
     }
@@ -159,6 +177,4 @@ public class Lexer {
 
         return currentValue;
     }
-
-
 }

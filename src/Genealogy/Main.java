@@ -1,8 +1,6 @@
 package Genealogy;
 
 import GEDCOM.Importer;
-import GEDCOM.Lexer;
-import GEDCOM.SourceException;
 import GEDCOM.SourceHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +24,7 @@ public class Main extends Application {
 
 //        try{
 
-            String inFile = "test.txt";
+            String inFile = "test_large.txt";
 
             new Importer(inFile);
 

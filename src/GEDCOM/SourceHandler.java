@@ -1,5 +1,7 @@
 package GEDCOM;
 
+import com.sun.org.apache.bcel.internal.classfile.SourceFile;
+
 import java.io.*;
 
 /**
@@ -10,6 +12,8 @@ public class SourceHandler {
 
     private int currentChar;
     private LineNumberReader sourceFileReader;
+    public int lexerLineNumber = 0;
+    public int currentLineNumber = 0;
 
     PrintWriter output;
 
@@ -39,34 +43,38 @@ public class SourceHandler {
      * variable, to be read by another
      * class when necessary
      */
-    public void nextChar() {
+    public boolean nextChar() {
 
         try
         {
+
             switch(currentChar = sourceFileReader.read()) {
 
                 case '\n':
+
                     currentChar = ' ';
-                    output.println();
-                    //printLineNumber();
-                    return;
+                    return true;
 
                 case '\r':
+
                     currentChar = ' ';
-                    return;
+                    return true;
 
                 case -1:
+
                     currentChar = -1;
-                    return;
+                    return false;
 
                 case '\t':
+
                     currentChar = ' ';
                     output.println('\t');
-                    return;
+                    return false;
 
                 default:
+
                     output.print((char) currentChar);
-                    return;
+                    return false;
             }
         }
 
@@ -74,6 +82,8 @@ public class SourceHandler {
         {
             e.printStackTrace();
         }
+
+        return false;
     }
 
     private void openSourceFile(String filename) {
@@ -112,5 +122,11 @@ public class SourceHandler {
     private void printLineNumber() {
 
         System.out.printf("%-5s ", String.valueOf(sourceFileReader.getLineNumber()));
+    }
+
+    public boolean newLine(int input) {
+
+        if(input < sourceFileReader.getLineNumber()) return true;
+        return false;
     }
 }

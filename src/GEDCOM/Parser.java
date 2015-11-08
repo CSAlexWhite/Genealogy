@@ -9,9 +9,9 @@ import static GEDCOM.Symbols.*;
  */
 public class Parser {
 
-    public static void program() throws SourceException{
+    public static void importData() throws SourceException{
 
-        accept(INTEGER);
+
     }
 
     private static void accept(Symbols expectedToken) throws SourceException{
