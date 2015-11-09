@@ -30,8 +30,8 @@ public class Main extends Application {
             new Importer(inFile);
 
 //            input = new SourceHandler(inFile);
-//            Lexer.setIO(input);
-//            Lexer.nextToken();
+//            Tokenizer.setIO(input);
+//            Tokenizer.nextToken();
 //
 //            //launch(args);
 //

@@ -9,7 +9,7 @@ import static GEDCOM.Symbols.*;
  * handles the input file character by character, determining what to do next
  * with everything
  */
-public class Lexer {
+public class Tokenizer {
 
     /********** STATIC VARIABLES  **********/
 
@@ -33,7 +33,7 @@ public class Lexer {
 
     /********** CONSTRUCTOR  **********/
 
-    public Lexer(String outfilename){
+    public Tokenizer(String outfilename){
 
         try{
 

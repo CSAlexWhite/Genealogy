@@ -1,30 +1,25 @@
 package GEDCOM;
-import static GEDCOM.Symbols.*;
+
+import java.io.FileNotFoundException;
 
 public class Importer {
 
     public SourceHandler input;
-    public Lexer currentLexer;
+    public Tokenizer tokenizer;
+    public Parser parser;
 
     public Importer(String inputFileName){
 
-        try
-        {
+        try{
+
             input = new SourceHandler(inputFileName);
+            tokenizer = new Tokenizer("input_log.txt");
+            tokenizer.setIO(input);
+            parser = new Parser(tokenizer);
 
-            currentLexer = new Lexer("input_log.txt");
-            Lexer.setIO(input);
+        }   catch(SourceException error) { error.printStackTrace();}
+            catch(FileNotFoundException error) {error.printStackTrace();}
 
-            while(Lexer.nextToken()){}
-
-            System.out.println("DONE");
-
-//            Parser.program();
-        }
-
-        catch (SourceException error)
-        {
-            error.printStackTrace();
-        }
+        System.out.println("DONE");
     }
 }

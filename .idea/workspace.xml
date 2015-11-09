@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\alexw\Dropbox\[java]\Genealogy\out\production\Genealogy\GEDCOM\Lexer.class" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\alexw\Dropbox\[java]\Genealogy\src\GEDCOM\Lexer.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Tokenizer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Importer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Importer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Lexer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Lexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/SourceHandler.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/SourceHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Parser.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/GEDCOM/Parser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Importer.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Importer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Lexer.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Lexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" afterPath="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Genealogy/Main.java" afterPath="$PROJECT_DIR$/src/Genealogy/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Parser.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Parser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GEDCOM/Symbols.java" afterPath="$PROJECT_DIR$/src/GEDCOM/Symbols.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input_log.txt" afterPath="$PROJECT_DIR$/input_log.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -70,10 +72,10 @@
           <splitter split-orientation="horizontal" split-proportion="0.5">
             <split-first>
               <leaf>
-                <file leaf-file-name="test.txt" pinned="false" current-in-tab="false">
+                <file leaf-file-name="test.txt" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/test.txt">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="0.0">
+                      <state vertical-scroll-proportion="0.379494">
                         <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
                         <folding />
                       </state>
@@ -90,11 +92,11 @@
                     </provider>
                   </entry>
                 </file>
-                <file leaf-file-name="test_large.txt" pinned="false" current-in-tab="true">
+                <file leaf-file-name="test_large.txt" pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/test_large.txt">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="0.30359522">
-                        <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+                      <state vertical-scroll-proportion="0.0">
+                        <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
                         <folding />
                       </state>
                     </provider>
@@ -107,8 +109,8 @@
                 <file leaf-file-name="input_log.txt" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/input_log.txt">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state vertical-scroll-proportion="5.6165113">
-                        <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
+                      <state vertical-scroll-proportion="0.0">
+                        <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                         <folding />
                       </state>
                     </provider>
@@ -126,7 +128,7 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48420414">
+    <splitter split-orientation="horizontal" split-proportion="0.5437424">
       <split-first>
         <leaf>
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -141,21 +143,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Importer.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Importer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Importer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.07966457">
-                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                <state vertical-scroll-proportion="-16.37931">
+                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Parser.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.5218718">
+                  <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -166,8 +168,8 @@
           <file leaf-file-name="Symbols.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+                <state vertical-scroll-proportion="-11.793103">
+                  <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -177,15 +179,15 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
+          <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="3.9433963">
-                  <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+                <state vertical-scroll-proportion="-1.1310272">
+                  <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#6892#6893#0" expanded="true" />
-                    <element signature="e#6930#6931#0" expanded="true" />
+                    <element signature="e#6900#6901#0" expanded="true" />
+                    <element signature="e#6938#6939#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -194,8 +196,8 @@
           <file leaf-file-name="SourceHandler.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GEDCOM/SourceHandler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.75862">
-                  <caret line="21" column="21" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+                <state vertical-scroll-proportion="-11.793103">
+                  <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -243,14 +245,14 @@
         <option value="$PROJECT_DIR$/src/GEDCOM/Compiler.java" />
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/output.txt" />
-        <option value="$PROJECT_DIR$/src/GEDCOM/Parser.java" />
         <option value="$PROJECT_DIR$/src/test_large.txt" />
         <option value="$PROJECT_DIR$/src/Genealogy/Main.java" />
         <option value="$PROJECT_DIR$/test_large.txt" />
         <option value="$PROJECT_DIR$/src/GEDCOM/SourceHandler.java" />
+        <option value="$PROJECT_DIR$/src/GEDCOM/Lexer.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Importer.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Symbols.java" />
-        <option value="$PROJECT_DIR$/src/GEDCOM/Lexer.java" />
+        <option value="$PROJECT_DIR$/src/GEDCOM/Parser.java" />
       </list>
     </option>
   </component>
@@ -654,7 +656,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12260128" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -760,14 +762,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6892#6893#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
+            <element signature="e#6900#6901#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,14 +834,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="111" column="79" selection-start-line="111" selection-start-column="79" selection-end-line="111" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6892#6893#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
+            <element signature="e#6900#6901#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -904,14 +906,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6892#6893#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
+            <element signature="e#6900#6901#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -981,14 +983,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6892#6893#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
+            <element signature="e#6900#6901#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1075,16 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1103,63 +1095,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GEDCOM/SourceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75862">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.793103">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_large.txt">
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30359522">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input_log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.6165113">
-          <caret line="222" column="20" selection-start-line="222" selection-start-column="20" selection-end-line="222" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.9433963">
-          <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+        <state vertical-scroll-proportion="-1.1310272">
+          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6892#6893#0" expanded="true" />
-            <element signature="e#6930#6931#0" expanded="true" />
+            <element signature="e#6900#6901#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GEDCOM/Importer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07966457">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="-16.37931">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Symbols.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.793103">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_large.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.379494">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GEDCOM/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5218718">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
