@@ -11,53 +11,67 @@ public enum Symbols {
     NONE (""),
     POINTER ("POINTER"),   // a reference to an instantiated genealobject
     TAG ("TAG"),
-    USER_TAG("USER DEFINED TAG"),   // indicates a user-defined tag, special delimiter "_" before
+    USER_TAG("USER_TAG"),   // indicates a user-defined tag, special delimiter "_" before
     LEVEL ("LEVEL"),
     STRING("STRING"),      // indicates either a tag, or a non numeric value
     NUMERIC("NUMERIC"),    // indicates an integer
 
     /* HEADER TAGS */
-    HEAD("HEADER"),
-    SOUR("SOURCE"),
-    VERS("VERSION"),
+    HEAD("HEAD"),
+    SOUR("SOUR"),
+    VERS("VERS"),
     NAME("NAME"),
-    CORP("CORORATION"),
+    CORP("CORP"),
     DATA("DATA"),
     DATE("DATE"),
-    COPR("COPYRIGHT"),
-    DEST("RECEIVING SYSTEM NAME"),
+    COPR("COPR"),
+    DEST("DEST"),
     TIME("TIME"),
-    SUBM("SUBMITTER"),
-    SUBN("SUBMISSION"),
-    FILE("FILENAME"),
+    SUBM("SUBM"),
+    SUBN("SUBN"),
+    FILE("FILE"),
     GEDC("GEDCOM"),
     FORM("FORM"),
-    CHAR("CHARACTER SET"),
-    LANG("LANGUAGE"),
-    PLAC("PLACE HIERARCHY"),
-    NOTE("CONTENT DESCRIPTION"),
+    CHAR("CHAR"),
+    LANG("LANG"),
+    PLAC("PLAC"),
+    NOTE("NOTE"),
 
     /* HEADER TAGS */
-    FAM("FAMILY RECORD"),
-    RESN("RESTRICTION NOTICE"),
-    HUSB("HUSBAND"),
+    FAM("FAM"),
+    RESN("RESN"),
+    HUSB("HUSB"),
     WIFE("WIFE"),
-    CHIL("CHILD"),
-    NCHI("NUMBER OF CHILDREN"),
-    REFN("REFERENCE NUMBER"),
-    RIN("RECORD ID NUMBER"),
+    CHIL("CHIL"),
+    NCHI("NCHI"),
+    REFN("REFN"),
+    RIN("RIN"),
 
     /* INDIVIDUAL TAGS */
-    INDI("INDIVIDUAL"),
-    SEX("SEX VALUE"),
+    INDI("INDI"),
+    SEX("SEX"),
     ALIAS("ALIAS"),
-    ANCI("GENERATION OF ANCESTORS"),
-    DESI("GENERATION OF DESCENDANTS"),
-    RFN("RECORD FILE NUMBER"),
-    AFN("ANCESTRAL FILE NUMBER");
+    ANCI("ANCI"),
+    DESI("DESI"),
+    RFN("RFN"),
+    AFN("AFN"),
 
-    Symbols(String input){
+    /* SPECIAL TAGS */
+    CONC("CONC"),
+    TRLR("TRLR");
 
+    private String code;
 
+    private Symbols(String code) {
+        this.code = code;
+    }
+
+    public String getCode() { return code; }
+
+    public static Symbols is(String code) {
+        for(Symbols s : values()) {
+            if(s.code.equals(code)) return s;
+        }
+        return null;
     }
 }

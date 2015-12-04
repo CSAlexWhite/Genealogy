@@ -18,24 +18,42 @@ public class Parser{
 
     public Parser(Tokenizer t) throws SourceException, FileNotFoundException{
 
+        System.out.println("Parser Running");
+
         tokenizer = t;
         nextToken();
+
+//        while(nextToken())
+
+        readGEDCOM();
+
         output = new PrintWriter(outfilename);
     }
 
     private static void accept(Symbols expectedToken) throws SourceException{
 
-        if(getCurrentToken() == expectedToken) nextToken();
-        else throw new SourceException("ERROR: Expected " + expectedToken);
+        if(getCurrentToken() == expectedToken) {
+
+            System.out.println("Accepted " + getCurrentToken());
+            nextToken();
+        }
+        else throw new SourceException("ERROR: Expected " + expectedToken +
+                                        "\nand found " + getCurrentToken());
+    }
+
+    private static void nextLevel() throws SourceException{
+
+        if(getCurrentToken() != LEVEL)
+            throw new SourceException("ERROR: Level Unmarked\n" +
+                                        "found " + getCurrentToken());
+
+        else nextToken();
     }
 
     private static void readGEDCOM() throws SourceException{
 
-        accept(LEVEL);
-        accept(HEAD);
-
         readHeader();
-        if(getCurrentToken() == SUBM) setSubmitterInfo();
+
         setRecords();
     }
 
@@ -43,6 +61,12 @@ public class Parser{
 
     private static void readHeader() throws SourceException {
 
+        nextLevel();
+        accept(HEAD);
+        nextLevel();
+        accept(CHAR);
+        setCharType();
+        nextLevel();
         accept(SOUR);
         setSource();
         if(getCurrentToken() == DEST) setDestination();
@@ -59,11 +83,20 @@ public class Parser{
         if(getCurrentToken() == LANG) setLanguage();
         if(getCurrentToken() == PLAC) setPlace();
         if(getCurrentToken() == NOTE) setNote();
+        if(getCurrentToken() == SUBM) setSubmitterInfo();
+    }
+
+    private static void setCharType() throws SourceException{
+
+        System.out.println("Setting Chartype as " + getCurrentSpelling());
+        accept(STRING);
     }
 
     /* BEGIN READ SOURCE METHODS */
 
     private static void setSource() throws SourceException {
+
+        System.out.println("Setting Source");
 
         accept(LEVEL);
 
@@ -107,6 +140,8 @@ public class Parser{
     }
 
     private static void setHeaderDate() throws SourceException {
+
+        System.out.println("Setting Header Date");
 
         accept(LEVEL);
         accept(DATE);

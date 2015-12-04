@@ -84,14 +84,14 @@ public class Tokenizer {
             currentSpelling = currentTokenString.toString();
 
             /* Mark tags if positioned properly */
-            if(linePosition == 1) currentToken = TAG;
-            if(linePosition == 2 && previousToken == POINTER) currentToken = TAG;
+            if(linePosition == 1) currentToken = is(currentSpelling);
+            else if(linePosition == 2 && previousToken == POINTER) currentToken = is(currentSpelling);
             else currentToken = STRING;
 
             output.println(currentToken + ": " + currentSpelling);
 
             /* End of File at TRLR */
-            if(currentSpelling.equals("TRLR")) return false;
+            if(currentToken == TRLR) return false;
             return true;
         }
 
@@ -146,7 +146,7 @@ public class Tokenizer {
 
                     if(currentToken == LEVEL) currentLevel = (int) currentValue;
 
-                    // TODO Datees and Times case here?
+                    // TODO Dates and Times case here?
 
                     return true;
 
@@ -158,7 +158,9 @@ public class Tokenizer {
                         currentTokenString.append((char) input.getCurrentChar());
                         newLine = input.nextChar();
                     } while(input.getCurrentChar() != '@');
-                    
+
+                    // TODO what happens to what's inside?
+
                     currentTokenString.append('@');
                     newLine = input.nextChar();
 

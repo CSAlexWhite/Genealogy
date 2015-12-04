@@ -25,7 +25,7 @@ public class Main extends Application {
 
 //        try{
 
-            String inFile = "test_large.txt";
+            String inFile = "test.txt";
 
             new Importer(inFile);
 
