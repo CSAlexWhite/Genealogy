@@ -1,9 +1,11 @@
 package GEDCOM;
 
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Importer {
 
+    public PrintWriter output;
     public SourceHandler input;
     public Tokenizer tokenizer;
     public Parser parser;
@@ -13,9 +15,11 @@ public class Importer {
         try{
 
             input = new SourceHandler(inputFileName);
-            tokenizer = new Tokenizer("input_log.txt");
+            output = new PrintWriter("input_log.txt");
+            tokenizer = new Tokenizer(output);
             tokenizer.setIO(input);
             parser = new Parser(tokenizer);
+            output.flush();
 
         }   catch(SourceException error) { error.printStackTrace();}
             catch(FileNotFoundException error) {error.printStackTrace();}

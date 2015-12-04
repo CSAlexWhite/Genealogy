@@ -30,14 +30,14 @@ public enum Symbols {
     SUBM("SUBM"),
     SUBN("SUBN"),
     FILE("FILE"),
-    GEDC("GEDCOM"),
+    GEDC("GEDC"),
     FORM("FORM"),
     CHAR("CHAR"),
     LANG("LANG"),
     PLAC("PLAC"),
     NOTE("NOTE"),
 
-    /* HEADER TAGS */
+    /* FAMILY TAGS */
     FAM("FAM"),
     RESN("RESN"),
     HUSB("HUSB"),
@@ -56,8 +56,61 @@ public enum Symbols {
     RFN("RFN"),
     AFN("AFN"),
 
+    /* INDIVIDUAL ATTRIBUTE TAGS */
+
+    CAST("CAST"),
+    DSCR("DSCR"),
+    EDUC("EDUC"),
+    IDNO("IDNO"),
+    NATI("NATI"),
+    NMR("NMR"),
+    OCCU("OCCU"),
+    PROP("PROP"),
+    RELI("RELI"),
+    RESI("RESI"),
+    SSN("SSN"),
+    TITL("TITL"),
+    FACT("FACT"),
+
+
+    /* INDIVIDUAL EVENT TAGS */
+    BIRT("BIRT"),
+    CHR("CHR"),
+    DEAT("DEAT"),
+    BURI("BURI"),
+    CREM("CREM"),
+    ADOP("ADOP"),
+
+    /* FAMILY TAGS */
+
+
+    /* FAMILY EVENT STRUCTURE */
+    MARR("MARR"),
+
+
+    /* CHILD TO FAMILY LINK */
+    FAMC("FAMC"),
+
+    /* SPOUSE TO FAMILY LINK */
+    FAMS("FAMS"),
+
+    /* ADDRESS TAGS */
+    ADDR("ADDR"),
+    ADR1("ADR1"),
+    ADR2("ADR2"),
+    ADR3("ADR3"),
+    CITY("CITY"),
+    STAE("STAE"),
+    POST("POST"),
+    CTRY("CTRY"),
+    PHON("PHON"),
+    EMAIL("EMAIL"),
+    FAX("FAX"),
+    WWW("WWW"),
+
     /* SPECIAL TAGS */
     CONC("CONC"),
+    CONT("CONT"),
     TRLR("TRLR");
 
     private String code;
@@ -68,10 +121,17 @@ public enum Symbols {
 
     public String getCode() { return code; }
 
-    public static Symbols is(String code) {
+    /**
+     * Checks for the existence of the given code in this enum,
+     * if it's not there, throw an error
+     * @param code
+     * @return
+     */
+    public static Symbols is(String code) throws SourceException{
         for(Symbols s : values()) {
             if(s.code.equals(code)) return s;
         }
-        return null;
+        throw new SourceException("Symbol " + code + " not found");
+        //return null;
     }
 }

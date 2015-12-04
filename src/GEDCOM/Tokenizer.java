@@ -33,13 +33,9 @@ public class Tokenizer {
 
     /********** CONSTRUCTOR  **********/
 
-    public Tokenizer(String outfilename){
+    public Tokenizer(PrintWriter outwriter){
 
-        try{
-
-            output = new PrintWriter(outfilename);
-
-        } catch(FileNotFoundException error){ error.printStackTrace();}
+        output = outwriter;
     }
 
     /********** MAIN METHOD  **********/
@@ -84,14 +80,26 @@ public class Tokenizer {
             currentSpelling = currentTokenString.toString();
 
             /* Mark tags if positioned properly */
-            if(linePosition == 1) currentToken = is(currentSpelling);
+            if(linePosition == 1){
+
+                if(currentSpelling.charAt(0) == '@') {
+
+                    System.out.println("Current Token is Pointer");
+                    currentToken = POINTER;
+                }
+                else currentToken = is(currentSpelling);
+            }
+            //TODO what if the line position is 1 and it's a pointer?
+
             else if(linePosition == 2 && previousToken == POINTER) currentToken = is(currentSpelling);
             else currentToken = STRING;
 
+            if(currentToken == null) System.out.println(currentSpelling);
             output.println(currentToken + ": " + currentSpelling);
 
             /* End of File at TRLR */
             if(currentToken == TRLR) return false;
+
             return true;
         }
 
@@ -162,6 +170,9 @@ public class Tokenizer {
                     // TODO what happens to what's inside?
 
                     currentTokenString.append('@');
+
+
+                    currentSpelling = currentTokenString.toString();
                     newLine = input.nextChar();
 
                     output.println(currentToken + ": " + currentTokenString);
@@ -214,5 +225,10 @@ public class Tokenizer {
     public static int getCurrentLevel(){
 
         return currentLevel;
+    }
+
+    public static int getLineNumber(){
+
+        return input.getLineNumber();
     }
 }

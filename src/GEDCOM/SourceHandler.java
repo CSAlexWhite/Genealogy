@@ -90,7 +90,7 @@ public class SourceHandler {
 
     public int getLineNumber(){
 
-        return sourceFileReader.getLineNumber();
+        return sourceFileReader.getLineNumber() + 1;
     }
 
     /********** UTILITIES **********/
