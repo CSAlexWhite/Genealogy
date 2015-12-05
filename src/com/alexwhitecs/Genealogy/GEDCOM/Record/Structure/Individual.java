@@ -1,9 +1,11 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Structure;
 
+import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.*;
-import com.alexwhitecs.Genealogy.GEDCOM.SourceException;
 import com.alexwhitecs.Genealogy.GEDCOM.Symbols;
+
+import java.util.Vector;
 
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
@@ -12,11 +14,14 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Individual extends Parser {
 
-    Personal_Name_Structure name;
-    Vector<IndividualEventStructure> life_events
+    PersonalNameStructure name;
+    Vector<IndividualEventStructure> lifeEvents;
+    Vector<IndividualAttributeStructure> attributes;
+    Vector<ChildToFamilyLink> familiesAsChild;
+    Vector<SpouseToFamilyLink> familiesAsSpouse;
 
-    String individual_id, personal_name, sex;
-    String last_assignment;
+    String individualID, personalName, sex;
+    String lastAssignment;
 
     public enum Events{
 
@@ -57,8 +62,6 @@ public class Individual extends Parser {
          * @return
          */
         public static boolean contains(Symbols input) {
-
-            System.out.println(input.getCode());
 
             for (Events e : values()) {
                 if (e.code.equals(input.getCode())) {
@@ -103,7 +106,7 @@ public class Individual extends Parser {
         public static boolean contains(Symbols input) {
 
             for (Attributes e : values()) {
-                if (e.name().equals(input)) {
+                if (e.name().equals(input.getCode())) {
                     return true;
                 }
             }
@@ -112,16 +115,19 @@ public class Individual extends Parser {
         }
     }
 
-    public Individual() throws SourceException {
+    public Individual(String individualID) throws GEDCOM_Exception {
+
+        lifeEvents = new Vector<IndividualEventStructure>();
+        familiesAsChild = new Vector<ChildToFamilyLink>();
+        familiesAsSpouse = new Vector<SpouseToFamilyLink>();
 
         System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
         int required = 0;      // there are 4 required elements in header
 
-        individual_id = getCurrentSpelling();
-        System.out.println("\tindividual_id\t\t" + individual_id);
+        this.individualID = individualID;
+        System.out.println(tabs() + "individualID: " + individualID);
 
-        accept(POINTER);
         accept(INDI);
         nextLevel();
 
@@ -132,12 +138,12 @@ public class Individual extends Parser {
             if(getCurrentToken() == SEX) readSex();
 
             if(Events.contains(getCurrentToken())) readEvent();
+            if(Attributes.contains(getCurrentToken())) readAttribute();
 
-            // TODO INDIVIDUAL EVENT STRUCTURE
             // TODO INDIVIDUAL ATTRIBUTE STRUCTURE
             // TODO (NO) LDS INDIVIDUAL OCCURRENCE
-//            if(getCurrentToken() == FAMC) readChildToFamilyLink();
-//            if(getCurrentToken() == FAMS) readSpouseToFamilyLink();
+            if(getCurrentToken() == FAMC) readChildToFamilyLink();
+            if(getCurrentToken() == FAMS) readSpouseToFamilyLink();
 //            if(getCurrentToken() == REFN) readReferenceNumber();
 //            if(getCurrentToken() == SUBM) readSubmitter();
 //            if(getCurrentToken() == ASSO) readAssociationStructure();
@@ -160,151 +166,128 @@ public class Individual extends Parser {
         System.out.println("\n" + getLineNumber() + ": import successful");
     }
 
-    private void readRestrictionNotice()  throws SourceException{
+    private void readRestrictionNotice()  throws GEDCOM_Exception {
 
     }
 
-    private void readNameStructure() throws SourceException {
+    private void readNameStructure() throws GEDCOM_Exception {
 
-        name = new Personal_Name_Structure(getCurrentLevel());
+        name = new PersonalNameStructure();
     }
 
-    private void readSex() throws SourceException {
+    private void readSex() throws GEDCOM_Exception {
 
         accept(SEX);
 
-        last_assignment = sex = getCurrentSpelling();
-        System.out.println("\tsex\t\t\t\t\t" + sex);
+        lastAssignment = sex = getCurrentSpelling();
+        System.out.println(tabs() + "sex: " + sex);
         accept(STRING);
-
         nextLevel();
-        System.out.println(getCurrentToken());
     }
 
-    private void readEvent() throws SourceException{
+    private void readEvent() throws GEDCOM_Exception {
 
-        if(getCurrentToken() == BIRT) readBirth();
+        lifeEvents.add(new IndividualEventStructure());
     }
 
-    private void readBirth() throws SourceException {
-
-        accept(BIRT);
-        nextLevel();
-        readEventDetail();
-    }
-
-    private void readEventDetail() throws SourceException{
-
-        // TODO MAYBE MAKE THIS METHOD GLOBALLY AVAILABLE?
-
-        while(getCurrentLevel() != 1){
-
-//            if(getCurrentToken() == TYPE)
-            if(getCurrentToken() == DATE){
-
-
-            }
-
-            if(getCurrentToken() == PLAC){
-
-                while(getCurrentToken() == STRING) {
-
-                    //submitter_address += (getCurrentSpelling() + " ");
-                    accept(STRING);
-                }
-            }
-
-//            if(getCurrentToken() == ADDR)
-//            if(getCurrentToken() == AGNC)
-//            if(getCurrentToken() == RELI)
-//            if(getCurrentToken() == CAUS)
-//            if(getCurrentToken() == RESN)
-//            if(getCurrentToken() == NOTE)
-//            if(getCurrentToken() == SOUR)
-            // TODO MULTIMEDIA LINK
-        }
-    }
-
-    private void readChildToFamilyLink() throws SourceException {
+    private void readAttribute() throws GEDCOM_Exception {
 
     }
 
-    private void readSpouseToFamilyLink() throws SourceException {
+    private void readChildToFamilyLink() throws GEDCOM_Exception {
+
+        familiesAsChild.add(new ChildToFamilyLink(this));
+    }
+
+    private void readSpouseToFamilyLink() throws GEDCOM_Exception {
+
+        familiesAsSpouse.add(new SpouseToFamilyLink(this));
+    }
+
+    private void readReferenceNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readReferenceNumber() throws SourceException {
+    private void readSubmitter() throws GEDCOM_Exception {
 
     }
 
-    private void readSubmitter() throws SourceException {
+    private void readAssociationStructure() throws GEDCOM_Exception {
 
     }
 
-    private void readAssociationStructure() throws SourceException {
+    private void readAlias() throws GEDCOM_Exception {
 
     }
 
-    private void readAlias() throws SourceException {
+    private void readAncestryInterest() throws GEDCOM_Exception {
 
     }
 
-    private void readAncestryInterest() throws SourceException {
+    private void readDescendantInterest() throws GEDCOM_Exception {
 
     }
 
-    private void readDescendantInterest() throws SourceException {
+    private void readRecordFileNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readRecordFileNumber() throws SourceException {
+    private void readAncestralFileNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readAncestralFileNumber() throws SourceException {
+    private void readUserReferenceNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readUserReferenceNumber() throws SourceException {
+    private void readRecordIDNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readRecordIDNumber() throws SourceException {
+    private void readDateChange() throws GEDCOM_Exception {
 
     }
 
-    private void readDateChange() throws SourceException {
+    private void readNote() throws GEDCOM_Exception {
 
     }
 
-    private void readNote() throws SourceException {
-
-    }
-
-    private void readSource() throws SourceException {
+    private void readSource() throws GEDCOM_Exception {
 
     }
 
 
-    private void continueLine() throws SourceException{
+    private void continueLine() throws GEDCOM_Exception {
 
         accept(CONT);
         while(getCurrentToken() == STRING) {
 
-            last_assignment += (getCurrentSpelling() + " ");
+            lastAssignment += (getCurrentSpelling() + " ");
             accept(STRING);
         }
 
-        System.out.println("\tcontd.\t\t\t" + last_assignment);
+        System.out.println("contd.: " + lastAssignment);
 
         nextLevel();
     }
 
+    private void printEvents(){
 
+        for(IndividualEventStructure event : lifeEvents){
+
+            System.out.println(event);
+        }
+    }
+    
     /**
      * Pushes all of this object's data to the
      */
     private static void setSubmitter() {
 
+    }
+
+    public String getID(){
+
+        return individualID;
     }
 }

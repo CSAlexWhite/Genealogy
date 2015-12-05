@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    public static SourceHandler input;
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
@@ -40,7 +38,7 @@ public class Main extends Application {
 //            }
 //        }
 
-//        catch(SourceException error){
+//        catch(GEDCOM_Exception error){
 //
 //            error.printStackTrace();
 //        }

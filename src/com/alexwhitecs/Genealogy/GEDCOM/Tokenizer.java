@@ -5,8 +5,9 @@ import java.io.PrintWriter;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 
 /**
- * handles the input file character by character, determining what to do next
- * with everything
+ * handles the input file character by character, determining how tokens
+ * are identified, applying labels and associating them with tags, and
+ * storing values and spellings for retrieval as it goes
  */
 public class Tokenizer {
 
@@ -41,9 +42,9 @@ public class Tokenizer {
     /**
      * Sets the value and type of the next token to be read from the input file
      * @return
-     * @throws SourceException
+     * @throws GEDCOM_Exception
      */
-    public static boolean nextToken() throws SourceException {
+    public static boolean nextToken() throws GEDCOM_Exception {
 
         previousToken = currentToken;
         tokenValue = null;
@@ -136,6 +137,8 @@ public class Tokenizer {
                             || input.getCurrentChar() == '-'
                             || input.getCurrentChar() == '/');
 
+                    currentSpelling = currentTokenString.toString();
+
                     if(!mixed){
 
                         currentValue = Double.parseDouble(currentTokenString.toString());
@@ -147,7 +150,6 @@ public class Tokenizer {
 
                     else {
 
-                        currentSpelling = currentTokenString.toString();
                         output.println(currentToken + ": " + currentSpelling);
                     }
 
@@ -185,7 +187,7 @@ public class Tokenizer {
                         currentTokenString.append((char) input.getCurrentChar());
                         newLine = input.nextChar();
                         if(Character.isDigit(input.getCurrentChar()))
-                            throw new SourceException("Unexpected numeral in user tag");
+                            throw new GEDCOM_Exception("Unexpected numeral in user tag");
                         // TODO symbolFor this exception sufficient?
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
@@ -194,7 +196,7 @@ public class Tokenizer {
 
                 default:
 
-                    throw new SourceException("Bad token at line " + input.getLineNumber() +
+                    throw new GEDCOM_Exception("Bad token at line " + input.getLineNumber() +
                             " on " + currentToken + ": " + currentTokenString + tokenValue);
             }
         }
@@ -229,5 +231,17 @@ public class Tokenizer {
     public static int getLineNumber(){
 
         return input.getLineNumber();
+    }
+
+    public static String tabs(){
+
+        String tabs = "";
+
+        for(int i=0; i<currentLevel; i++){
+
+            tabs += "\t";
+        }
+
+        return tabs;
     }
 }

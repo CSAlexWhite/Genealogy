@@ -1,8 +1,8 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Structure;
 
+import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.*;
-import com.alexwhitecs.Genealogy.GEDCOM.SourceException;
 
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
@@ -12,19 +12,19 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Submitter extends Parser {
 
-    AddressStructure address;
+    AddressStructure submitterAddress;
 
-    String submitter_id, submitter_name, submitter_address;
-    String last_assignment;
+    String submitterID, submitterName;
+    String lastAssignment;
 
-    public Submitter() throws SourceException {
+    public Submitter() throws GEDCOM_Exception {
 
         System.out.println("\n" + getLineNumber() + ": importing SUBMISSION RECORD\n");
 
         int required = 0;      // there are 4 required elements in header
 
-        submitter_id = getCurrentSpelling();
-        System.out.println("\tsubmitter_id\t" + submitter_id);
+        submitterID = getCurrentSpelling();
+        System.out.println("submitterID: " + submitterID);
 
         accept(POINTER);
         accept(SUBM);
@@ -46,52 +46,55 @@ public class Submitter extends Parser {
         System.out.println("\n" + getLineNumber() + ": import successful");
     }
 
-    private void readName() throws SourceException{
+    private void readName() throws GEDCOM_Exception {
 
         accept(NAME);
 
-        last_assignment = submitter_name = getCurrentSpelling();
-        System.out.println("\tname\t\t\t" + submitter_name);
+        lastAssignment = submitterName = getCurrentSpelling();
+        System.out.println(tabs() + "name: " + submitterName);
         accept(STRING);
 
         nextLevel();
     }
 
-    private void readAddress() throws SourceException{
+    private void readAddress() throws GEDCOM_Exception {
 
-        address = new AddressStructure(getCurrentLevel());
+        submitterAddress = new AddressStructure();
     }
 
-    private void readLanguage() throws SourceException {
-
-    }
-
-    private void readRecordFileNumber() throws SourceException {
+    private void readLanguage() throws GEDCOM_Exception {
 
     }
 
-    private void readRecordIDNumber() throws SourceException {
+    private void readRecordFileNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readNoteStructure() throws SourceException {
+    private void readRecordIDNumber() throws GEDCOM_Exception {
 
     }
 
-    private void readChangeDate() throws SourceException {
+    private void readNoteStructure() throws GEDCOM_Exception {
 
     }
 
-    private void continueLine() throws SourceException{
+    private void readChangeDate() throws GEDCOM_Exception {
+
+    }
+
+    private void continueLine() throws GEDCOM_Exception {
 
         accept(CONT);
+
+        System.out.print(tabs());
+
         while(getCurrentToken() == STRING) {
 
-            last_assignment += (getCurrentSpelling() + " ");
+            lastAssignment += (getCurrentSpelling() + " ");
             accept(STRING);
         }
 
-        System.out.println("\tcontd.\t\t\t" + last_assignment);
+        System.out.println("contd.:" + lastAssignment);
 
         nextLevel();
     }

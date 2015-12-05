@@ -2,7 +2,7 @@ package com.alexwhitecs.Genealogy.GEDCOM;
 
 /**
  *  Contains the list of symbols for the parser to "accept" when reading a
- *  com.alexwhitecs.Genealogy.GEDCOM document
+ *  GEDCOM document
  */
 public enum Symbols {
 
@@ -100,6 +100,8 @@ public enum Symbols {
     GRAD("GRAD"),
     RETI("RETI"),
     EVEN("EVEN"),
+    AGNC("AGNC"),
+    CAUS("CAUS"),
 
     /* FAMILY EVENT STRUCTURE */
     MARR("MARR"),
@@ -145,11 +147,11 @@ public enum Symbols {
      * @param code
      * @return
      */
-    public static Symbols symbolFor(String code) throws SourceException{
+    public static Symbols symbolFor(String code) throws GEDCOM_Exception {
         for(Symbols s : values()) {
             if(s.code.equals(code)) return s;
         }
-        throw new SourceException("Symbol " + code + " not found");
+        throw new GEDCOM_Exception("Symbol " + code + " not found");
         //return null;
     }
 }

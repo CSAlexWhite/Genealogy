@@ -10,6 +10,11 @@ public class Importer {
     public Tokenizer tokenizer;
     public Parser parser;
 
+    /**
+     * Organizes the importation of the GEDCOM document, including running
+     * the parser and producing log files.
+     * @param inputFileName
+     */
     public Importer(String inputFileName){
 
         try{
@@ -21,9 +26,9 @@ public class Importer {
             parser = new Parser(tokenizer);
             output.flush();
 
-        }   catch(SourceException error) { error.printStackTrace();}
+        }   catch(GEDCOM_Exception error) { error.printStackTrace();}
             catch(FileNotFoundException error) {error.printStackTrace();}
 
-        System.out.println("\n***\tcom.alexwhitecs.Genealogy.GEDCOM IMPORT FINISHED\t***");
+        System.out.println("\n***\tGEDCOM IMPORT FINISHED\t***");
     }
 }

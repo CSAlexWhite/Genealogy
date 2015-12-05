@@ -1,7 +1,7 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Structure;
 
+import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Parser;
-import com.alexwhitecs.Genealogy.GEDCOM.SourceException;
 
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
@@ -11,18 +11,22 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Header extends Parser {
 
-    String charset, file_id, gedcom_version, gedcom_format, submitter_id;
-    String last_assignment;
+    String charset, fileID, gedcomVersion, gedcomFormat, submitterID;
+    String lastAssignment;
 
-    public Header() throws SourceException {
+    int currentLevel;
+
+    public Header() throws GEDCOM_Exception {
 
         System.out.println("\n" + getLineNumber() + ": importing HEADER\n");
+
+        currentLevel = getCurrentLevel();
 
         nextLevel();
         accept(HEAD);
         nextLevel();
 
-        while(getCurrentLevel() != 0){
+        while(getCurrentLevel() != currentLevel){
 
             if(getCurrentToken() == SOUR) readSource();
 //            if(getCurrentToken() == DEST) readDestination();
@@ -35,7 +39,7 @@ public class Header extends Parser {
             if(getCurrentToken() == CHAR) readCharset();
 //            if(getCurrentToken() == LANG) readLanguage();
 //            if(getCurrentToken() == PLAC) readPlace();
-//            if(getCurrentToken() == NOTE) readNote();
+//            if(getCurrentTokenelse  NOTE) readNote();
             if(getCurrentToken() == CONT) continueLine();
         }
 
@@ -45,60 +49,60 @@ public class Header extends Parser {
     /**
      * Sets the source, which symbolFor the "initial or original material from which
      * the information [in the file] was obtained."
-     * @throws SourceException
+     * @throws GEDCOM_Exception
      */
-    private void readSource() throws SourceException {
+    private void readSource() throws GEDCOM_Exception {
 
         accept(SOUR);
-        last_assignment = file_id = getCurrentSpelling();
-        System.out.println("\tsource\t\t\t" + file_id);
+
+        lastAssignment = fileID = getCurrentSpelling();
+        System.out.println(tabs() + "source: " + fileID);
         accept(STRING);
 
         nextLevel();
     }
 
-    private void readDestination() throws SourceException {
+    private void readDestination() throws GEDCOM_Exception {
 
         accept(DEST);
         nextLevel();
     }
 
-    private void readHeaderDate() throws SourceException {
+    private void readHeaderDate() throws GEDCOM_Exception {
 
         accept(DATE);
         nextLevel();
     }
 
-    private void readSubmitter() throws SourceException {
+    private void readSubmitter() throws GEDCOM_Exception {
 
         accept(SUBM);
+
+        lastAssignment = submitterID = getCurrentSpelling();
+        System.out.println(tabs() + "submitterID: " + submitterID);
         accept(POINTER);
-
-        last_assignment = submitter_id = getCurrentSpelling();
-        System.out.println("\tsubmitter_id\t" + submitter_id);
-
         nextLevel();
     }
 
-    private void readSubmission() throws SourceException {
+    private void readSubmission() throws GEDCOM_Exception {
 
         accept(SUBN);
         nextLevel();
     }
 
-    private void readFilename() throws SourceException {
+    private void readFilename() throws GEDCOM_Exception {
 
         accept(FILE);
         nextLevel();
     }
 
-    private void readCopyright() throws SourceException {
+    private void readCopyright() throws GEDCOM_Exception {
 
         accept(COPR);
         nextLevel();
     }
 
-    private void readGEDCOM_Info() throws SourceException {
+    private void readGEDCOM_Info() throws GEDCOM_Exception {
 
         accept(GEDC);
         nextLevel();
@@ -107,66 +111,69 @@ public class Header extends Parser {
         readGEDCOM_Format();
     }
 
-    private void readGEDCOM_Version() throws SourceException {
+    private void readGEDCOM_Version() throws GEDCOM_Exception {
 
         accept(VERS);
 
-        last_assignment = gedcom_version = getCurrentSpelling();
-        System.out.println("\tgedcom_version\t" + gedcom_version);
+        lastAssignment = gedcomVersion = getCurrentSpelling();
+        System.out.println(tabs() + "gedcomVersion: " + gedcomVersion);
 
         accept(NUMERIC);
         nextLevel();
     }
 
-    private void readGEDCOM_Format() throws SourceException {
+    private void readGEDCOM_Format() throws GEDCOM_Exception {
 
         accept(FORM);
 
-        last_assignment = gedcom_format = getCurrentSpelling();
-        System.out.println("\tgedcom_format\t" + gedcom_format);
+        lastAssignment = gedcomFormat = getCurrentSpelling();
+        System.out.println(tabs() + "gedcomFormat: " + gedcomFormat);
 
         accept(STRING);
         nextLevel();
     }
 
-    private void readCharset() throws SourceException {
+    private void readCharset() throws GEDCOM_Exception {
 
         accept(CHAR);
 
-        last_assignment = charset = getCurrentSpelling();
-        System.out.println("\tcharset\t\t\t" + charset);
+        lastAssignment = charset = getCurrentSpelling();
+        System.out.println(tabs() + "charset: " + charset);
 
         accept(STRING);
 
         nextLevel();
     }
 
-    private void readLanguage() throws SourceException {
+    private void readLanguage() throws GEDCOM_Exception {
 
         accept(LANG);
         nextLevel();
     }
 
-    private void readPlace() throws SourceException {
+    private void readPlace() throws GEDCOM_Exception {
 
         accept(PLAC);
         nextLevel();
     }
 
-    private void readNote() throws SourceException {
+    private void readNote() throws GEDCOM_Exception {
 
         accept(NOTE);
         nextLevel();
     }
 
-    private void continueLine() throws SourceException{
+    private void continueLine() throws GEDCOM_Exception {
 
         accept(CONT);
         while(getCurrentToken() == STRING) {
 
-            last_assignment += (getCurrentSpelling() + " ");
+            lastAssignment += (getCurrentSpelling() + " ");
             accept(STRING);
         }
+
+
+        System.out.println(tabs() + "contd.:" + lastAssignment);
 
         nextLevel();
     }

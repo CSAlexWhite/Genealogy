@@ -1,9 +1,6 @@
 package com.alexwhitecs.Genealogy.GEDCOM;
 
-import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Family;
-import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Header;
-import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
-import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Submitter;
+import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.*;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -14,13 +11,9 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 
 /**
  * receives tokens from the lexical analyzer and parses the structure of the
- * document according to the com.alexwhitecs.Genealogy.GEDCOM 5.5.1 grammar
+ * document according to the GEDCOM 5.5.1 grammar
  */
 public class Parser{
-
-    PrintWriter output;
-    Tokenizer tokenizer;
-    String outfilename = "parse_tree.txt";
 
     static Header header;
     static Submitter submitter;
@@ -29,55 +22,70 @@ public class Parser{
 
     public Parser(){}
 
-    public Parser(Tokenizer t) throws SourceException, FileNotFoundException{
+    public Parser(Tokenizer t) throws GEDCOM_Exception, FileNotFoundException{
 
         System.out.println("Parser Running");
-        output = new PrintWriter(outfilename);
-
-        tokenizer = t;
-        nextToken();
-
-//        while(nextToken()){}
 
         readGEDCOM();
     }
 
-    protected static void accept(Symbols expectedToken) throws SourceException{
+    /**
+     * Designed to ensure that the next token in the input file is the expected
+     * one, and if not it throws an exception
+     * @param expectedToken
+     * @throws GEDCOM_Exception
+     */
+    protected static void accept(Symbols expectedToken) throws GEDCOM_Exception {
 
-        if(getCurrentToken() == expectedToken) {
+        if(getCurrentToken() == expectedToken) nextToken();
 
-            //System.out.println("Accepted " + getCurrentToken());
-            nextToken();
-        }
-        else throw new SourceException("ERROR: Expected " + expectedToken +
+        else throw new GEDCOM_Exception("ERROR: Expected " + expectedToken +
                                         "\nand found " + getCurrentToken());
     }
 
-    protected static void nextLevel() throws SourceException{
-
-        //System.out.println("Level " + getCurrentLevel());
+    /**
+     * Attempts to read a level identifier, if it encounters something else,
+     * throws an exception
+     * @throws GEDCOM_Exception
+     */
+    protected static void nextLevel() throws GEDCOM_Exception {
 
         if(getCurrentToken() != LEVEL)
-            throw new SourceException("ERROR: Level Unmarked\n" +
+            throw new GEDCOM_Exception("ERROR: Level Unmarked\n" +
                                         "found " + getCurrentToken() +
                                         ": " + getCurrentSpelling());
 
         else nextToken();
     }
 
-    protected static void readGEDCOM() throws SourceException{
+    /**
+     * The main method which reads in a GEDCOM file in the proper sequence,
+     * generating objects for every structure and substructure of the
+     * document with associated variables and database connectors.
+     * @throws GEDCOM_Exception
+     */
+    protected static void readGEDCOM() throws GEDCOM_Exception {
+
+        nextToken();
+
+        String currentPointer;
 
         header = new Header();
         submitter = new Submitter();
+        individuals = new Vector<Individual>();
+        families = new Vector<Family>();
 
-//        while(getCurrentToken() != TRLR){
+        while(getCurrentToken() != TRLR){
 
-//            while(getCurrentToken() == INDI)
-                individuals.add(new Individual());
+            currentPointer = getCurrentSpelling();
+            accept(POINTER);
 
-//            while(getCurrentToken() == FAM)
-//                families.add(new Family());
+            while(getCurrentToken() == INDI)
+                individuals.add(new Individual(currentPointer));
 
-//        }
+            while(getCurrentToken() == FAM)
+                families.add(new Family(currentPointer));
+
+        }
     }
 }

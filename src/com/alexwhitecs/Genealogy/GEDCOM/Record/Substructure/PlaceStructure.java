@@ -1,7 +1,44 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure;
 
+import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
+import com.alexwhitecs.Genealogy.GEDCOM.Parser;
+
+import java.util.Vector;
+
+import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
+import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
+
 /**
- * Created by alexw on 12/5/2015.
+ * Reads in the data associated with a Place and stores them appropriately.
  */
-public class PlaceStructure {
+public class PlaceStructure extends Parser{
+
+    String placeName, placeHierarchy, phoneticVariation,
+            phoneticType, romanizedVariation, romanizedType;
+    String lastAssignment;
+
+    double latitutde, longitude;
+
+    Vector<NoteStructure> notes;
+
+    public PlaceStructure() throws GEDCOM_Exception {
+
+        accept(PLAC);
+        lastAssignment = placeName = "";
+
+        while(getCurrentToken() == STRING){
+
+            placeName += (getCurrentSpelling() + " ");
+            accept(STRING);
+        }
+
+        System.out.println(tabs() + "placeName: " + placeName);
+        nextLevel();
+    }
+
+    @Override
+    public String toString() {
+
+        return "";
+    }
 }
