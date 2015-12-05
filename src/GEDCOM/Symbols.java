@@ -55,14 +55,16 @@ public enum Symbols {
     DESI("DESI"),
     RFN("RFN"),
     AFN("AFN"),
+    ASSO("ASSO"),
+    ALIA("ALIA"),
 
     /* INDIVIDUAL ATTRIBUTE TAGS */
-
     CAST("CAST"),
     DSCR("DSCR"),
     EDUC("EDUC"),
     IDNO("IDNO"),
     NATI("NATI"),
+    NCHI("NCHI"),
     NMR("NMR"),
     OCCU("OCCU"),
     PROP("PROP"),
@@ -80,9 +82,22 @@ public enum Symbols {
     BURI("BURI"),
     CREM("CREM"),
     ADOP("ADOP"),
-
-    /* FAMILY TAGS */
-
+    BAPM("BAPM"),
+    BARM("BARM"),
+    BASM("BASM"),
+    BLES("BLES"),
+    CHRA("CHRA"),
+    CONF("CONF"),
+    FCOM("FCOM"),
+    ORDN("ORDN"),
+    NATU("NATU"),
+    IMMI("IMMI"),
+    CENS("CENS"),
+    PROB("PROB"),
+    WILL("WILL"),
+    GRAD("GRAD"),
+    RETI("RETI"),
+    EVEN("EVEN"),
 
     /* FAMILY EVENT STRUCTURE */
     MARR("MARR"),
@@ -111,23 +126,24 @@ public enum Symbols {
     /* SPECIAL TAGS */
     CONC("CONC"),
     CONT("CONT"),
+    CHAN("CHAN"),
     TRLR("TRLR");
 
     private String code;
 
-    private Symbols(String code) {
+    Symbols(String code) {
         this.code = code;
     }
 
     public String getCode() { return code; }
 
     /**
-     * Checks for the existence of the given code in this enum,
-     * if it's not there, throw an error
+     * Returns the symbol that corresponds to the given string,
+     * and if it's not there, throws an error
      * @param code
      * @return
      */
-    public static Symbols is(String code) throws SourceException{
+    public static Symbols symbolFor(String code) throws SourceException{
         for(Symbols s : values()) {
             if(s.code.equals(code)) return s;
         }

@@ -24,6 +24,6 @@ public class Importer {
         }   catch(SourceException error) { error.printStackTrace();}
             catch(FileNotFoundException error) {error.printStackTrace();}
 
-        System.out.println("DONE");
+        System.out.println("\n***\tGEDCOM IMPORT FINISHED\t***");
     }
 }

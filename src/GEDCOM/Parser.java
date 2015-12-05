@@ -1,5 +1,8 @@
 package GEDCOM;
 
+import GEDCOM.Record.Header;
+import GEDCOM.Record.Submitter;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 

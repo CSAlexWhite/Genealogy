@@ -1,6 +1,5 @@
 package GEDCOM;
 
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 import static GEDCOM.Symbols.*;
@@ -87,11 +86,11 @@ public class Tokenizer {
                     System.out.println("Current Token is Pointer");
                     currentToken = POINTER;
                 }
-                else currentToken = is(currentSpelling);
+                else currentToken = symbolFor(currentSpelling);
             }
-            //TODO what if the line position is 1 and it's a pointer?
+            //TODO what if the line position symbolFor 1 and it's a pointer?
 
-            else if(linePosition == 2 && previousToken == POINTER) currentToken = is(currentSpelling);
+            else if(linePosition == 2 && previousToken == POINTER) currentToken = symbolFor(currentSpelling);
             else currentToken = STRING;
 
             if(currentToken == null) System.out.println(currentSpelling);
@@ -119,7 +118,7 @@ public class Tokenizer {
 
                     if(linePosition == 0) currentToken = LEVEL;
 
-                    // TODO throw error if level is not an integer
+                    // TODO throw error if level symbolFor not an integer
                     else currentToken = NUMERIC;
 
                     do{
@@ -187,7 +186,7 @@ public class Tokenizer {
                         newLine = input.nextChar();
                         if(Character.isDigit(input.getCurrentChar()))
                             throw new SourceException("Unexpected numeral in user tag");
-                        // TODO is this exception sufficient?
+                        // TODO symbolFor this exception sufficient?
                     } while(Character.isLetterOrDigit((char) input.getCurrentChar()));
 
                     output.println(currentToken + ": " + currentTokenString);
