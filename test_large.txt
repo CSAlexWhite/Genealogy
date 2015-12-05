@@ -42,9 +42,9 @@
 2 CONT The data transmitted here do not make sence. Just the HEAD.DATE tag contains the date of the creation
 2 CONT of this file and will change in future Versions!
 2 CONT This file is created by H. Eichmann: h.eichmann@@gmx.de. Feel free to copy and use it for any
-2 CONT non-commercial purpose. For the creation the GEDCOM standard Release 5.5 (2 JAN 1996) has been used.
+2 CONT non-commercial purpose. For the creation the com.alexwhitecs.Genealogy.GEDCOM standard Release 5.5 (2 JAN 1996) has been used.
 2 CONT Copyright: The church of Jesus Christ of latter-day saints, gedcom@@gedcom.org
-2 CONT Download it (the GEDCOM 5.5 specs) from: ftp.gedcom.com/pub/genealogy/gedcom.
+2 CONT Download it (the com.alexwhitecs.Genealogy.GEDCOM 5.5 specs) from: ftp.gedcom.com/pub/genealogy/gedcom.
 2 CONT Some Specials: This line is very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long but not too long (255 caharcters is the limit).
 2 CONT This @@ (commercial at) character may only appear ONCE!
 2 CONT Note continued here. The word TE
