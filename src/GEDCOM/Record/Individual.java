@@ -54,8 +54,10 @@ public class Individual extends Parser {
          */
         public static boolean contains(Symbols input) {
 
+            System.out.println(input.getCode());
+
             for (Events e : values()) {
-                if (e.name().equals(input)) {
+                if (e.code.equals(input.getCode())) {
                     return true;
                 }
             }
@@ -108,12 +110,12 @@ public class Individual extends Parser {
 
     public Individual() throws SourceException {
 
-        System.out.println("\n" + getLineNumber() + ": importing FAMILY RECORD\n");
+        System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
         int required = 0;      // there are 4 required elements in header
 
         individual_id = getCurrentSpelling();
-        System.out.println("\tfamily_id\t" + individual_id);
+        System.out.println("\tindividual_id\t\t" + individual_id);
 
         accept(POINTER);
         accept(INDI);
@@ -183,15 +185,56 @@ public class Individual extends Parser {
         accept(SEX);
 
         last_assignment = sex = getCurrentSpelling();
-        System.out.println("\tsex\t\t\t" + sex);
+        System.out.println("\tsex\t\t\t\t\t" + sex);
         accept(STRING);
 
         nextLevel();
+        System.out.println(getCurrentToken());
     }
 
     private void readEvent() throws SourceException{
 
+        if(getCurrentToken() == BIRT) readBirth();
 
+    }
+
+    private void readBirth() throws SourceException {
+
+        accept(BIRT);
+        nextLevel();
+        readEventDetail();
+    }
+
+    private void readEventDetail() throws SourceException{
+
+        // TODO MAYBE MAKE THIS METHOD GLOBALLY AVAILABLE?
+
+        while(getCurrentLevel() != 1){
+
+//            if(getCurrentToken() == TYPE)
+            if(getCurrentToken() == DATE){
+
+
+            }
+
+            if(getCurrentToken() == PLAC){
+
+                while(getCurrentToken() == STRING) {
+
+                    submitter_address += (getCurrentSpelling() + " ");
+                    accept(STRING);
+                }
+            }
+
+//            if(getCurrentToken() == ADDR)
+//            if(getCurrentToken() == AGNC)
+//            if(getCurrentToken() == RELI)
+//            if(getCurrentToken() == CAUS)
+//            if(getCurrentToken() == RESN)
+//            if(getCurrentToken() == NOTE)
+//            if(getCurrentToken() == SOUR)
+            // TODO MULTIMEDIA LINK
+        }
     }
 
     private void readChildToFamilyLink() throws SourceException {

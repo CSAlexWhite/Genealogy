@@ -1,10 +1,13 @@
 package GEDCOM;
 
+import GEDCOM.Record.Family;
 import GEDCOM.Record.Header;
+import GEDCOM.Record.Individual;
 import GEDCOM.Record.Submitter;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Vector;
 
 import static GEDCOM.Tokenizer.*;
 import static GEDCOM.Symbols.*;
@@ -21,6 +24,8 @@ public class Parser{
 
     static Header header;
     static Submitter submitter;
+    static Vector<Individual> individuals;
+    static Vector<Family> families;
 
     public Parser(){}
 
@@ -35,8 +40,6 @@ public class Parser{
 //        while(nextToken()){}
 
         readGEDCOM();
-
-
     }
 
     protected static void accept(Symbols expectedToken) throws SourceException{
@@ -67,6 +70,14 @@ public class Parser{
         header = new Header();
         submitter = new Submitter();
 
-        // while... individual = new individual... etc.
+//        while(getCurrentToken() != TRLR){
+
+//            while(getCurrentToken() == INDI)
+                individuals.add(new Individual());
+
+//            while(getCurrentToken() == FAM)
+//                families.add(new Family());
+
+//        }
     }
 }

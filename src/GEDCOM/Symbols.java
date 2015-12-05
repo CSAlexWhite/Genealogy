@@ -7,7 +7,7 @@ package GEDCOM;
 public enum Symbols {
 
 
-    /* TYPES */
+    /* DATA TYPES */
     NONE (""),
     POINTER ("POINTER"),   // a reference to an instantiated genealobject
     TAG ("TAG"),
@@ -15,6 +15,9 @@ public enum Symbols {
     LEVEL ("LEVEL"),
     STRING("STRING"),      // indicates either a tag, or a non numeric value
     NUMERIC("NUMERIC"),    // indicates an integer
+
+    /* UTILITY TAGS */
+    TYPE("TYPE"),
 
     /* HEADER TAGS */
     HEAD("HEAD"),
@@ -64,7 +67,6 @@ public enum Symbols {
     EDUC("EDUC"),
     IDNO("IDNO"),
     NATI("NATI"),
-    NCHI("NCHI"),
     NMR("NMR"),
     OCCU("OCCU"),
     PROP("PROP"),
