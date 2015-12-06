@@ -1,7 +1,6 @@
-
-
 CREATE TABLE IF NOT EXISTS INDIVIDUAL (
-individual_id INT(10) NOT NULL,
+individual_id INT(10) NOT NULL AUTO_INCREMENT,
+x_ref_id VARCHAR(255),
 given_name VARCHAR(255),
 surname VARCHAR(255),
 sex VARCHAR(255),
@@ -9,7 +8,8 @@ PRIMARY KEY (individual_id)
 );
 
 CREATE TABLE IF NOT EXISTS FAMILY (
-family_id INT(10) NOT NULL,
+family_id INT(10) NOT NULL AUTO_INCREMENT,
+x_ref_id VARCHAR(255),
 husband INT(10),
 wife INT(10),
 number_children INT(10),
@@ -31,7 +31,7 @@ family_id INT(10) NOT NULL,
 event_id INT(10) NOT NULL,
 event_husband INT(10),
 event_wife INT(10),
-PRIMARY KEY (family_event_id)
+PRIMARY KEY (family_id, event_id)
 );
 
 CREATE TABLE IF NOT EXISTS EVENT_DETAIL (
@@ -44,7 +44,7 @@ PRIMARY KEY (event_id)
 );
 
 CREATE TABLE IF NOT EXISTS PLACE (
-place_id INT(10) NOT NULL,
+place_id INT(10) NOT NULL AUTO_INCREMENT,
 place_name VARCHAR(255),
 latitude VARCHAR(255),
 longitude VARCHAR(255),

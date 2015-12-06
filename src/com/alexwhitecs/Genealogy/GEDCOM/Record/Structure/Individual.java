@@ -21,10 +21,10 @@ public class Individual extends Parser {
     Vector<ChildToFamilyLink> familiesAsChild;
     Vector<SpouseToFamilyLink> familiesAsSpouse;
 
-    String individualID, sex;
+    String xref_individual, sex;
     String lastAssignment;
 
-    public Individual(String individualID) throws GEDCOM_Exception {
+    public Individual(String xref_individual) throws GEDCOM_Exception {
 
         lifeEvents = new Vector<>();
         familiesAsChild = new Vector<>();
@@ -32,8 +32,8 @@ public class Individual extends Parser {
 
         System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
-        this.individualID = individualID;
-        System.out.println(tabs() + "individualID: " + individualID);
+        this.xref_individual = xref_individual;
+        System.out.println(tabs() + "xref_individual: " + xref_individual);
 
         accept(INDI);
         nextLevel();
@@ -76,8 +76,28 @@ public class Individual extends Parser {
 
     private void pushToDB() {
 
-        executeSQL_Statement("");
+        String sql1 = "INSERT INTO individual " +
+                "(x_ref_id, given_name, surname, sex) " +
+                "VALUES (" +
+                "\"" + xref_individual + "\", " +
+                "\"" + name.getGivenName() + "\", " +
+                "\"" + name.getSurname() + "\", " +
+                "\"" + sex + "\");";
 
+        String sql = "INSERT INTO individual" +
+                " (x_ref_id, given_name, surname, sex)" +
+                " SELECT * FROM (SELECT " +
+                "\"" + xref_individual + "\", " +
+                "\"" + name.getGivenName() + "\", " +
+                "\"" + name.getSurname() + "\", " +
+                "\"" + sex + "\")" +
+                " AS tmp" +
+                " WHERE NOT EXISTS (" +
+                " SELECT x_ref_id FROM individual WHERE x_ref_id = " +
+                "\"" + xref_individual + "\"" +
+                " ) LIMIT 1;";
+
+        executeSQL_Statement(sql);
     }
 
     private void readNameStructure() throws GEDCOM_Exception {
@@ -161,7 +181,7 @@ public class Individual extends Parser {
 
     public String getID(){
 
-        return individualID;
+        return xref_individual;
     }
 
     public enum Events{

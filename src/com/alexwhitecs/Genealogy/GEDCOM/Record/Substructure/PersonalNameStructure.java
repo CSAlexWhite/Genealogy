@@ -11,26 +11,37 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class PersonalNameStructure extends Parser {
 
-    String lastAssignment;
-    String name;
+    String givenName, surname;
 
     public PersonalNameStructure() throws GEDCOM_Exception {
 
         accept(NAME);
 
-        lastAssignment = name = "";
+        givenName = surname = "";
 
         while(getCurrentToken() == STRING) {
 
-            name += (getCurrentSpelling() + " ");
+            if(getCurrentSpelling().charAt(0) == '/') surname += (getCurrentSpelling() + " ");
+            else givenName += (getCurrentSpelling() + " ");
             accept(STRING);
         }
 
 //        if(getCurrentToken() == TYPE) readNameType();
         // TODO add Personal Name Pieces etc.
 
-        System.out.println(tabs() + "personal_name: " + name);
+        System.out.println(tabs() + "givenName: " + givenName);
+        System.out.println(tabs() + "surname: " + surname);
 
         nextLevel();
+    }
+
+    public String getGivenName(){
+
+        return givenName;
+    }
+
+    public String getSurname(){
+
+        return surname;
     }
 }

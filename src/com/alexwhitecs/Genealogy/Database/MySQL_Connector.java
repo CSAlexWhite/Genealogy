@@ -29,44 +29,33 @@ public class MySQL_Connector {
         }
 
         setupDB();
-        dbExists();
         createTables();
 
-        //createTables();
+//        executeSQL_Statement("INSERT INTO individual " +
+//                "(x_ref_id, given_name, surname, sex) " +
+//                "VALUES (" +
+//                "\"" + "@someone@" + "\", " +
+//                "\"" + "bobby" + "\", " +
+//                "\"" + "tables" + "\", " +
+//                "\"" + "M" + "\");");
     }
 
     public static void executeSQL_Statement(String inputStatement){
+
+        System.out.println(inputStatement);
 
         String sql = inputStatement;
         try{
             statement = connection.createStatement();
             statement.executeUpdate(sql);
 
-        } catch(SQLException error){}
+        } catch(SQLException error){error.printStackTrace();}
     }
 
     private static void setupDB()throws SQLException{
 
             executeSQL_Statement("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
             executeSQL_Statement("USE GENEALOGY");
-    }
-
-    private static boolean dbExists() throws SQLException{
-
-        ResultSet resultSet = connection.getMetaData().getCatalogs();
-
-        while (resultSet.next()) {
-
-//            if(resultSet.getString(1)=="genealogy") {
-//
-//                resultSet.close();
-//                return true;
-//            }
-            System.out.println(resultSet.getString(1));
-        }
-        resultSet.close();
-
-        return false;
     }
 
     private static boolean createTables() throws SQLException{

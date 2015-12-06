@@ -33,11 +33,14 @@ public class Main extends Application {
         try{
 
             MySQL_Connector.connect();
+
+            new Importer(inFile);
+
             MySQL_Connector.close();
         }
         catch(Exception error){error.printStackTrace();}
 
-        //    new Importer(inFile);
+
 
 //            input = new SourceHandler(inFile);
 //            Tokenizer.setIO(input);
