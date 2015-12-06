@@ -29,19 +29,19 @@ public class IndividualEventStructure extends Parser{
 
     private void pushToDB() {
 
-//        String sql = "INSERT INTO individual_event" +
-//                " (x_ref_id, husband, wife)" +
-//                " SELECT * FROM (SELECT " +
-//                "\"" + xref_family + "\", " +
-//                "\"" + husband + "\", " +
-//                "\"" + wife + "\") " +
-//                " AS tmp" +
-//                " WHERE NOT EXISTS (" +
-//                " SELECT x_ref_id FROM family WHERE x_ref_id = " +
-//                "\"" + xref_family + "\"" +
-//                " ) LIMIT 1;";
-//
-//        executeSQL_Statement(sql);
+        String sql = "INSERT INTO individual_event" +
+                " (type, date, place_id, age_at_event, family_id, adopted_by)" +
+                " SELECT * FROM (SELECT " +
+                "\"" + eventType + "\", " +
+                "\"" + date + "\", " +
+                "\"" + /* TODO PLACE!! INTO DB */ + "\") " +
+                " AS tmp" +
+                " WHERE NOT EXISTS (" +
+                " SELECT x_ref_id FROM family WHERE x_ref_id = " +
+                "\"" + xref_family + "\"" +
+                " ) LIMIT 1;";
+
+        executeSQL_Statement(sql);
     }
 
     private void setFamily() {

@@ -1,6 +1,5 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Structure;
 
-import com.alexwhitecs.Genealogy.Database.MySQL_Connector;
 import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.*;
@@ -24,7 +23,7 @@ public class Individual extends Parser {
 
     String xref_individual, sex;
     String lastAssignment;
-    String tablename;
+    String tablename, idColumn;
 
     public Individual(String xref_individual) throws GEDCOM_Exception {
 
@@ -32,7 +31,7 @@ public class Individual extends Parser {
         familiesAsChild = new Vector<>();
         familiesAsSpouse = new Vector<>();
 
-        tablename = "individual";
+        tablename = "individual"; idColumn = "individual_id";
 
         System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
@@ -93,7 +92,6 @@ public class Individual extends Parser {
                 "\"" + xref_individual + "\"" +
                 " ) LIMIT 1;";
 
-        System.out.println("last id is : " + getLastID(tablename, "individual_id"));
         executeSQL_Statement(sql);
     }
 

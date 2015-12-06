@@ -7,7 +7,7 @@ import com.alexwhitecs.Genealogy.GEDCOM.Symbols;
 
 import java.util.Vector;
 
-import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.executeSQL_Statement;
+import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 /**
@@ -17,59 +17,20 @@ public class Family extends Parser {
 
     String xref_family, husband, wife;
     String lastAssignment;
+    String tablename, idColumn;
 
     Vector<String> children;
 
     Vector<FamilyEventStructure> familyEvents;
-
-    public enum Events{
-
-        ANUL("ANUL"),
-        CENS("CENS"),
-        DIV("DIV"),
-        DIVF("DIVF"),
-        ENGA("ENGA"),
-        MARB("MARB"),
-        MARC("MARC"),
-        MARR("MARR"),
-        MARL("MARL"),
-        MARS("MARS"),
-        RESI("RESI"),
-        EVEN("EVEN");
-
-        private String code;
-
-        Events(String code) {
-            this.code = code;
-        }
-
-        public String getCode() { return code; }
-
-        /**
-         * Tests for membership in this Events enum
-         * @param input
-         * @return
-         */
-        public static boolean contains(Symbols input) {
-
-            for (Events e : values()) {
-                if (e.code.equals(input.getCode())) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-    }
 
     public Family(String xref_family) throws GEDCOM_Exception {
 
         children = new Vector<String>();
         familyEvents = new Vector<FamilyEventStructure>();
 
-        System.out.println("\n" + getLineNumber() + ": importing FAMILY RECORD\n");
+        tablename = "family"; idColumn = "family_id";
 
-        int required = 0;      // there are 4 required elements in header
+        System.out.println("\n" + getLineNumber() + ": importing FAMILY RECORD\n");
 
         this.xref_family = xref_family;
         System.out.println("\txref_family\t" + xref_family);
@@ -200,11 +161,50 @@ public class Family extends Parser {
         nextLevel();
     }
 
-
     /**
      * Pushes all of this object's data to the
      */
     private static void setSubmitter() {
 
+    }
+
+    public enum Events{
+
+        ANUL("ANUL"),
+        CENS("CENS"),
+        DIV("DIV"),
+        DIVF("DIVF"),
+        ENGA("ENGA"),
+        MARB("MARB"),
+        MARC("MARC"),
+        MARR("MARR"),
+        MARL("MARL"),
+        MARS("MARS"),
+        RESI("RESI"),
+        EVEN("EVEN");
+
+        private String code;
+
+        Events(String code) {
+            this.code = code;
+        }
+
+        public String getCode() { return code; }
+
+        /**
+         * Tests for membership in this Events enum
+         * @param input
+         * @return
+         */
+        public static boolean contains(Symbols input) {
+
+            for (Events e : values()) {
+                if (e.code.equals(input.getCode())) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
