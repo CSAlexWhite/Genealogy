@@ -35,7 +35,7 @@ public class MySQL_Connector {
         //createTables();
     }
 
-    public static void instruct(String inputStatement){
+    public static void executeSQL_Statement(String inputStatement){
 
         String sql = inputStatement;
         try{
@@ -47,8 +47,8 @@ public class MySQL_Connector {
 
     private static void setupDB()throws SQLException{
 
-            instruct("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
-            instruct("USE GENEALOGY");
+            executeSQL_Statement("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
+            executeSQL_Statement("USE GENEALOGY");
     }
 
     private static boolean dbExists() throws SQLException{
@@ -84,7 +84,7 @@ public class MySQL_Connector {
 
                 if(line.trim().isEmpty()){
 
-                    instruct(sql);
+                    executeSQL_Statement(sql);
                     sql = "";
                 }
             }
@@ -94,7 +94,7 @@ public class MySQL_Connector {
 
         System.out.println(sql);
 
-        instruct(sql);
+        executeSQL_Statement(sql);
 
         return true;
     }
