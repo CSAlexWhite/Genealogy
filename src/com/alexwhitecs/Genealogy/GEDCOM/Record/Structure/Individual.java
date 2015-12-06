@@ -1,5 +1,6 @@
 package com.alexwhitecs.Genealogy.GEDCOM.Record.Structure;
 
+import com.alexwhitecs.Genealogy.Database.MySQL_Connector;
 import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.*;
@@ -7,7 +8,7 @@ import com.alexwhitecs.Genealogy.GEDCOM.Symbols;
 
 import java.util.Vector;
 
-import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.executeSQL_Statement;
+import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 /**
@@ -23,12 +24,15 @@ public class Individual extends Parser {
 
     String xref_individual, sex;
     String lastAssignment;
+    String tablename;
 
     public Individual(String xref_individual) throws GEDCOM_Exception {
 
         lifeEvents = new Vector<>();
         familiesAsChild = new Vector<>();
         familiesAsSpouse = new Vector<>();
+
+        tablename = "individual";
 
         System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
@@ -76,14 +80,6 @@ public class Individual extends Parser {
 
     private void pushToDB() {
 
-        String sql1 = "INSERT INTO individual " +
-                "(x_ref_id, given_name, surname, sex) " +
-                "VALUES (" +
-                "\"" + xref_individual + "\", " +
-                "\"" + name.getGivenName() + "\", " +
-                "\"" + name.getSurname() + "\", " +
-                "\"" + sex + "\");";
-
         String sql = "INSERT INTO individual" +
                 " (x_ref_id, given_name, surname, sex)" +
                 " SELECT * FROM (SELECT " +
@@ -97,6 +93,7 @@ public class Individual extends Parser {
                 "\"" + xref_individual + "\"" +
                 " ) LIMIT 1;";
 
+        System.out.println("last id is : " + getLastID(tablename, "individual_id"));
         executeSQL_Statement(sql);
     }
 

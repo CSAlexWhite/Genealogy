@@ -7,6 +7,7 @@ import com.alexwhitecs.Genealogy.GEDCOM.Symbols;
 
 import java.util.Vector;
 
+import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.executeSQL_Statement;
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 /**
@@ -14,7 +15,7 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Family extends Parser {
 
-    String familyID, husband, wife;
+    String xref_family, husband, wife;
     String lastAssignment;
 
     Vector<String> children;
@@ -61,7 +62,7 @@ public class Family extends Parser {
         }
     }
 
-    public Family(String familyID) throws GEDCOM_Exception {
+    public Family(String xref_family) throws GEDCOM_Exception {
 
         children = new Vector<String>();
         familyEvents = new Vector<FamilyEventStructure>();
@@ -70,8 +71,8 @@ public class Family extends Parser {
 
         int required = 0;      // there are 4 required elements in header
 
-        this.familyID = familyID;
-        System.out.println("\tfamilyID\t" + familyID);
+        this.xref_family = xref_family;
+        System.out.println("\txref_family\t" + xref_family);
 
         accept(FAM);
         nextLevel();
@@ -95,7 +96,26 @@ public class Family extends Parser {
             if(getCurrentToken() == CONT) continueLine();
         }
 
+        pushToDB();
+
         System.out.println("\n" + getLineNumber() + ": import successful");
+    }
+
+    private void pushToDB() {
+
+        String sql = "INSERT INTO family" +
+                " (x_ref_id, husband, wife)" +
+                " SELECT * FROM (SELECT " +
+                "\"" + xref_family + "\", " +
+                "\"" + husband + "\", " +
+                "\"" + wife + "\") " +
+                " AS tmp" +
+                " WHERE NOT EXISTS (" +
+                " SELECT x_ref_id FROM family WHERE x_ref_id = " +
+                "\"" + xref_family + "\"" +
+                " ) LIMIT 1;";
+
+        executeSQL_Statement(sql);
     }
 
     private void readEvent() throws GEDCOM_Exception {
