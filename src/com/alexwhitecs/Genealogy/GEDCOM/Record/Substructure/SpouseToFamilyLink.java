@@ -5,6 +5,8 @@ import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Family;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
 
+import java.util.Vector;
+
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 
@@ -17,6 +19,8 @@ public class SpouseToFamilyLink extends Parser{
 
     Individual spouse;
     Family family;
+
+    Vector<NoteStructure> notes;
 
     public SpouseToFamilyLink(Individual person) throws GEDCOM_Exception {
 

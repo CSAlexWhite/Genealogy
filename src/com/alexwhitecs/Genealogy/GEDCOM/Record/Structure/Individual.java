@@ -141,7 +141,6 @@ public class Individual extends Parser {
             if(Attributes.contains(getCurrentToken())) readAttribute();
 
             // TODO INDIVIDUAL ATTRIBUTE STRUCTURE
-            // TODO (NO) LDS INDIVIDUAL OCCURRENCE
             if(getCurrentToken() == FAMC) readChildToFamilyLink();
             if(getCurrentToken() == FAMS) readSpouseToFamilyLink();
 //            if(getCurrentToken() == REFN) readReferenceNumber();
@@ -278,7 +277,7 @@ public class Individual extends Parser {
             System.out.println(event);
         }
     }
-    
+
     /**
      * Pushes all of this object's data to the
      */

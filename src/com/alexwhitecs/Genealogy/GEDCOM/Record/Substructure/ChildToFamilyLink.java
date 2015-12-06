@@ -5,6 +5,8 @@ import com.alexwhitecs.Genealogy.GEDCOM.Parser;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Family;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
 
+import java.util.Vector;
+
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 
@@ -13,7 +15,9 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class ChildToFamilyLink extends Parser{
 
-    String individualID, familyID;
+    String individualID, familyID, pedigreeLinkageType, linkageStatus;
+
+    Vector<NoteStructure> notes;
 
     Individual child;
     Family family;

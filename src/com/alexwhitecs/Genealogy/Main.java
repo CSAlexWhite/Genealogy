@@ -1,5 +1,6 @@
 package com.alexwhitecs.Genealogy;
 
+import com.alexwhitecs.Genealogy.Database.MySQL_Connector;
 import com.alexwhitecs.Genealogy.GEDCOM.Importer;
 import com.alexwhitecs.Genealogy.GEDCOM.SourceHandler;
 import javafx.application.Application;
@@ -10,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -25,7 +28,16 @@ public class Main extends Application {
 
             String inFile = "test.txt";
 
-            new Importer(inFile);
+
+
+        try{
+
+            MySQL_Connector.connect();
+            MySQL_Connector.close();
+        }
+        catch(Exception error){error.printStackTrace();}
+
+        //    new Importer(inFile);
 
 //            input = new SourceHandler(inFile);
 //            Tokenizer.setIO(input);
