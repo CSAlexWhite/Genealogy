@@ -11,7 +11,8 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class PersonalNameStructure extends Parser {
 
-    String givenName, surname;
+    String givenName, surname, maidenName;
+    // TODO add Maiden Name?
 
     public PersonalNameStructure() throws GEDCOM_Exception {
 
@@ -21,7 +22,10 @@ public class PersonalNameStructure extends Parser {
 
         while(getCurrentToken() == STRING) {
 
-            if(getCurrentSpelling().charAt(0) == '/') surname += (getCurrentSpelling() + " ");
+            if(getCurrentSpelling().charAt(0) == '/') {
+
+                surname += (getCurrentSpelling().replace("/","") + " ");
+            }
             else givenName += (getCurrentSpelling() + " ");
             accept(STRING);
         }

@@ -7,6 +7,7 @@ import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
 
 import java.util.Vector;
 
+import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.executeSQL_Statement;
 import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
 import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
 
@@ -32,9 +33,29 @@ public class SpouseToFamilyLink extends Parser{
         accept(FAMS);
         familyID = getCurrentSpelling();
 
+        pushToDB();
+
         System.out.println(tabs() + "familyID as spouse: " + familyID);
         accept(POINTER);
         nextLevel();
+    }
+
+    private void pushToDB() {
+
+        String sql = "INSERT INTO spouse_family" +
+                " (individual_id, family_id)" +
+                " SELECT * FROM (SELECT " +
+                "\"" + individualID + "\", " +
+                "\"" + familyID + "\") " +
+                " AS tmp" +
+                " WHERE NOT EXISTS (" +
+                " SELECT family_id FROM spouse_family " + " " +
+                " WHERE family_id = " +
+                "\"" + familyID + "\"" +
+                " AND individual_id = \"" + individualID +
+                "\" ) LIMIT 1;";
+
+        executeSQL_Statement(sql);
     }
 
     @Override

@@ -80,7 +80,7 @@ public class Individual extends Parser {
     private void pushToDB() {
 
         String sql = "INSERT INTO individual" +
-                " (x_ref_id, given_name, surname, sex)" +
+                " (xref_id, given_name, surname, sex)" +
                 " SELECT * FROM (SELECT " +
                 "\"" + xref_individual + "\", " +
                 "\"" + name.getGivenName() + "\", " +
@@ -88,7 +88,7 @@ public class Individual extends Parser {
                 "\"" + sex + "\")" +
                 " AS tmp" +
                 " WHERE NOT EXISTS (" +
-                " SELECT x_ref_id FROM individual WHERE x_ref_id = " +
+                " SELECT xref_id FROM individual WHERE xref_id = " +
                 "\"" + xref_individual + "\"" +
                 " ) LIMIT 1;";
 
@@ -112,7 +112,7 @@ public class Individual extends Parser {
 
     private void readEvent() throws GEDCOM_Exception {
 
-        lifeEvents.add(new IndividualEventStructure());
+        lifeEvents.add(new IndividualEventStructure(this));
     }
 
     private void readAttribute() throws GEDCOM_Exception {

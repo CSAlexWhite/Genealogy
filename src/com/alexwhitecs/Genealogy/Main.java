@@ -26,7 +26,7 @@ public class Main extends Application {
 
 //        try{
 
-            String inFile = "test.txt";
+            String inFile = "white.gedcom";
 
 
 

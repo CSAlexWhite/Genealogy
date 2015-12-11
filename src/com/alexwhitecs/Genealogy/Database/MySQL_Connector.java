@@ -35,14 +35,6 @@ public class MySQL_Connector {
 
         setupDB();
         createTables();
-
-//        executeSQL_Statement("INSERT INTO individual " +
-//                "(x_ref_id, given_name, surname, sex) " +
-//                "VALUES (" +
-//                "\"" + "@someone@" + "\", " +
-//                "\"" + "bobby" + "\", " +
-//                "\"" + "tables" + "\", " +
-//                "\"" + "M" + "\");");
     }
 
     /**
@@ -51,9 +43,7 @@ public class MySQL_Connector {
      * @param inputStatement
      * @return
      */
-    public static int executeSQL_Statement(String inputStatement){
-
-        int lastID = 0;
+    public static void executeSQL_Statement(String inputStatement){
 
         String sql = inputStatement;
         try{
@@ -62,8 +52,6 @@ public class MySQL_Connector {
             statement.close();
 
         } catch(SQLException error){error.printStackTrace();}
-
-        return lastID;
     }
 
     public static int getLastID(String tablename, String idname){
@@ -81,6 +69,26 @@ public class MySQL_Connector {
         } catch(SQLException error){error.printStackTrace();}
 
         return lastid;
+    }
+
+    public static String getResult(String select, String from, String where, String equals){
+
+        String result = "";
+        String query =  "SELECT " + select +
+                        " FROM " + from +
+                        " WHERE " + where +
+                        " LIKE '" + equals +"'";
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) result = rs.getString(select);
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return result;
     }
 
     private static void setupDB()throws SQLException{
@@ -109,6 +117,8 @@ public class MySQL_Connector {
                 line = line.replaceAll("(\\n)", " ");
                 sql += line;
             }
+
+            executeSQL_Statement(sql);
         }
         catch(FileNotFoundException error){ error.printStackTrace(); return false;}
         catch(IOException error){ error.printStackTrace(); return false;}

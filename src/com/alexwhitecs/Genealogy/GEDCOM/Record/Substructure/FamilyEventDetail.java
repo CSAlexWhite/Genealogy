@@ -8,8 +8,8 @@ import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
  */
 public class FamilyEventDetail extends Parser{
 
-    String husband, wife;       // TODO POINTERS TO THESE PEOPLE?
-    int husbandAge, wifeAge;
+    String husband = "", wife = "";       // TODO POINTERS TO THESE PEOPLE?
+    int husbandAge = 0, wifeAge = 0;
 
     EventDetail eventDetail;
 
@@ -22,5 +22,10 @@ public class FamilyEventDetail extends Parser{
     public String toString() {
 
         return "";
+    }
+
+    public EventDetail getEventDetail(){
+
+        return eventDetail;
     }
 }

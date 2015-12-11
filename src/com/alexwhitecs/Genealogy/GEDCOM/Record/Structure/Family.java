@@ -15,7 +15,7 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Family extends Parser {
 
-    String xref_family, husband, wife;
+    String xref_family, husband = "-husband-", wife = "-wife-";
     String lastAssignment;
     String tablename, idColumn;
 
@@ -65,14 +65,14 @@ public class Family extends Parser {
     private void pushToDB() {
 
         String sql = "INSERT INTO family" +
-                " (x_ref_id, husband, wife)" +
+                " (xref_id, husband, wife)" +
                 " SELECT * FROM (SELECT " +
                 "\"" + xref_family + "\", " +
                 "\"" + husband + "\", " +
                 "\"" + wife + "\") " +
                 " AS tmp" +
                 " WHERE NOT EXISTS (" +
-                " SELECT x_ref_id FROM family WHERE x_ref_id = " +
+                " SELECT xref_id FROM family WHERE xref_id = " +
                 "\"" + xref_family + "\"" +
                 " ) LIMIT 1;";
 
@@ -81,7 +81,7 @@ public class Family extends Parser {
 
     private void readEvent() throws GEDCOM_Exception {
 
-        familyEvents.add(new FamilyEventStructure());
+        familyEvents.add(new FamilyEventStructure(this));
     }
 
     private void readRestrictionNotice() throws GEDCOM_Exception {
@@ -206,5 +206,20 @@ public class Family extends Parser {
 
             return false;
         }
+    }
+
+    public String getID(){
+
+        return xref_family;
+    }
+
+    public String getHusband(){
+
+        return husband;
+    }
+
+    public String getWife(){
+
+        return wife;
     }
 }

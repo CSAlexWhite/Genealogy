@@ -13,11 +13,11 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class PlaceStructure extends Parser{
 
-    String placeName, placeHierarchy, phoneticVariation,
+    String placeName = "", placeHierarchy, phoneticVariation,
             phoneticType, romanizedVariation, romanizedType;
     String lastAssignment;
 
-    double latitutde, longitude;
+    String latitutde = "", longitude = "";
 
     Vector<NoteStructure> notes;
 
