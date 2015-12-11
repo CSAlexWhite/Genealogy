@@ -22,4 +22,9 @@ public class IndividualEventDetail extends Parser{
 
         return "";
     }
+
+    public EventDetail getEventDetail(){
+
+        return eventDetail;
+    }
 }

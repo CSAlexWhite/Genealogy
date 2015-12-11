@@ -29,7 +29,25 @@ public class IndividualEventStructure extends Parser{
 
     private void pushToDB() {
 
-        String sql = "INSERT INTO individual_event" +
+        // 1. INSERT A NEW PLACE, GET THE PLACE ID
+        // 2. INSERT EVENT DETAILS
+        // TODO ERASE FAMILY ID AND ADOPPED BY FROM PLACE...
+
+        /* INSERT THE PLACE DETAILS */
+        String sql = "INSERT INTO place" +
+                " (place_name)" +
+                " SELECT * FROM (SELECT " +
+                "\"" + eventDetail.getEventDetail().placeStructure.placeName + "\") " +
+                " AS tmp" +
+                " WHERE NOT EXISTS (" +
+                " SELECT x_ref_id FROM family WHERE x_ref_id = " +
+                "\"" + eventDetail.getEventDetail().placeStructure.placeName + "\"" +
+                " ) LIMIT 1;";
+
+        executeSQL_Statement(sql);
+
+        /* INSERT THE INDIVIDUAL EVENT DETAILS */
+        sql = "INSERT INTO individual_event" +
                 " (type, date, place_id, age_at_event, family_id, adopted_by)" +
                 " SELECT * FROM (SELECT " +
                 "\"" + eventType + "\", " +

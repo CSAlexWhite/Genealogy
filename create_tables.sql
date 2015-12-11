@@ -42,8 +42,6 @@ place_id INT(10) NOT NULL AUTO_INCREMENT,
 place_name VARCHAR(255),
 latitude VARCHAR(255),
 longitude VARCHAR(255),
-family_id INT(10),
-adopted_by INT(10),
 PRIMARY KEY (place_id)
 );
 

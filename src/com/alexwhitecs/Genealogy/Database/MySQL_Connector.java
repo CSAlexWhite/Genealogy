@@ -15,6 +15,11 @@ public class MySQL_Connector {
     static final String USER = "root";
     static final String PASSWORD = "root";
 
+    /**
+     * Initiates the connection to the MySQL database
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static void connect() throws SQLException, ClassNotFoundException{
 
         Class.forName("com.mysql.jdbc.Driver");
