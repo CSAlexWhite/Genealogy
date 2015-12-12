@@ -12,6 +12,12 @@ public class IndividualEventDetail extends Parser{
 
     EventDetail eventDetail;
 
+    public IndividualEventDetail(String date, String place){
+
+        //TODO this.age = Integer.parseInt(age);
+        this.eventDetail = new EventDetail(date, place);
+    }
+
     public IndividualEventDetail() throws GEDCOM_Exception {
 
         eventDetail = new EventDetail();

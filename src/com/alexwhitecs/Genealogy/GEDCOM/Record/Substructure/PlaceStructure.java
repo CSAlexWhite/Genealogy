@@ -21,6 +21,11 @@ public class PlaceStructure extends Parser{
 
     Vector<NoteStructure> notes;
 
+    public PlaceStructure(String placeName){
+
+        this.placeName = placeName;
+    }
+
     public PlaceStructure() throws GEDCOM_Exception {
 
         accept(PLAC);

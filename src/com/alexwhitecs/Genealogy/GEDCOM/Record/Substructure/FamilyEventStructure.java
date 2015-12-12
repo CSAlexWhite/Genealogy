@@ -73,8 +73,6 @@ public class FamilyEventStructure extends Parser{
                 "\" AND date = \"" + date +
                 "\" ) LIMIT 1;";
 
-        System.out.println(sql);
-
         executeSQL_Statement(sql);
     }
 

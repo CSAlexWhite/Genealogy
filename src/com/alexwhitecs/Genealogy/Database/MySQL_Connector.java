@@ -1,7 +1,13 @@
 package com.alexwhitecs.Genealogy.Database;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by alexw on 12/5/2015.
@@ -35,6 +41,11 @@ public class MySQL_Connector {
 
         setupDB();
         createTables();
+
+        getTableAsArray("individual");
+        getTableAsArray("family");
+        getTableAsArray("individual_event");
+        getTableAsArray("place");
     }
 
     /**
@@ -82,13 +93,186 @@ public class MySQL_Connector {
             statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
-            while(rs.next()) result = rs.getString(select);
+            while(rs.next()){
+
+                result = rs.getString(select);
+            }
 
             rs.close(); statement.close();
 
         } catch(SQLException error){error.printStackTrace();}
 
         return result;
+    }
+
+    public static ObservableList<String> getColumnAsArray(String select, String from, String where, String equals){
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String query =  "SELECT " + select +
+                " FROM " + from +
+                " WHERE " + where +
+                " LIKE '" + equals +"'";
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) results.add(rs.getString(select));
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return results;
+    }
+
+    public static ObservableList<String> getColumnAsArray(String select, String from, String groupBy){
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String query =  "SELECT " + select +
+                " FROM " + from +
+                " GROUP BY " + groupBy;
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) results.add(rs.getString(select));
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return results;
+    }
+
+    public static ObservableList<String> getColumnAsArray(String select, String from){
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String query =  "SELECT " + select +
+                " FROM " + from;
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) results.add(rs.getString(select));
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return results;
+    }
+
+    public static ArrayList<String[]> getTableAsArray(String select, String from, String where, String equals){
+
+        ArrayList<String[]> rowValues = new ArrayList<String[]>();
+
+        try {
+            String query =  "SELECT " + select +
+                    " FROM " + from +
+                    " WHERE " + where +
+                    " LIKE '" + equals +"'";
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(query);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                   row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+//        for(String[] element : rowValues){
+//
+//            for(String elt : element) System.out.print(elt + "\t");
+//            System.out.println();
+//        }
+
+        return rowValues;
+    }
+
+    public static ArrayList<String[]> getTableAsArray(String tablename){
+
+        ArrayList<String[]> rowValues = new ArrayList<String[]>();
+
+        try {
+            String sql = "SELECT * FROM " + tablename;
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(sql);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                    row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+//        for(String[] element : rowValues){
+//
+//            for(String elt : element) System.out.print(elt + "\t");
+//            System.out.println();
+//        }
+
+        return rowValues;
+    }
+
+    public static ArrayList<String[]> getQueryAsArray(String query){
+
+        ArrayList<String[]> rowValues = new ArrayList<String[]>();
+
+        try {
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(query);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                    row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+//        for(String[] element : rowValues){
+//
+//            for(String elt : element) System.out.print(elt + "\t");
+//            System.out.println();
+//        }
+
+        return rowValues;
     }
 
     private static void setupDB()throws SQLException{

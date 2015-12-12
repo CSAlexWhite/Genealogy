@@ -14,7 +14,7 @@ import java.util.Vector;
  */
 public class EventDetail extends Parser{
 
-    String type, date, agency, religion, cause, restrictionNotice;
+    String type, date = "", agency, religion, cause, restrictionNotice;
     String lastAssignment;
 
     int startLevel;
@@ -25,36 +25,10 @@ public class EventDetail extends Parser{
     Vector<SourceCitation> sources;
     // TODO MULTIMEDIA LINK
 
-    public enum OtherDetails{
+    public EventDetail(String date, String placeName){
 
-        PLAC("PLAC"),
-        ADDR("ADDR"),
-        NOTE("NOTE"),
-        SOUR("SOUR");
-
-        private String code;
-
-        OtherDetails(String code) {
-            this.code = code;
-        }
-
-        public String getCode() { return code; }
-
-        /**
-         * Tests for membership in this Events enum
-         * @param input
-         * @return
-         */
-        public static boolean contains(Symbols input) {
-
-            for (OtherDetails e : values()) {
-                if (e.code.equals(input.getCode())) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+        this.date = date;
+        this.placeStructure = new PlaceStructure(placeName);
     }
 
     public EventDetail() throws GEDCOM_Exception {
@@ -134,5 +108,37 @@ public class EventDetail extends Parser{
     public String toString() {
 
         return type + " " + date;
+    }
+
+    public enum OtherDetails{
+
+        PLAC("PLAC"),
+        ADDR("ADDR"),
+        NOTE("NOTE"),
+        SOUR("SOUR");
+
+        private String code;
+
+        OtherDetails(String code) {
+            this.code = code;
+        }
+
+        public String getCode() { return code; }
+
+        /**
+         * Tests for membership in this Events enum
+         * @param input
+         * @return
+         */
+        public static boolean contains(Symbols input) {
+
+            for (OtherDetails e : values()) {
+                if (e.code.equals(input.getCode())) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

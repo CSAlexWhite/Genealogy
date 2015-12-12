@@ -25,6 +25,27 @@ public class Individual extends Parser {
     String lastAssignment;
     String tablename, idColumn;
 
+    public Individual(String[] detail){
+
+        lifeEvents = new Vector<>();
+
+        xref_individual = "@" + detail[0] + detail[1] + detail[2] + "@";
+        xref_individual = xref_individual.replace(" ", "");
+
+        try {
+        /* attributes 0 and 2 are given name and surname*/
+            name = new PersonalNameStructure(detail[0], detail[2]);
+            sex = detail[3];
+            lifeEvents.add(new IndividualEventStructure(this, "BIRT", detail[4], detail[5]));
+            lifeEvents.add(new IndividualEventStructure(this, "DEAT", detail[6], detail[7]));
+
+        } catch (GEDCOM_Exception e) {
+            e.printStackTrace();
+        }
+
+        pushToDB();
+    }
+
     public Individual(String xref_individual) throws GEDCOM_Exception {
 
         lifeEvents = new Vector<>();
@@ -36,7 +57,7 @@ public class Individual extends Parser {
         System.out.println("\n" + getLineNumber() + ": importing INDIVIDUAL RECORD\n");
 
         this.xref_individual = xref_individual;
-        System.out.println(tabs() + "xref_individual: " + xref_individual);
+        System.out.println(tabs() + "individualID: " + xref_individual);
 
         accept(INDI);
         nextLevel();

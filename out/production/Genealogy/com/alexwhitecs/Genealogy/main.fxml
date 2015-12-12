@@ -1,8 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="com.alexwhitecs.Genealogy.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+<GridPane alignment="center" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-border-color: gray; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexwhitecs.Genealogy.Controller">
+   <rowConstraints>
+      <RowConstraints minHeight="30.0" prefHeight="30.0" />
+      <RowConstraints prefHeight="738.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints minWidth="470.0" prefWidth="470.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="10.0" />
+      <ColumnConstraints minWidth="524.0" prefWidth="524.0" />
+   </columnConstraints>
+   <children>
+      <GridPane GridPane.rowSpan="2147483647">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: gray;" GridPane.rowIndex="4">
+               <children>
+                  <TabPane prefHeight="327.0" prefWidth="469.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="INDIVIDUAL">
+                           <content>
+                              <GridPane alignment="CENTER" prefHeight="327.0" prefWidth="369.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
+                                       <children>
+                                          <ScrollPane prefHeight="248.0" prefViewportHeight="246.0" prefViewportWidth="368.0" prefWidth="469.0">
+                                             <content>
+                                                <TableView layoutX="77.0" layoutY="14.0" prefHeight="246.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="115.0" text="Given Name" />
+                                                    <TableColumn prefWidth="85.0" text="Surname" />
+                                                      <TableColumn prefWidth="87.0" text="Birth" />
+                                                      <TableColumn prefWidth="81.0" text="Death" />
+                                                  </columns>
+                                                </TableView>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Button minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="SEARCH">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <ComboBox fx:id="columnName1" onMouseClicked="#populateColumn1" prefWidth="165.0" />
+                                          <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" minWidth="20.0" prefWidth="50.0" text="for" textAlignment="CENTER">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField prefHeight="25.0" prefWidth="178.0">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                           </content>
+                      </Tab>
+                        <Tab text="FAMILY">
+                           <content>
+                              <GridPane alignment="CENTER" prefHeight="327.0" prefWidth="369.0">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
+                                       <children>
+                                          <ScrollPane prefHeight="248.0" prefViewportHeight="246.0" prefViewportWidth="368.0" prefWidth="469.0">
+                                             <content>
+                                                <TableView layoutX="77.0" layoutY="14.0" prefHeight="246.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="115.0" text="Given Name" />
+                                                      <TableColumn prefWidth="85.0" text="Surname" />
+                                                      <TableColumn prefWidth="87.0" text="Birth" />
+                                                      <TableColumn prefWidth="81.0" text="Death" />
+                                                   </columns>
+                                                </TableView>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Button minWidth="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="SEARCH">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <ComboBox fx:id="columnName2" onMouseClicked="#populateColumn2" prefHeight="25.0" prefWidth="165.0" />
+                                          <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" minWidth="20.0" prefWidth="50.0" text="for" textAlignment="CENTER">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </Label>
+                                          <TextField prefHeight="25.0" prefWidth="178.0">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></HBox>
+            <MenuBar prefHeight="39.0" prefWidth="370.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Import GEDCOM" />
+                        <MenuItem mnemonicParsing="false" text="Export Family to File" />
+                        <MenuItem fx:id="exportAll" mnemonicParsing="false" onAction="#printAllGEDCOM" text="Export All to File" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Reports">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Print Descendancy Report" />
+                        <MenuItem mnemonicParsing="false" text="Print Ahnentafel Report" />
+                        <MenuItem mnemonicParsing="false" text="Print Family Tree" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
+              <tabs>
+                <Tab text="NEW INDIVIDUAL">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="316.0" prefWidth="470.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="310.0" prefWidth="185.0">
+                                       <children>
+                                          <TextField fx:id="givenName" promptText="Given Name" />
+                                          <TextField fx:id="maidenName" promptText="Maiden Name" />
+                                          <TextField fx:id="surname" promptText="Surname" />
+                                          <TextField fx:id="sex" promptText="Sex" />
+                                          <TextField fx:id="dateOfBirth" promptText="Date of Birth" />
+                                          <TextField fx:id="placeOfBirth" layoutX="10.0" layoutY="135.0" promptText="Place of Birth" />
+                                          <TextField fx:id="dateOfDeath" promptText="Date of Death" />
+                                          <TextField fx:id="placeOfDeath" layoutX="10.0" layoutY="160.0" promptText="Place of Death" />
+                                          <Button fx:id="insertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
+                                             <VBox.margin>
+                                                <Insets top="12.0" />
+                                             </VBox.margin></Button>
+                                          <CheckBox mnemonicParsing="false" text="start new family">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </CheckBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="316.0" prefWidth="267.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="180.0" prefHeight="23.0" prefWidth="374.0" text="ADD FAMILY">
+                                             <font>
+                                                <Font name="Courier New" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="95.0" prefHeight="23.0" prefWidth="374.0" text="ASSOCIATIONS">
+                                             <font>
+                                                <Font name="Courier New" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="108.0" prefHeight="23.0" prefWidth="374.0">
+                                             <font>
+                                                <Font name="Courier New" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="23.0" prefWidth="374.0" text="CHILD IN">
+                                             <font>
+                                                <Font name="Courier New" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="chooseFamily1" onMouseClicked="#populateChooseFamily1" prefWidth="150.0" promptText="CHOOSE FAMILY" />
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="23.0" prefWidth="374.0" text="SPOUSE IN">
+                                             <font>
+                                                <Font name="Courier New" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="chooseFamily2" onMouseClicked="#populateChooseFamily2" prefWidth="150.0" promptText="CHOOSE FAMILY" />
+                                          <Label alignment="CENTER" layoutX="10.0" layoutY="72.0" prefHeight="23.0" prefWidth="374.0">
+                                             <font>
+                                                <Font name="Courier New" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button defaultButton="true" mnemonicParsing="false" text="ADD ASSOCIATION">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin></Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="EXTENDED DATA ENTRY">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="370.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Label alignment="CENTER" prefHeight="23.0" prefWidth="472.0" style="-fx-border-color: gray; -fx-border-width: 5;" text="DATA ENTRY" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="30.0" prefWidth="473.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH DATA" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Pane prefHeight="748.0" prefWidth="73.0" style="-fx-background-color: gray;" GridPane.columnIndex="1" GridPane.rowSpan="2147483647" />
+      <GridPane style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowSpan="2147483647">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-width: 5; -fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="213.0" fitWidth="315.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@tree.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="143.0" prefWidth="524.0" style="-fx-border-color: gray; -fx-border-width: 5;" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="543.0" style="-fx-border-color: gray; -fx-border-width: 5;" text="FAMILY TREE VIEW" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+   </children>
 </GridPane>

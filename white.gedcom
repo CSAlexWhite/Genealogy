@@ -10,40 +10,42 @@
 1 ADDR Submitters address
 2 CONT address continued here
 0 @DOUG@ INDI
-1 NAME Doug /White/
+1 NAME Douglas Goddard /White/
 1 SEX M
 1 BIRT
 2 PLAC Boston, MA
 2 DATE September 17, 1954
-1 FAMS @WHITE@
+1 FAMS @DOUGWHITE@
+1 FAMC @MACWHITE@
 0 @MARTI@ INDI
-1 NAME Marti /White/
+1 NAME Martha Jane /White/
 1 SEX F
 1 BIRT
 2 PLAC Gros Isle, Michigan
 2 DATE December 1, 1956
-1 FAMS @WHITE@
+1 FAMS @DOUGWHITE@
+1 FAMC @ARTHURROBINSON@
 0 @ALEX@ INDI
-1 NAME Alex /White/
+1 NAME Alexander Malcolm /White/
 1 SEX M
 1 BIRT
 2 PLAC Nicosia, Cyprus
 2 DATE January 23, 1984
-1 FAMC @WHITE@
+1 FAMC @DOUGWHITE@
 0 @BEN@ INDI
-1 NAME Ben /White/
+1 NAME Benjamin Arthur /White/
 1 SEX M
 1 BIRT
 2 PLAC New Haven, CT
 2 DATE May 16, 1986
-1 FAMC @WHITE@
+1 FAMC @DOUGWHITE@
 0 @NICK@ INDI
-1 NAME Nick /White/
+1 NAME Nicholas Robinson /White/
 1 SEX M
 1 BIRT
 2 PLAC New Haven, CT
 2 DATE November 15, 1987
-1 FAMC @WHITE@
+1 FAMC @DOUGWHITE@
 0 @WHITE@ FAM
 1 MARR
 2 PLAC Niles, MI
@@ -53,4 +55,50 @@
 1 CHIL @ALEX@
 1 CHIL @BEN@
 1 CHIL @NICK@
+
+0 @MALCOLM@ INDI
+1 NAME Malcolm /White/
+1 SEX M
+1 BIRT
+2 PLAC Buffalo, NY
+2 DATE January 20, 1923
+1 FAMS @MACWHITE@
+0 @SWISH@ INDI
+1 NAME Swish /White/
+1 SEX F
+1 BIRT
+2 PLAC Boston, MA
+2 DATE January 15, 1924
+1 FAMS @MACWHITE@
+0 @RANDALL@ INDI
+1 NAME Randall /White/
+1 SEX F
+1 BIRT
+2 PLAC Boston, MA
+2 DATE June 4, 1952
+1 FAMC @WHITE@
+0 @GERRIT@ INDI
+1 NAME Gerrit /White/
+1 SEX M
+1 BIRT
+2 PLAC New Haven, CT
+2 DATE May 16, 1956
+1 FAMC @WHITE@
+0 @JESSE@ INDI
+1 NAME Jesse /White/
+1 SEX F
+1 BIRT
+2 PLAC Hartford, CT
+2 DATE November 15, 1957
+1 FAMC @WHITE@
+0 @MACWHITE@ FAM
+1 MARR
+2 PLAC Boston, MA
+2 DATE August 15, 1940
+1 HUSB @MALCOLM@
+1 WIFE @SWISH@
+1 CHIL @RANDALL@
+1 CHIL @DOUG@
+1 CHIL @GERRIT@
+1 CHIL @JESSE@
 0 TRLR

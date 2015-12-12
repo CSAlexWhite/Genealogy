@@ -14,6 +14,12 @@ public class PersonalNameStructure extends Parser {
     String givenName, surname, maidenName;
     // TODO add Maiden Name?
 
+    public PersonalNameStructure(String givenName, String surname){
+
+        this.givenName = givenName;
+        this.surname = surname;
+    }
+
     public PersonalNameStructure() throws GEDCOM_Exception {
 
         accept(NAME);

@@ -14,10 +14,18 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class IndividualEventStructure extends Parser{
 
-    String date = "", familyID = "";
+    String familyID = "";
     String eventType = "";
     Individual individual;
     IndividualEventDetail eventDetail;
+
+    public IndividualEventStructure(Individual individual, String eventType, String date, String place) throws GEDCOM_Exception{
+
+        this.eventType = eventType;
+        this.eventDetail = new IndividualEventDetail(date, place);
+        this.individual = individual;
+        pushToDB();
+    }
 
     public IndividualEventStructure(Individual individual) throws GEDCOM_Exception {
 
@@ -55,6 +63,8 @@ public class IndividualEventStructure extends Parser{
         String place_id =
                 getResult("place_id", "place", "place_name", placeName);
 
+        String date = eventDetail.eventDetail.date;
+
         /* INSERT THE INDIVIDUAL EVENT DETAILS */
         sql = "INSERT INTO individual_event" +
                 " (individual_xref, type, date, place_id)" +
@@ -73,8 +83,6 @@ public class IndividualEventStructure extends Parser{
                 "\" ) LIMIT 1;";
 
         // TODO need to change the check against individuals, else only one event per individual
-
-        System.out.println(sql);
 
         executeSQL_Statement(sql);
     }
