@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-import static com.alexwhitecs.Genealogy.FileOperations.*;
+import static com.alexwhitecs.Genealogy.Database.Output.*;
 import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.getColumnAsArray;
 
 public class Controller {

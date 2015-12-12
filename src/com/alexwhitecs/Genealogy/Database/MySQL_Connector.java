@@ -82,6 +82,35 @@ public class MySQL_Connector {
         return lastid;
     }
 
+    public static ArrayList<String[]> retrieveQuery(String query){
+
+        ArrayList<String[]> rowValues = new ArrayList<String[]>();
+
+        try {
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(query);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                    row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rowValues;
+    }
+
     public static String getResult(String select, String from, String where, String equals){
 
         String result = "";
