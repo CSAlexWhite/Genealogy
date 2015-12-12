@@ -81,6 +81,6 @@ public class Controller {
     @FXML
     public void printAllGEDCOM(){
 
-        printIndividuals();
+        printGEDCOM();
     }
 }

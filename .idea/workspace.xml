@@ -5,31 +5,22 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail$OtherDetails.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail$OtherDetails.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family$Events.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family$Events.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Attributes.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Attributes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Events.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Events.class" />
+      <change type="MODIFICATION" beforePath="C:\Users\alexw\Dropbox\[java]\Genealogy\out\production\Genealogy\com\alexwhitecs\Genealogy\FileOperations.class" afterPath="C:\Users\alexw\Dropbox\[java]\Genealogy\out\production\Genealogy\com\alexwhitecs\Genealogy\FileOperations.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/MySQL_Connector.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/MySQL_Connector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input_log.txt" afterPath="$PROJECT_DIR$/input_log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/white.gedcom" afterPath="$PROJECT_DIR$/white.gedcom" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -90,21 +81,51 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="IndividualEventStructure.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
+            <file leaf-file-name="Individual.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
                 <provider selected="true" editor-type-id="text-editor">
                   <state vertical-scroll-proportion="0.0">
-                    <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+                    <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="Individual.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
+            <file leaf-file-name="IndividualEventStructure.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="5.107106">
-                    <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="EventDetail.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="PlaceStructure.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.33264676">
+                    <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -118,11 +139,11 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0">
-                    <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+                  <state vertical-scroll-proportion="0.530381">
+                    <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -134,7 +155,7 @@
               <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
                 <provider selected="true" editor-type-id="text-editor">
                   <state vertical-scroll-proportion="0.0">
-                    <caret line="83" column="27" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
+                    <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -142,16 +163,26 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="MySQL_Connector.java" pinned="false" current-in-tab="true">
+            <file leaf-file-name="MySQL_Connector.java" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.35427395">
-                    <caret line="175" column="44" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
                     <folding>
                       <element signature="e#4930#4940#0" expanded="true" />
                       <element signature="e#6000#6010#0" expanded="true" />
                       <element signature="e#6948#6958#0" expanded="true" />
                     </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Header.java" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-5.586207">
+                    <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
@@ -166,17 +197,37 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.60012716">
+    <splitter split-orientation="horizontal" split-proportion="0.7228226">
       <split-first>
         <leaf>
           <file leaf-file-name="FileOperations.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.49745676">
-                  <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+                <state vertical-scroll-proportion="0.13021363">
+                  <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FamilyEventStructure.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Submitter.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -185,7 +236,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+                  <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -201,16 +252,6 @@
               </provider>
               <provider editor-type-id="JavaFX-Scene-Builder">
                 <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EventDetail.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-                  <folding />
-                </state>
               </provider>
             </entry>
           </file>
@@ -233,8 +274,18 @@
               <file leaf-file-name="white.gedcom" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/white.gedcom">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.26929134">
-                      <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+                    <state vertical-scroll-proportion="0.47874016">
+                      <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="reup.gedcom" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/reup.gedcom">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state vertical-scroll-proportion="-10.413794">
+                      <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
                       <folding />
                     </state>
                   </provider>
@@ -248,7 +299,7 @@
                 <entry file="file://$PROJECT_DIR$/input_log.txt">
                   <provider selected="true" editor-type-id="text-editor">
                     <state vertical-scroll-proportion="0.0">
-                      <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                      <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                       <folding />
                     </state>
                   </provider>
@@ -283,7 +334,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GEDCOM/Record/Substructure/IndividualEvent.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Record/Structure/Submitter.java" />
         <option value="$PROJECT_DIR$/src/GEDCOM/Record/Substructure/Address_Structure.java" />
@@ -302,8 +352,6 @@
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SourceCitation.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SourceRepositoryCitation.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/AddressStructure.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Link.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceException.java" />
@@ -321,19 +369,22 @@
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SpouseToFamilyLink.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/ChildToFamilyLink.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java" />
-        <option value="$PROJECT_DIR$/white.gedcom" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
+        <option value="$PROJECT_DIR$/reup.gedcom" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java" />
+        <option value="$PROJECT_DIR$/white.gedcom" />
       </list>
     </option>
   </component>
@@ -602,6 +653,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="GEDCOM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Record" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Substructure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GEDCOM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Record" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Genealogy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -634,8 +745,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alexw\Dropbox\[java]\Genealogy\src\com\alexwhitecs\Genealogy" />
       <recent name="C:\Users\alexw\Dropbox\[java]\Genealogy" />
+      <recent name="C:\Users\alexw\Dropbox\[java]\Genealogy\src\com\alexwhitecs\Genealogy" />
       <recent name="D:\Dropbox\[java]\Genealogy" />
       <recent name="D:\Dropbox\[java]\Genealogy\src\GEDCOM" />
     </key>
@@ -866,7 +977,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="true" weight="0.56023455" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
+      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="true" weight="0.3608742" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16151386" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -940,14 +1051,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Symbols.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1103,30 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="33" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7033085">
@@ -1144,7 +1223,7 @@
     <entry file="file://$PROJECT_DIR$/input_log.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1215,50 +1294,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8067141">
-          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNamePieces.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36724314">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/white.gedcom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26929134">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1279,54 +1318,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.107106">
-          <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="27" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35427395">
-          <caret line="175" column="44" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
           <folding>
             <element signature="e#4930#4940#0" expanded="true" />
             <element signature="e#6000#6010#0" expanded="true" />
@@ -1335,13 +1330,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49745676">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.586207">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.530381">
+          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reup.gedcom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.413794">
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13021363">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264676">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/white.gedcom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47874016">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

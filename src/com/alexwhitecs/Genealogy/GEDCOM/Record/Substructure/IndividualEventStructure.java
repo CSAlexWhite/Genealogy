@@ -71,15 +71,15 @@ public class IndividualEventStructure extends Parser{
                 " SELECT * FROM (SELECT " +
                 "\"" + individual.getID() + "\", " +
                 "\"" + eventType + "\", " +
-                "\"" + date + "\", " +
+                "\"" + date.replace(" , ", ", ") + "\", " +
                 "\"" + place_id + "\") " +
                 " AS tmp" +
                 " WHERE NOT EXISTS (" +
                 " SELECT type FROM individual_event " +
                 " WHERE individual_xref = " +               // NO SAME EVENT SAME DATE
                 "\"" + individual.getID() + "\"" +
-                " AND type = \"" + eventType +
-                "\" AND date = \"" + date +
+                " AND type LIKE \"" + eventType +
+                "\" OR date LIKE \"" + date +
                 "\" ) LIMIT 1;";
 
         // TODO need to change the check against individuals, else only one event per individual

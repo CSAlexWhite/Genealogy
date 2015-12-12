@@ -36,7 +36,7 @@ public class EventDetail extends Parser{
         startLevel = getCurrentLevel();
 
         nextLevel();
-        while(getCurrentLevel() != 1){
+        while(getCurrentLevel() > 1){
 
             if(getCurrentToken() == TYPE) readType();
             if(getCurrentToken() == DATE) readDate();
@@ -44,7 +44,7 @@ public class EventDetail extends Parser{
 //            if(getCurrentToken() == RELI) readReligion();
 //            if(getCurrentToken() == CAUS) readCause();
 //            if(getCurrentToken() == RESN) readRestrictionNotice();
-
+            System.out.println(getCurrentToken());
             if(OtherDetails.contains(getCurrentToken())) readDetail();
         }
     }
@@ -74,6 +74,8 @@ public class EventDetail extends Parser{
             if(getCurrentToken() == STRING) accept(STRING);
             else accept(NUMERIC);
         }
+
+        date.trim();
 
         System.out.println("date: " + date);
         nextLevel();

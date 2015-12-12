@@ -51,6 +51,8 @@ public class FamilyEventStructure extends Parser{
 
         executeSQL_Statement(sql);
 
+        String date = eventDetail.eventDetail.date;
+
         String place_id =
                 getResult("place_id", "place", "place_name", placeName);
 
@@ -60,7 +62,7 @@ public class FamilyEventStructure extends Parser{
                 " SELECT * FROM (SELECT " +
                 "\"" + family.getID() + "\", " +
                 "\"" + eventType + "\", " +
-                "\"" + date + "\", " +
+                "\"" + date.replace(" , ", ", ") + "\", " +
                 "\"" + place_id + "\", " +
                 "\"" + family.getHusband() + "\", " +
                 "\"" + family.getWife() + "\") " +
@@ -70,7 +72,7 @@ public class FamilyEventStructure extends Parser{
                 "WHERE family_xref = " +
                 "\"" + family.getID() + "\"" +
                 " AND type = \"" + eventType +
-                "\" AND date = \"" + date +
+                "\" OR date = \"" + date +
                 "\" ) LIMIT 1;";
 
         executeSQL_Statement(sql);

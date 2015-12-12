@@ -39,7 +39,8 @@ public class Header extends Parser {
             if(getCurrentToken() == CHAR) readCharset();
 //            if(getCurrentToken() == LANG) readLanguage();
 //            if(getCurrentToken() == PLAC) readPlace();
-//            if(getCurrentTokenelse  NOTE) readNote();
+//            if(getCurrentToken() == NOTE) readNote();
+            System.out.println(getCurrentToken());
             if(getCurrentToken() == CONT) continueLine();
         }
 
@@ -55,9 +56,15 @@ public class Header extends Parser {
 
         accept(SOUR);
 
-        lastAssignment = fileID = getCurrentSpelling();
+//        lastAssignment = fileID = getCurrentSpelling();
+
+        while(getCurrentToken() == STRING) {
+
+            lastAssignment = fileID += (getCurrentSpelling() + " ");
+            accept(STRING);
+        }
+
         System.out.println(tabs() + "source: " + fileID);
-        accept(STRING);
 
         nextLevel();
     }

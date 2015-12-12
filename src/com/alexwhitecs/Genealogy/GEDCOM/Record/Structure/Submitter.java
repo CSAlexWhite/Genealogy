@@ -50,9 +50,13 @@ public class Submitter extends Parser {
 
         accept(NAME);
 
-        lastAssignment = submitterName = getCurrentSpelling();
+        while(getCurrentToken() == STRING) {
+
+            lastAssignment = submitterName += (getCurrentSpelling() + " ");
+            accept(STRING);
+        }
+
         System.out.println(tabs() + "name: " + submitterName);
-        accept(STRING);
 
         nextLevel();
     }

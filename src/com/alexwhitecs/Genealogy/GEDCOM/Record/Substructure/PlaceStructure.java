@@ -37,6 +37,8 @@ public class PlaceStructure extends Parser{
             accept(STRING);
         }
 
+        placeName.trim();
+
         System.out.println(tabs() + "placeName: " + placeName);
         nextLevel();
     }

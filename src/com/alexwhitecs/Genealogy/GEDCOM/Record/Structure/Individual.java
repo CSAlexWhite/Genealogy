@@ -62,7 +62,7 @@ public class Individual extends Parser {
         accept(INDI);
         nextLevel();
 
-        while(getCurrentLevel() != 0){
+        while(getCurrentLevel() > 0){
 
 //            if(getCurrentToken() == RESN) readRestrictionNotice();
             if(getCurrentToken() == NAME) readNameStructure();
