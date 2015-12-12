@@ -20,9 +20,23 @@ public class Output {
 
     private static void printLevel(){
 
-        if(treeLevel == 1) return;
+        if(treeLevel == 1) {
+            System.out.println("\t");
+            return;
+        }
+
         for(int i=1; i<treeLevel; i++) System.out.print("\t");
             System.out.print("|-->");
+    }
+
+    private static String tabs(){
+
+        String tabs = "";
+
+        for(int i=1; i<treeLevel; i++) tabs += "\t";
+        tabs += "\t";
+
+        return tabs;
     }
 
     public static void printDescendants(String individualXREF){
@@ -47,13 +61,26 @@ public class Output {
         String spouse1 = (getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                          getResult("surname", "individual", "xref_id", individualXREF).trim()).trim();
 
+        String spouse1Birth = getResult("SELECT date" +
+                                        " FROM individual_event" +
+                                        " WHERE individual_event.individual_xref = '" + individualXREF +
+                                        "' AND individual_event.`type` LIKE \"BIRT\" ");
+
+        String spouse1Death = getResult(" SELECT date" +
+                                        " FROM individual_event" +
+                                        " WHERE individual_event.individual_xref = '" + individualXREF +
+                                        "' AND individual_event.`type` LIKE \"DEAT\" ");
+
+        spouse1 += "\n" + tabs() + "b. " + spouse1Birth;
+        if(!spouse1Death.isEmpty()) spouse1 += " d. " + spouse1Death;
+
         String spouse2 = (getResult("given_name", "individual", "xref_id", spouse).trim() + " " +
                          getResult("surname", "individual", "xref_id", spouse).trim()).trim();
 
         ObservableList<String> children = getChildren(individualXREF, spouseInfo[1]);
 
         if(!spouse2.isEmpty()) {
-            System.out.print(spouse1 + " m. " + spouse2);
+            System.out.print(spouse1 + "\n" + tabs() + "m. " + spouse2);
             System.out.println(", " + getResult("date", "family_event", "family_xref",
                     getResult("xref_id", "family", spouseInfo[1], individualXREF)));
         }
@@ -68,6 +95,7 @@ public class Output {
 
         String partnerType;
 
+        // TODO MULTIPLE SPOUSES
         String spouse = getResult("wife", "family", "husband", individualXREF);
         partnerType = "husband";
 
@@ -80,6 +108,29 @@ public class Output {
         String[] result = {spouse, partnerType};
 
         return result;
+    }
+
+    public static ArrayList<String[]> getSpouses(String individualXREF){
+
+        ArrayList<String[]> information, results;
+
+        String partnerType = "husband";
+        information = getTableAsArray("wife", "family", partnerType, individualXREF);
+
+        if(information.isEmpty()){
+
+            partnerType = "wife";
+            information = getTableAsArray("husband", "family", partnerType, individualXREF);
+        }
+
+        results = new ArrayList<>();
+        for(String[] info : information){
+
+            String[] result = {info[0], partnerType};
+            results.add(result);
+        }
+
+        return results;
     }
 
     public static ObservableList<String> getChildren(String individualXREF, String spouseType){

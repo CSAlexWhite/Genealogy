@@ -134,6 +134,25 @@ public class MySQL_Connector {
         return result;
     }
 
+    public static String getResult(String query){
+
+        String result = "";
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+
+                result = rs.getString(1);
+            }
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return result;
+    }
+
     public static ObservableList<String> getColumnAsArray(String select, String from, String where, String equals){
 
         ObservableList<String> results = FXCollections.observableArrayList();
@@ -260,11 +279,6 @@ public class MySQL_Connector {
             e.printStackTrace();
         }
 
-//        for(String[] element : rowValues){
-//
-//            for(String elt : element) System.out.print(elt + "\t");
-//            System.out.println();
-//        }
 
         return rowValues;
     }
@@ -294,12 +308,6 @@ public class MySQL_Connector {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-//        for(String[] element : rowValues){
-//
-//            for(String elt : element) System.out.print(elt + "\t");
-//            System.out.println();
-//        }
 
         return rowValues;
     }

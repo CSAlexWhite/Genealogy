@@ -199,10 +199,6 @@
                                           <TextField fx:id="placeOfBirth" layoutX="10.0" layoutY="135.0" promptText="Place of Birth" />
                                           <TextField fx:id="dateOfDeath" promptText="Date of Death" />
                                           <TextField fx:id="placeOfDeath" layoutX="10.0" layoutY="160.0" promptText="Place of Death" />
-                                          <Button fx:id="insertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
-                                             <VBox.margin>
-                                                <Insets top="12.0" />
-                                             </VBox.margin></Button>
                                           <CheckBox mnemonicParsing="false" text="start new family">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
@@ -235,21 +231,21 @@
                                                 <Font name="Courier New" size="16.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="chooseFamily1" onMouseClicked="#populateChooseFamily1" prefWidth="150.0" promptText="CHOOSE FAMILY" />
+                                          <ComboBox fx:id="chooseChildOf" onMouseClicked="#populateChooseFamily1" prefWidth="150.0" promptText="CHOOSE FAMILY" />
                                           <Label alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="23.0" prefWidth="374.0" text="SPOUSE IN">
                                              <font>
                                                 <Font name="Courier New" size="16.0" />
                                              </font>
                                           </Label>
-                                          <ComboBox fx:id="chooseFamily2" onMouseClicked="#populateChooseFamily2" prefWidth="150.0" promptText="CHOOSE FAMILY" />
+                                          <ComboBox fx:id="chooseSpouseOf" onMouseClicked="#populateChooseFamily2" prefWidth="150.0" promptText="CHOOSE FAMILY" />
                                           <Label alignment="CENTER" layoutX="10.0" layoutY="72.0" prefHeight="23.0" prefWidth="374.0">
                                              <font>
                                                 <Font name="Courier New" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Button defaultButton="true" mnemonicParsing="false" text="ADD ASSOCIATION">
+                                          <Button fx:id="insertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
                                              <VBox.margin>
-                                                <Insets />
+                                                <Insets top="12.0" />
                                              </VBox.margin></Button>
                                        </children>
                                     </VBox>

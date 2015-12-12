@@ -23,6 +23,15 @@ public class ChildToFamilyLink extends Parser{
     Individual child;
     Family family;
 
+    public ChildToFamilyLink(Individual person, String family_xref){
+
+        child = person;
+        familyID = family_xref;
+        individualID = person.getID();
+
+        pushToDB();
+    }
+
     public ChildToFamilyLink(Individual person) throws GEDCOM_Exception {
 
         child = person;

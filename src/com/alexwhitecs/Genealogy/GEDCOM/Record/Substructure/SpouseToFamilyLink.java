@@ -23,6 +23,14 @@ public class SpouseToFamilyLink extends Parser{
 
     Vector<NoteStructure> notes;
 
+    public SpouseToFamilyLink(Individual person, String family_xref){
+
+        spouse = person;
+        individualID = person.getID();
+        familyID = family_xref;
+        pushToDB();
+    }
+
     public SpouseToFamilyLink(Individual person) throws GEDCOM_Exception {
 
         spouse = person;

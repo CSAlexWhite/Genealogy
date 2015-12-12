@@ -1,6 +1,9 @@
 package com.alexwhitecs.Genealogy;
 
+import com.alexwhitecs.Genealogy.GEDCOM.GEDCOM_Exception;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
+import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.ChildToFamilyLink;
+import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.SpouseToFamilyLink;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,8 +27,8 @@ public class Controller {
 
     @FXML Button insertIndividual;
 
-    @FXML ComboBox<String>  chooseFamily1 = new ComboBox<>();
-    @FXML ComboBox<String>  chooseFamily2 = new ComboBox<>();
+    @FXML ComboBox<String> chooseChildOf = new ComboBox<>();
+    @FXML ComboBox<String> chooseSpouseOf = new ComboBox<>();
     @FXML ComboBox<String>  columnName1 = new ComboBox<>();
     @FXML ComboBox<String>  columnName2 = new ComboBox<>();
 
@@ -41,21 +44,33 @@ public class Controller {
                             dateOfDeath.getText(),
                             placeOfDeath.getText()};
 
-        new Individual(details);
+        Individual newPerson = new Individual(details);
+
+        if(!(chooseChildOf.getValue() == null) && !chooseChildOf.getValue().isEmpty()) {
+
+            System.out.println("choose Child of is: " + chooseChildOf.getValue());
+            new ChildToFamilyLink(newPerson, chooseChildOf.getValue());
+        }
+
+        if(!(chooseSpouseOf.getValue() == null) && !chooseSpouseOf.getValue().isEmpty()){
+
+            System.out.println("choose Spouse of is: " + chooseSpouseOf.getValue());
+            new SpouseToFamilyLink(newPerson, chooseSpouseOf.getValue());
+        }
     }
 
     @FXML
     public void populateChooseFamily1(){
 
         ObservableList<String> options = FXCollections.observableArrayList(getColumnAsArray("xref_id", "family"));
-        chooseFamily1.setItems(options);
+        chooseChildOf.setItems(options);
     }
 
     @FXML
     public void populateChooseFamily2(){
 
         ObservableList<String> options = FXCollections.observableArrayList(getColumnAsArray("xref_id", "family"));
-        chooseFamily2.setItems(options);
+        chooseSpouseOf.setItems(options);
     }
 
     public void setupLists(){
