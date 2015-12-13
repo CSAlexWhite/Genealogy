@@ -80,14 +80,6 @@
 2 PLAC Hartford, CT
 2 DATE November 15, 1957
 1 FAMC @MACWHITE@
-0 @BobbyWhite@ INDI
-1 NAME Bobby /White/
-1 SEX 
-1 FAMC @DOUGWHITE@
-0 @TimmyWhiteWhite@ INDI
-1 NAME Timmy White /White/
-1 SEX 
-1 FAMC @DOUGWHITE@
 
 0 @DOUGWHITE@ FAM
 1 MARR
@@ -97,9 +89,7 @@
 1 WIFE @MARTI@
 1 CHIL @ALEX@
 1 CHIL @BEN@
-1 CHIL @BobbyWhite@
 1 CHIL @NICK@
-1 CHIL @TimmyWhiteWhite@
 0 @MACWHITE@ FAM
 1 MARR
 2 PLAC Boston, MA
