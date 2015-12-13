@@ -82,6 +82,15 @@ public class MySQL_Connector {
         return lastid;
     }
 
+    public static void updateTable(String tablename, String setStatement, String whereStatement){
+
+        String sql = "UPDATE " + tablename +
+                     " SET " + setStatement +
+                     " WHERE " + whereStatement;
+
+        executeSQL_Statement(sql);
+    }
+
     public static ArrayList<String[]> retrieveQuery(String query){
 
         ArrayList<String[]> rowValues = new ArrayList<String[]>();
@@ -243,11 +252,36 @@ public class MySQL_Connector {
             e.printStackTrace();
         }
 
-//        for(String[] element : rowValues){
-//
-//            for(String elt : element) System.out.print(elt + "\t");
-//            System.out.println();
-//        }
+        return rowValues;
+    }
+
+    public static ObservableList<String[]> getTableAsArray(String select, String from){
+
+        ObservableList<String[]> rowValues =FXCollections.observableArrayList();
+
+        try {
+            String query =  "SELECT " + select +
+                    " FROM " + from;
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(query);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                    row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         return rowValues;
     }

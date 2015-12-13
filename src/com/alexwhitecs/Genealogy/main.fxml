@@ -17,9 +17,9 @@
       <RowConstraints prefHeight="738.0" />
    </rowConstraints>
    <columnConstraints>
-      <ColumnConstraints minWidth="470.0" prefWidth="470.0" />
+      <ColumnConstraints maxWidth="600.0" minWidth="600.0" prefWidth="600.0" />
       <ColumnConstraints minWidth="10.0" prefWidth="10.0" />
-      <ColumnConstraints minWidth="524.0" prefWidth="524.0" />
+      <ColumnConstraints minWidth="394.0" prefWidth="394.0" />
    </columnConstraints>
    <children>
       <GridPane GridPane.rowSpan="2147483647">
@@ -36,7 +36,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: gray;" GridPane.rowIndex="4">
                <children>
-                  <TabPane prefHeight="327.0" prefWidth="469.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="327.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="INDIVIDUAL">
                            <content>
@@ -52,9 +52,9 @@
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
                                        <children>
-                                          <ScrollPane prefHeight="248.0" prefViewportHeight="246.0" prefViewportWidth="368.0" prefWidth="469.0">
+                                          <ScrollPane prefHeight="248.0" prefViewportHeight="246.0" prefViewportWidth="368.0" prefWidth="598.0">
                                              <content>
-                                                <TableView layoutX="77.0" layoutY="14.0" prefHeight="246.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <TableView layoutX="77.0" layoutY="14.0" prefHeight="246.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                   <columns>
                                                     <TableColumn prefWidth="115.0" text="Given Name" />
                                                     <TableColumn prefWidth="85.0" text="Surname" />
@@ -180,7 +180,7 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <GridPane prefHeight="316.0" prefWidth="470.0">
+                              <GridPane prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="100.0" />
@@ -194,12 +194,21 @@
                                           <TextField fx:id="givenName" promptText="Given Name" />
                                           <TextField fx:id="maidenName" promptText="Maiden Name" />
                                           <TextField fx:id="surname" promptText="Surname" />
-                                          <TextField fx:id="sex" promptText="Sex" />
+                                          <HBox prefHeight="19.0" prefWidth="290.0">
+                                             <children>
+                                                <Label text="Sex">
+                                                   <HBox.margin>
+                                                      <Insets left="7.0" right="20.0" top="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="sex" onMouseClicked="#populateSex" prefHeight="25.0" prefWidth="243.0" />
+                                             </children>
+                                          </HBox>
                                           <TextField fx:id="dateOfBirth" promptText="Date of Birth" />
                                           <TextField fx:id="placeOfBirth" layoutX="10.0" layoutY="135.0" promptText="Place of Birth" />
                                           <TextField fx:id="dateOfDeath" promptText="Date of Death" />
                                           <TextField fx:id="placeOfDeath" layoutX="10.0" layoutY="160.0" promptText="Place of Death" />
-                                          <CheckBox mnemonicParsing="false" text="start new family">
+                                          <CheckBox fx:id="startFamily" mnemonicParsing="false" text="start new family">
                                              <VBox.margin>
                                                 <Insets top="5.0" />
                                              </VBox.margin>
@@ -243,7 +252,7 @@
                                                 <Font name="Courier New" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="insertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
+                                          <Button fx:id="btnInsertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
                                              <VBox.margin>
                                                 <Insets top="12.0" />
                                              </VBox.margin></Button>
@@ -255,6 +264,59 @@
                         </AnchorPane>
                   </content>
                 </Tab>
+                  <Tab text="ADD FAMILY CONNECTION">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="347.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="253.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
+                                       <children>
+                                          <TableView fx:id="individualsTable1" layoutX="18.0" layoutY="24.0" prefHeight="255.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="givenNameColumn1" prefWidth="118.0" text="Given name" />
+                                              <TableColumn fx:id="surnameColumn1" prefWidth="119.0" text="Surname" />
+                                                <TableColumn fx:id="idColumn1" prefWidth="109.0" text="ID" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
+                                       <children>
+                                          <TableView fx:id="familiesTable1" layoutX="18.0" layoutY="24.0" prefHeight="247.0" prefWidth="253.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="familyNameColumn" prefWidth="124.0" text="Family Name" />
+                                              <TableColumn fx:id="headOfHouseholdColumn" prefWidth="128.0" text="Head of Household" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                       <children>
+                                          <Button fx:id="btnRefreshLists" mnemonicParsing="false" onAction="#populateIndividualsTable1" text="REFRESH LISTS">
+                                             <HBox.margin>
+                                                <Insets right="50.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnMakeConnection" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#makeConnection" text="MAKE CONNECTION" />
+                                          <ChoiceBox fx:id="childOrSpouse" onMouseClicked="#intializeConnectionOptions" prefWidth="150.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
                 <Tab text="EXTENDED DATA ENTRY">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -275,12 +337,12 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <Label alignment="CENTER" prefHeight="23.0" prefWidth="472.0" style="-fx-border-color: gray; -fx-border-width: 5;" text="DATA ENTRY" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="615.0" style="-fx-border-color: gray; -fx-border-width: 5;" text="DATA ENTRY" GridPane.rowIndex="1">
                <font>
                   <Font name="Courier New" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="30.0" prefWidth="473.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH DATA" GridPane.rowIndex="3">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="33.0" prefWidth="613.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH DATA" GridPane.rowIndex="3">
                <font>
                   <Font name="Courier New" size="18.0" />
                </font>

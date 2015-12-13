@@ -21,7 +21,7 @@ public class Output {
     private static void printLevel(){
 
         if(treeLevel == 1) {
-            System.out.println("\t");
+            System.out.print("\t");
             return;
         }
 

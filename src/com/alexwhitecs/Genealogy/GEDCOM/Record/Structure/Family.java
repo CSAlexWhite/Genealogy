@@ -23,6 +23,16 @@ public class Family extends Parser {
 
     Vector<FamilyEventStructure> familyEvents;
 
+    public Family(String family_id, String individualID, String sex){
+
+        xref_family = family_id;
+
+        if(sex == "M") husband = individualID;
+        else wife = individualID;
+
+        pushToDB();
+    }
+
     public Family(String xref_family) throws GEDCOM_Exception {
 
         children = new Vector<String>();
@@ -75,6 +85,8 @@ public class Family extends Parser {
                 " SELECT xref_id FROM family WHERE xref_id = " +
                 "\"" + xref_family + "\"" +
                 " ) LIMIT 1;";
+
+        System.out.println(sql);
 
         executeSQL_Statement(sql);
     }

@@ -24,6 +24,7 @@
 2 DATE December 1, 1956
 1 FAMC @ARTHURROBINSON@
 1 FAMS @DOUGWHITE@
+1 FAMS @SylvesterStillstoned@
 0 @ALEX@ INDI
 1 NAME Alexander Malcolm  /White/
 1 SEX M
@@ -38,6 +39,7 @@
 2 PLAC New Haven, CT
 2 DATE May 16, 1986
 1 FAMC @DOUGWHITE@
+1 FAMC @MALCOLM@
 0 @NICK@ INDI
 1 NAME Nicholas Robinson  /White/
 1 SEX M
@@ -58,6 +60,7 @@
 1 BIRT
 2 PLAC Boston, MA
 2 DATE January 15, 1924
+1 FAMC @DOUG@
 1 FAMS @MACWHITE@
 0 @RANDALL@ INDI
 1 NAME Randall  /White/
@@ -66,6 +69,7 @@
 2 PLAC Boston, MA
 2 DATE June 4, 1952
 1 FAMC @MACWHITE@
+1 FAMS @DOUG@
 0 @GERRIT@ INDI
 1 NAME Gerrit  /White/
 1 SEX M
@@ -80,14 +84,51 @@
 2 PLAC Hartford, CT
 2 DATE November 15, 1957
 1 FAMC @MACWHITE@
-0 @BobbyWhite@ INDI
-1 NAME Bobby /White/
-1 SEX 
-1 FAMC @DOUGWHITE@
-0 @TimmyWhiteWhite@ INDI
-1 NAME Timmy White /White/
-1 SEX 
-1 FAMC @DOUGWHITE@
+0 @HowardJohnson@ INDI
+1 NAME Howard /Johnson/
+1 SEX M
+1 BIRT
+2 PLAC Montgomery, Alabama
+2 DATE January 5, 2010
+1 DEAT
+2 PLAC 
+2 DATE 
+0 @TomJone@ INDI
+1 NAME Tom /Jone/
+1 SEX M
+1 BIRT
+2 PLAC Las Vegas, NV
+2 DATE January 1, 1570
+0 @BuddyHolly@ INDI
+1 NAME Buddy /Holly/
+1 SEX M
+1 BIRT
+2 PLAC Jonestown, VA
+2 DATE December 9, 1947
+0 @TimScheiner@ INDI
+1 NAME Tim /Scheiner/
+1 SEX M
+0 @HarryWinston@ INDI
+1 NAME Harry /Winston/
+1 SEX M
+0 @TomFoolery@ INDI
+1 NAME Tom /Foolery/
+1 SEX null
+0 @RobertPaulson@ INDI
+1 NAME Robert /Paulson/
+1 SEX M
+0 @SylvesterStillstoned@ INDI
+1 NAME Sylvester /Stillstoned/
+1 SEX M
+1 BIRT
+2 PLAC Vesuvius, Italy
+2 DATE April 20, 1961
+0 @LewisThomasLit@ INDI
+1 NAME Lewis Thomas /Lit/
+1 SEX M
+1 FAMC @DOUG@
+1 FAMC @SYLVESTER_STILLSTONED@
+1 FAMS @DOUGWHITE@
 
 0 @DOUGWHITE@ FAM
 1 MARR
@@ -97,9 +138,7 @@
 1 WIFE @MARTI@
 1 CHIL @ALEX@
 1 CHIL @BEN@
-1 CHIL @BobbyWhite@
 1 CHIL @NICK@
-1 CHIL @TimmyWhiteWhite@
 0 @MACWHITE@ FAM
 1 MARR
 2 PLAC Boston, MA
@@ -110,4 +149,11 @@
 1 CHIL @GERRIT@
 1 CHIL @JESSE@
 1 CHIL @RANDALL@
+0 @ROBERT_PAULSON@ FAM
+1 HUSB @RobertPaulson@
+1 WIFE -wife-
+0 @SYLVESTER_STILLSTONED@ FAM
+1 HUSB @SylvesterStillstoned@
+1 WIFE -wife-
+1 CHIL @LewisThomasLit@
 0 TRLR
