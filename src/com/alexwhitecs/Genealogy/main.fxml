@@ -243,7 +243,7 @@
                                                 <Font name="Courier New" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="btnInsertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
+                                          <Button fx:id="insertIndividual" defaultButton="true" mnemonicParsing="false" onAction="#insertIndividual" prefHeight="25.0" prefWidth="187.0" text="ADD NEW INDIVIDUAL">
                                              <VBox.margin>
                                                 <Insets top="12.0" />
                                              </VBox.margin></Button>
@@ -255,58 +255,6 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="ADD FAMILY CONNECTION">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <GridPane prefHeight="300.0" prefWidth="470.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
-                                       <children>
-                                          <TableView fx:id="individualsTable1" layoutX="18.0" layoutY="24.0" prefHeight="255.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <columns>
-                                              <TableColumn fx:id="givenNameColumn1" prefWidth="115.0" text="Given name" />
-                                              <TableColumn fx:id="surnameColumn1" prefWidth="119.0" text="Surname" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
-                                       <children>
-                                          <TableView fx:id="familiesTable1" layoutX="18.0" layoutY="24.0" prefHeight="255.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <columns>
-                                              <TableColumn fx:id="familyNameColumn" prefWidth="107.0" text="Family Name" />
-                                              <TableColumn fx:id="headOfHouseholdColumn" prefWidth="127.0" text="Head of Household" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
-                                       <children>
-                                          <Button fx:id="btnRefreshLists" mnemonicParsing="false" onAction="#populateIndividualsTable1" text="REFRESH LISTS">
-                                             <HBox.margin>
-                                                <Insets right="50.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button fx:id="btnMakeConnection" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#makeConnection" text="MAKE CONNECTION" />
-                                          <ChoiceBox fx:id="childOrSpouse" onMouseClicked="#intializeConnectionOptions" prefWidth="150.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
                 <Tab text="EXTENDED DATA ENTRY">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
