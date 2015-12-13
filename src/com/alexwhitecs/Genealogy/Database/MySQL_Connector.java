@@ -317,9 +317,11 @@ public class MySQL_Connector {
         return rowValues;
     }
 
-    public static ArrayList<String[]> getQueryAsArray(String query){
+    public static ObservableList<String[]> getQueryAsArray(String query){
 
-        ArrayList<String[]> rowValues = new ArrayList<String[]>();
+        System.out.println(query);
+
+        ObservableList<String[]> rowValues =FXCollections.observableArrayList();
 
         try {
 

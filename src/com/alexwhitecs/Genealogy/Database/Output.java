@@ -1,5 +1,6 @@
 package com.alexwhitecs.Genealogy.Database;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.FileNotFoundException;
@@ -39,8 +40,63 @@ public class Output {
         return tabs;
     }
 
+    public static void printFamilyTree(String individualXREF){
+
+        System.out.println("***************************");
+        System.out.println("PRINTING FAMILY TREE OF " +
+                getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+                getResult("surname", "individual", "xref_id", individualXREF).trim());
+
+        printTree(individualXREF);
+    }
+
+    public static void printTree(String individualXREF){
+
+        treeLevel = 0;
+        System.out.println( getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+                getResult("surname", "individual", "xref_id", individualXREF).trim());
+
+        getParents(individualXREF);
+    }
+
+    public static void getParents(String individualXREF){
+
+        treeLevel++;
+
+        //System.out.println(individualXREF);
+
+        if(individualXREF.trim() == "") return;
+
+        String familyXREF = getResult("family_id", "child_family", "individual_id", individualXREF);
+
+        //System.out.println(familyXREF);
+
+        if(familyXREF.trim() == "") return;
+
+        String husband = getResult("husband", "family", "xref_id", familyXREF);
+        String wife = getResult("wife", "family", "xref_id", familyXREF);
+
+        //System.out.println(husband);
+        //System.out.println(wife);
+
+        if(!(husband.trim() == "")) {
+            System.out.println(tabs() + getResult("given_name", "individual", "xref_id", husband).trim() + " " +
+                    getResult("surname", "individual", "xref_id", husband).trim());
+            getParents(husband);
+            treeLevel--;
+        }
+
+        if(!(wife.trim() == "")) {
+            System.out.println(tabs() + getResult("given_name", "individual", "xref_id", wife).trim() + " " +
+                    getResult("surname", "individual", "xref_id", wife).trim());
+            getParents(wife);
+            treeLevel--;
+        }
+    }
+
     public static void printDescendants(String individualXREF){
 
+        treeLevel = 0;
         System.out.println("***************************");
         System.out.println("PRINTING DESCENDANTS OF " +
                 getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
@@ -59,7 +115,7 @@ public class Output {
         String spouse = spouseInfo[0];
 
         String spouse1 = (getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
-                         getResult("surname", "individual", "xref_id", individualXREF).trim()).trim();
+                          getResult("surname", "individual", "xref_id", individualXREF).trim()).trim();
 
         String spouse1Birth = getResult("SELECT date" +
                                         " FROM individual_event" +
@@ -161,8 +217,6 @@ public class Output {
         writer.close();
 
         System.out.println("Data written to main.gedcom");
-
-        printDescendants("@MALCOLM@");
     }
 
     public static void printHeader(){

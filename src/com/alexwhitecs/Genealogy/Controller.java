@@ -6,6 +6,7 @@ import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.ChildToFamilyLink;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.SpouseToFamilyLink;
 import com.alexwhitecs.Genealogy.UserInterface.FamilyData;
 import com.alexwhitecs.Genealogy.UserInterface.PersonData;
+import com.sun.org.apache.xpath.internal.functions.FuncFalse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,14 +17,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.getTableAsArray;
-import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.updateTable;
+import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.*;
 import static com.alexwhitecs.Genealogy.Database.Output.*;
-import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.getColumnAsArray;
 
 public class Controller implements Initializable{
 
     @FXML TextField givenName;
+    @FXML TextField middleName;
     @FXML TextField maidenName;
     @FXML TextField surname;
     @FXML ChoiceBox<String> sex;
@@ -40,6 +40,20 @@ public class Controller implements Initializable{
     @FXML TableView<String> individualsTable2;
     @FXML TableView<FamilyData> familiesTable1;
     @FXML TableView<String> familiesTable2;
+
+    @FXML TableView<PersonData> parentsTable;
+    @FXML TableView<PersonData> siblingsTable;
+    @FXML TableView<PersonData> currentIndividualTable;
+    @FXML TableView<PersonData> childrenTable;
+
+    @FXML TableColumn parentsGivenNameColumn;
+    @FXML TableColumn parentsFamilyColumn;
+    @FXML TableColumn siblingsGivenNameColumn;
+    @FXML TableColumn siblingsFamilyColumn;
+    @FXML TableColumn currentIndividualGivenNameColumn;
+    @FXML TableColumn currentIndividualFamilyColumn;
+    @FXML TableColumn childrenGivenNameColumn;
+    @FXML TableColumn childrenFamilyColumn;
 
     @FXML TableColumn givenNameColumn1;
     @FXML TableColumn surnameColumn1;
@@ -73,7 +87,7 @@ public class Controller implements Initializable{
         FamilyData tempFamily = familiesTable1.getSelectionModel().getSelectedItem();
 
         individual_id = tempPerson.getXref();
-        family_id = tempFamily.getHeadOfHousehold();
+        family_id = tempFamily.getSurname();
 
         if(childOrSpouse.getValue() == "Child of"){
 
@@ -90,7 +104,6 @@ public class Controller implements Initializable{
 
             new SpouseToFamilyLink(individual_id, family_id);
             updateTable("family", "husband = '" + individual_id + "'", "xref_id = '" + family_id + "'");
-
         }
 
         if(childOrSpouse.getValue() == null) return;
@@ -136,9 +149,180 @@ public class Controller implements Initializable{
     }
 
     @FXML
+    public void setIndividual(){
+
+        PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void resetIndividual(){
+
+        PersonData tempPerson = currentIndividualTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setChildren(){
+
+        PersonData tempPerson = childrenTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setSiblings(){
+
+        PersonData tempPerson = siblingsTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setParents(){
+
+        PersonData tempPerson = parentsTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void populateFamilyTreeView(){
+
+        String individual_xref = setCurrentIndividualTable();
+        setParentsTable(individual_xref);
+        setSiblingsTable(individual_xref);
+        setChildrenTable(individual_xref);
+    }
+
+
+    private void populateFamilyTreeView(PersonData tempPerson){
+
+        String individual_xref = setCurrentIndividualTable(tempPerson);
+        setParentsTable(individual_xref);
+        setSiblingsTable(individual_xref);
+        setChildrenTable(individual_xref);
+    }
+
+    private String setCurrentIndividualTable(PersonData tempPerson){
+
+        String individual = tempPerson.getXref();
+
+        ObservableList<PersonData> individualData = FXCollections.observableArrayList();
+
+        individualData.add(tempPerson);
+
+        currentIndividualGivenNameColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        currentIndividualFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        currentIndividualTable.setItems(individualData);
+
+        return individual;
+    }
+
+    private String setCurrentIndividualTable(){
+
+        PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
+        String individual_xref = tempPerson.getXref();
+
+        ObservableList<PersonData> individualData = FXCollections.observableArrayList();
+
+        individualData.add(tempPerson);
+
+        currentIndividualGivenNameColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        currentIndividualFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        currentIndividualTable.setItems(individualData);
+
+        return individual_xref;
+    }
+
+    private void setSiblingsTable(String currentIndividual){
+
+        ObservableList<PersonData> personData = FXCollections.observableArrayList();
+        ObservableList<String[]> inputPersonData = getQueryAsArray( "SELECT given_name, surname, xref_id" +
+                                                                    " FROM individual" +
+                                                                    " WHERE xref_id IN " +
+                                                                    " (SELECT individual_id" +
+                                                                    " FROM child_family" +
+                                                                    " WHERE family_id = " +
+                                                                    " (SELECT family_id" +
+                                                                    " FROM child_family" +
+                                                                    " WHERE individual_id = '" + currentIndividual + "')" +
+                                                                    " AND xref_id != '" + currentIndividual + "')");
+
+        for(String[] datum : inputPersonData){
+
+            personData.add(new PersonData(datum[0], datum[1], datum[2]));
+        }
+
+        siblingsGivenNameColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        siblingsFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        siblingsTable.setItems(personData);
+    }
+
+    private void setChildrenTable(String currentIndividual){
+
+        ObservableList<PersonData> personData = FXCollections.observableArrayList();
+        ObservableList<String[]> inputPersonData = getQueryAsArray( "SELECT given_name, surname, xref_id" +
+                                                                    " FROM individual" +
+                                                                    " WHERE xref_id IN " +
+                                                                    " (SELECT individual_id" +
+                                                                    " FROM child_family" +
+                                                                    " WHERE family_id = " +
+                                                                    " (SELECT family_id" +
+                                                                    " FROM spouse_family" +
+                                                                    " WHERE individual_id = '" + currentIndividual + "'))");
+
+        for(String[] datum : inputPersonData){
+
+            personData.add(new PersonData(datum[0], datum[1], datum[2]));
+        }
+
+        childrenGivenNameColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        childrenFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        childrenTable.setItems(personData);
+    }
+
+    private void setParentsTable(String currentIndividual){
+
+        ObservableList<PersonData> personData = FXCollections.observableArrayList();
+        ObservableList<String[]> inputPersonData = getQueryAsArray( "SELECT given_name, surname, xref_id " +
+                                                                    " FROM individual " +
+                                                                    " WHERE xref_id IN " +
+                                                                    " (SELECT husband " +
+                                                                    " FROM family " +
+                                                                    " WHERE xref_id = " +
+                                                                    " (SELECT family_id " +
+                                                                    " FROM child_family " +
+                                                                    " WHERE individual_id = '" + currentIndividual + "'))" +
+                                                                    " OR xref_id IN " +
+                                                                    " (SELECT wife " +
+                                                                    " FROM family " +
+                                                                    " WHERE xref_id =  " +
+                                                                    " (SELECT family_id " +
+                                                                    " FROM child_family " +
+                                                                    " WHERE individual_id = '" + currentIndividual + "'))");
+
+        for(String[] datum : inputPersonData){
+
+            personData.add(new PersonData(datum[0], datum[1], datum[2]));
+        }
+
+        parentsGivenNameColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        parentsFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        parentsTable.setItems(personData);
+    }
+
+    @FXML
     public void insertIndividual(){
 
-        String[] details = {givenName.getText(),
+        String[] details = {(givenName.getText()+ " " + middleName.getText()),
                             maidenName.getText(),
                             surname.getText(),
                             sex.getValue(),
@@ -161,25 +345,50 @@ public class Controller implements Initializable{
             new SpouseToFamilyLink(newPerson, chooseSpouseOf.getValue());
         }
 
-        if(startFamily.isSelected()){
+        if(startFamily.isSelected()) {
 
             System.out.println("starting new family!");
 
-            new Family("@" + (givenName.getText() + "_" + surname.getText()).replace(" ", "").toUpperCase() + "@", newPerson.getID(), sex.getValue());
+            String newFamilyXREF = "@" + (givenName.getText() + "_" + surname.getText()).replace(" ", "").toUpperCase() + "@";
+
+            new Family(newFamilyXREF, newPerson.getID(), sex.getValue());
+            new SpouseToFamilyLink(newPerson, newFamilyXREF);
+
+            if (sex.getValue() == "M")
+                updateTable("family", "husband = '" + newPerson.getID() + "'", "xref_id = '" + newFamilyXREF + "'");
+            else updateTable("family", "wife = '" + newPerson.getID() + "'", "xref_id = '" +newFamilyXREF + "'");
         }
+
+        startFamily.setSelected(false);
+        givenName.setText("");
+        middleName.setText("");
+        maidenName.setText("");
+        surname.setText("");
+        dateOfBirth.setText("");
+        placeOfBirth.setText("");
+        dateOfDeath.setText("");
+        placeOfDeath.setText("");
+
+        chooseChildOf.setValue(null);
+        chooseSpouseOf.setValue(null);
+        sex.setValue(null);
     }
 
     @FXML
     public void populateChooseFamily1(){
 
-        ObservableList<String> options = FXCollections.observableArrayList(getColumnAsArray("xref_id", "family"));
+        ObservableList<String> options = FXCollections.observableArrayList();
+        options.add("");
+        options.addAll(getColumnAsArray("xref_id", "family"));
         chooseChildOf.setItems(options);
     }
 
     @FXML
     public void populateChooseFamily2(){
 
-        ObservableList<String> options = FXCollections.observableArrayList(getColumnAsArray("xref_id", "family"));
+        ObservableList<String> options = FXCollections.observableArrayList();
+        options.add("");
+        options.addAll(getColumnAsArray("xref_id", "family"));
         chooseSpouseOf.setItems(options);
     }
 
@@ -205,10 +414,23 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void printAllGEDCOM(){
+    public void printoutAllGEDCOM(){
 
         printGEDCOM();
     }
+
+    @FXML
+    public void printoutDescendancy(){
+
+        printDescendants("@GroverWhite@");
+    }
+
+    @FXML
+    public void printoutFamilyTree(){
+
+        printFamilyTree("@AlexanderMalcolmWhite@");
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

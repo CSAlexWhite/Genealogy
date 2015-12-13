@@ -94,7 +94,7 @@ public class Tokenizer {
             else if(linePosition == 2 && previousToken == POINTER) currentToken = symbolFor(currentSpelling);
             else currentToken = STRING;
 
-            if(currentToken == null) System.out.println(currentSpelling);
+            //if(currentToken == null) System.out.println(currentSpelling);
             output.println(currentToken + ": " + currentSpelling);
 
             /* End of File at TRLR */

@@ -26,7 +26,7 @@ public class Header extends Parser {
         accept(HEAD);
         nextLevel();
 
-        while(getCurrentLevel() != currentLevel){
+        while(getCurrentLevel() > currentLevel){
 
             if(getCurrentToken() == SOUR) readSource();
 //            if(getCurrentToken() == DEST) readDestination();

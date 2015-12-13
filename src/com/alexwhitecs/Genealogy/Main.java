@@ -20,7 +20,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Genea");
-        primaryStage.setScene(new Scene(root, 1024, 768));
+        primaryStage.setScene(new Scene(root, 1324, 768));
         primaryStage.show();
 
         //guiController = new Controller();
@@ -30,7 +30,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        String inFile = "white.gedcom";
+        String inFile = "reup.gedcom";
 
         try{
 

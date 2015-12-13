@@ -48,7 +48,7 @@ public class Family extends Parser {
         accept(FAM);
         nextLevel();
 
-        while(getCurrentLevel() != 0){
+        while(getCurrentLevel() > 0){
 
 //            if(getCurrentToken() == RESN) readRestrictionNotice();
             if(Events.contains(getCurrentToken())) readEvent();

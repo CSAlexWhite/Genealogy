@@ -23,10 +23,13 @@ public class AddressStructure extends Parser{
 
         lastAssignment = addressLine = "";
 
-        while(getCurrentToken() == STRING) {
+        while(getCurrentToken() == STRING
+                || getCurrentToken() == NUMERIC) {
+
+            System.out.println(getCurrentSpelling());
 
             addressLine += (getCurrentSpelling() + " ");
-            accept(STRING);
+            accept(getCurrentToken());
         }
 
         System.out.println(tabs() + "address: " + addressLine);
