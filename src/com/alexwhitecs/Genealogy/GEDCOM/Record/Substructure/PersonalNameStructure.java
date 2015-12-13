@@ -11,7 +11,7 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class PersonalNameStructure extends Parser {
 
-    String givenName, surname, maidenName;
+    String givenName = "-givenName-", surname = "-surname-", maidenName;
     // TODO add Maiden Name?
 
     public PersonalNameStructure(String givenName, String surname){

@@ -333,14 +333,14 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="183.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="104.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="308.0" minHeight="0.0" prefHeight="192.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="378.0" minHeight="10.0" prefHeight="177.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="132.0" prefWidth="227.0" GridPane.columnIndex="1">
                            <children>
-                              <VBox alignment="TOP_CENTER" layoutX="105.0" layoutY="-39.0" prefHeight="161.0" prefWidth="227.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                              <VBox alignment="TOP_CENTER" layoutX="105.0" layoutY="-39.0" prefHeight="161.0" prefWidth="227.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label text="PARENTS" textAlignment="CENTER">
                                        <font>
@@ -360,7 +360,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="2">
                            <children>
                               <VBox alignment="TOP_CENTER" layoutX="64.0" layoutY="-40.0" prefHeight="160.0" prefWidth="228.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                  <children>
@@ -369,7 +369,7 @@
                                           <Font name="Courier New" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="siblingsTable" onMouseClicked="#setSiblings" prefHeight="137.0" prefWidth="208.0">
+                                    <TableView fx:id="siblingsTable" onMouseClicked="#setSiblings" prefHeight="222.0" prefWidth="208.0">
                                       <columns>
                                         <TableColumn fx:id="siblingsGivenNameColumn" prefWidth="102.0" text="Name" />
                                         <TableColumn fx:id="siblingsFamilyColumn" prefWidth="103.0" text="Family" />
@@ -397,7 +397,7 @@
                               </VBox>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gainsboro; -fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <VBox alignment="TOP_CENTER" layoutX="46.0" layoutY="-40.0" prefHeight="160.0" prefWidth="227.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                                  <children>
@@ -406,10 +406,21 @@
                                           <Font name="Courier New" size="14.0" />
                                        </font>
                                     </Label>
-                                    <TableView fx:id="currentIndividualTable" prefHeight="149.0" prefWidth="207.0">
+                                    <TableView fx:id="currentIndividualTable" prefHeight="97.0" prefWidth="225.0">
                                       <columns>
                                         <TableColumn fx:id="currentIndividualGivenNameColumn" prefWidth="102.0" text="Name" />
-                                        <TableColumn fx:id="currentIndividualFamilyColumn" prefWidth="122.0" text="Family" />
+                                        <TableColumn fx:id="currentIndividualFamilyColumn" prefWidth="121.0" text="Family" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="48.0" layoutY="10.0" text="SPOUSE(S)" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Courier New" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="currentSpouse" onMouseClicked="#setSpouse" prefHeight="137.0" prefWidth="227.0">
+                                      <columns>
+                                        <TableColumn fx:id="currentSpouseName" prefWidth="102.0" text="Name" />
+                                        <TableColumn fx:id="currentSpouseFamily" prefWidth="120.0" text="Family" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -417,7 +428,7 @@
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gainsboro; -fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
                               <VBox alignment="TOP_CENTER" layoutX="48.0" layoutY="-68.0" prefHeight="160.0" prefWidth="227.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                                  <children>

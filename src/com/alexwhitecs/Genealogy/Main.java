@@ -30,7 +30,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        String inFile = "reup.gedcom";
+        String inFile = "main.gedcom";
 
         try{
 

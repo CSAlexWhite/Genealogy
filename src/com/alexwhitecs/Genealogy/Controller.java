@@ -45,6 +45,7 @@ public class Controller implements Initializable{
     @FXML TableView<PersonData> siblingsTable;
     @FXML TableView<PersonData> currentIndividualTable;
     @FXML TableView<PersonData> childrenTable;
+    @FXML TableView<PersonData> currentSpouse;
 
     @FXML TableColumn parentsGivenNameColumn;
     @FXML TableColumn parentsFamilyColumn;
@@ -54,6 +55,8 @@ public class Controller implements Initializable{
     @FXML TableColumn currentIndividualFamilyColumn;
     @FXML TableColumn childrenGivenNameColumn;
     @FXML TableColumn childrenFamilyColumn;
+    @FXML TableColumn currentSpouseName;
+    @FXML TableColumn currentSpouseFamily;
 
     @FXML TableColumn givenNameColumn1;
     @FXML TableColumn surnameColumn1;
@@ -189,12 +192,21 @@ public class Controller implements Initializable{
     }
 
     @FXML
+    public void setSpouse(){
+
+        PersonData tempPerson = currentSpouse.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
     public void populateFamilyTreeView(){
 
         String individual_xref = setCurrentIndividualTable();
         setParentsTable(individual_xref);
         setSiblingsTable(individual_xref);
         setChildrenTable(individual_xref);
+        setCurrentSpouseTable(individual_xref);
     }
 
 
@@ -204,6 +216,7 @@ public class Controller implements Initializable{
         setParentsTable(individual_xref);
         setSiblingsTable(individual_xref);
         setChildrenTable(individual_xref);
+        setCurrentSpouseTable(individual_xref);
     }
 
     private String setCurrentIndividualTable(PersonData tempPerson){
@@ -317,6 +330,31 @@ public class Controller implements Initializable{
         parentsFamilyColumn.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
 
         parentsTable.setItems(personData);
+    }
+
+    private void setCurrentSpouseTable(String currentIndividual){
+
+        ObservableList<PersonData> personData = FXCollections.observableArrayList();
+        ObservableList<String[]> inputPersonData = getQueryAsArray( " SELECT given_name, surname, xref_id" +
+                                                                    " FROM individual" +
+                                                                    " WHERE xref_id IN " +
+                                                                    " (SELECT individual_id" +
+                                                                    " FROM spouse_family" +
+                                                                    " WHERE family_id = " +
+                                                                    " (SELECT family_id" +
+                                                                    " FROM spouse_family" +
+                                                                    " WHERE individual_id = '" + currentIndividual + "')" +
+                                                                    " AND xref_id != '" + currentIndividual + "')");
+
+        for(String[] datum : inputPersonData){
+
+            personData.add(new PersonData(datum[0], datum[1], datum[2]));
+        }
+
+        currentSpouseName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        currentSpouseFamily.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        currentSpouse.setItems(personData);
     }
 
     @FXML

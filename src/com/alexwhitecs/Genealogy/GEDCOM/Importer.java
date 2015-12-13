@@ -26,8 +26,8 @@ public class Importer {
             parser = new Parser(tokenizer);
             output.flush();
 
-        }   catch(GEDCOM_Exception error) { error.printStackTrace();}
-            catch(FileNotFoundException error) {error.printStackTrace();}
+        }   catch(GEDCOM_Exception error) {error.printStackTrace();}
+            catch(FileNotFoundException error) {}//error.printStackTrace();}
 
         System.out.println("\n***\tGEDCOM IMPORT FINISHED\t***");
     }
