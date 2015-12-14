@@ -15,13 +15,22 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Symbols.*;
  */
 public class Family extends Parser {
 
-    String xref_family, husband = "-husband-", wife = "-wife-";
+    String xref_family, husband = "@@", wife = "@@";
     String lastAssignment;
     String tablename, idColumn;
 
     Vector<String> children;
 
     Vector<FamilyEventStructure> familyEvents;
+
+    public Family(String husbandGiven, String husband, String wifeGiven, String wife, String surname){
+
+        xref_family = "@" + husbandGiven + wifeGiven + surname + "@";
+        this.husband = husband;
+        this.wife = wife;
+
+        pushToDB();
+    }
 
     public Family(String family_id, String individualID, String sex){
 
@@ -50,18 +59,18 @@ public class Family extends Parser {
 
         while(getCurrentLevel() > 0){
 
-//            if(getCurrentToken() == RESN) readRestrictionNotice();
+            if(getCurrentToken() == RESN) readRestrictionNotice();
             if(Events.contains(getCurrentToken())) readEvent();
             if(getCurrentToken() == HUSB) readHusband();
             if(getCurrentToken() == WIFE) readWife();
             if(getCurrentToken() == CHIL) readChild();
-//            if(getCurrentToken() == NCHI) readRecordFileNumber();
+            if(getCurrentToken() == NCHI) readRecordFileNumber();
             // TODO (NO) LDS SPOUSE SEALING
-//            if(getCurrentToken() == REFN) readReferenceNumber();
-//            if(getCurrentToken() == RIN) readRecordIDNumber();
-//            if(getCurrentToken() == CHAN) readChangeDate();
-//            if(getCurrentToken() == NOTE) readNote();
-//            if(getCurrentToken() == SOUR) readSource();
+            if(getCurrentToken() == REFN) readReferenceNumber();
+            if(getCurrentToken() == RIN) readRecordIDNumber();
+            if(getCurrentToken() == CHAN) readChangeDate();
+            if(getCurrentToken() == NOTE) readNote();
+            if(getCurrentToken() == SOUR) readSource();
             // TODO MULTIMEDIA LINK
 
             if(getCurrentToken() == CONT) continueLine();
@@ -133,32 +142,12 @@ public class Family extends Parser {
         nextLevel();
     }
 
-    private void readRecordFileNumber() throws GEDCOM_Exception {
-
-    }
-
-    private void readReferenceNumber() throws GEDCOM_Exception {
-
-    }
-
-    private void readRecordIDNumber() throws GEDCOM_Exception {
-
-    }
-
-
-    private void readChangeDate() throws GEDCOM_Exception {
-
-    }
-
-    private void readNote() throws GEDCOM_Exception {
-
-    }
-
-    private void readSource() throws GEDCOM_Exception {
-
-    }
-
-
+    private void readRecordFileNumber() throws GEDCOM_Exception {}
+    private void readReferenceNumber() throws GEDCOM_Exception {}
+    private void readRecordIDNumber() throws GEDCOM_Exception { }
+    private void readChangeDate() throws GEDCOM_Exception {}
+    private void readNote() throws GEDCOM_Exception {}
+    private void readSource() throws GEDCOM_Exception {}
     private void continueLine() throws GEDCOM_Exception {
 
         accept(CONT);

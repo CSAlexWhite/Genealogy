@@ -41,11 +41,6 @@ public class MySQL_Connector {
 
         setupDB();
         createTables();
-
-//        getTableAsArray("individual");
-//        getTableAsArray("family");
-//        getTableAsArray("individual_event");
-//        getTableAsArray("place");
     }
 
     /**
@@ -65,6 +60,12 @@ public class MySQL_Connector {
         } catch(SQLException error){error.printStackTrace();}
     }
 
+    /**
+     * Retrieves the value of the last ID in the given table and column
+     * @param tablename
+     * @param idname
+     * @return
+     */
     public static int getLastID(String tablename, String idname){
 
         int lastid = 0;
@@ -82,6 +83,12 @@ public class MySQL_Connector {
         return lastid;
     }
 
+    /**
+     * Given a tableName, a SET statement, and a WHERE statement, updates the table
+     * @param tablename
+     * @param setStatement
+     * @param whereStatement
+     */
     public static void updateTable(String tablename, String setStatement, String whereStatement){
 
         String sql = "UPDATE " + tablename +
@@ -91,6 +98,54 @@ public class MySQL_Connector {
         executeSQL_Statement(sql);
     }
 
+    /**
+     * Given a SELECT FROM WHERE EQUALS statment, retrieves a singular result, the first
+     * @param select
+     * @param from
+     * @param where
+     * @param equals
+     * @return
+     */
+    public static String getResult(String select, String from, String where, String equals){
+
+        String result = "";
+        String query =  "SELECT " + select +
+                " FROM " + from +
+                " WHERE " + where +
+                " LIKE '" + equals +"'";
+
+        return getResult(query);
+    }
+
+    /**
+     * Given a query, retireves a singular result
+     * @param query
+     * @return
+     */
+    public static String getResult(String query){
+
+        String result = "";
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()){
+
+                result = rs.getString(1);
+            }
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return result;
+    }
+
+    /**
+     * Given a query, retrieves a result set as a two-dimensional array
+     * @param query
+     * @return
+     */
     public static ArrayList<String[]> retrieveQuery(String query){
 
         ArrayList<String[]> rowValues = new ArrayList<String[]>();
@@ -118,48 +173,6 @@ public class MySQL_Connector {
         }
 
         return rowValues;
-    }
-
-    public static String getResult(String select, String from, String where, String equals){
-
-        String result = "";
-        String query =  "SELECT " + select +
-                        " FROM " + from +
-                        " WHERE " + where +
-                        " LIKE '" + equals +"'";
-        try{
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()){
-
-                result = rs.getString(select);
-            }
-
-            rs.close(); statement.close();
-
-        } catch(SQLException error){error.printStackTrace();}
-
-        return result;
-    }
-
-    public static String getResult(String query){
-
-        String result = "";
-        try{
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()){
-
-                result = rs.getString(1);
-            }
-
-            rs.close(); statement.close();
-
-        } catch(SQLException error){error.printStackTrace();}
-
-        return result;
     }
 
     public static ObservableList<String> getColumnAsArray(String select, String from, String where, String equals){
@@ -319,8 +332,6 @@ public class MySQL_Connector {
 
     public static ObservableList<String[]> getQueryAsArray(String query){
 
-        System.out.println(query);
-
         ObservableList<String[]> rowValues =FXCollections.observableArrayList();
 
         try {
@@ -357,7 +368,6 @@ public class MySQL_Connector {
     private static boolean createTables() throws SQLException{
 
         String tableFile = "create_tables.sql", line = "", sql = "";
-        boolean started;
 
         try {
 

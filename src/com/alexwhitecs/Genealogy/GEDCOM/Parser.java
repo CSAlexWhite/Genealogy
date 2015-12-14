@@ -51,9 +51,11 @@ public class Parser{
     protected static void nextLevel() throws GEDCOM_Exception {
 
         if(getCurrentToken() != LEVEL)
-            throw new GEDCOM_Exception("ERROR: Level Unmarked\n" +
+            throw new GEDCOM_Exception("ERROR at " + getLineNumber() + ": " +
+                                        "Level Unmarked\n" +
                                         "found " + getCurrentToken() +
                                         ": " + getCurrentSpelling());
+
 
         else nextToken();
     }

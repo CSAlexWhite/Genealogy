@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import static com.alexwhitecs.Genealogy.Database.Output.printGEDCOM;
+
 public class Main extends Application {
 
     Controller guiController;
@@ -36,9 +38,11 @@ public class Main extends Application {
 
             MySQL_Connector.connect();
 
-            new Importer(inFile);
+            //new Importer(inFile);
 
             launch(args);
+
+            printGEDCOM();
 
             MySQL_Connector.close();
         }

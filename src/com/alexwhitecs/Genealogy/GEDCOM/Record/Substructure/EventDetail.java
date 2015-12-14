@@ -44,8 +44,8 @@ public class EventDetail extends Parser{
 //            if(getCurrentToken() == RELI) readReligion();
 //            if(getCurrentToken() == CAUS) readCause();
 //            if(getCurrentToken() == RESN) readRestrictionNotice();
-            System.out.println(getCurrentToken());
             if(OtherDetails.contains(getCurrentToken())) readDetail();
+            else break;
         }
     }
 

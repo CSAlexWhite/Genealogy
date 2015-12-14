@@ -81,6 +81,7 @@
 0 @GroverWhite@ INDI
 1 NAME Grover  /White/
 1 SEX M
+1 FAMC @Harold Mary White@
 1 FAMS @GROVER_WHITE@
 0 @EleanorWhite@ INDI
 1 NAME Eleanor  /White/
@@ -120,6 +121,14 @@
 2 PLAC Madison, WI
 2 DATE July 12, 1978
 1 FAMC @Thomas Sally Elizabeth Lister@
+0 @HaroldWhite@ INDI
+1 NAME Harold  /White/
+1 SEX M
+1 FAMS 
+0 @MaryWhite@ INDI
+1 NAME Mary  /White/
+1 SEX F
+1 FAMS 
 
 0 @DOUGLASGODDARD_WHITE@ FAM
 1 HUSB @DouglasGoddardWhite@
@@ -163,4 +172,11 @@
 1 WIFE @SallyElizabethRobinson@
 1 CHIL @JoshLister@
 1 CHIL @MatthewLister@
+0 @Harold Mary White@ FAM
+1 MARR
+2 PLAC St. Petersburg
+2 DATE July 1, 1890
+1 HUSB @HaroldWhite@
+1 WIFE @MaryWhite@
+1 CHIL @GroverWhite@
 0 TRLR

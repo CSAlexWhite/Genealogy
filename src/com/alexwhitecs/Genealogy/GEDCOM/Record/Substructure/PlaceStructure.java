@@ -29,6 +29,9 @@ public class PlaceStructure extends Parser{
     public PlaceStructure() throws GEDCOM_Exception {
 
         accept(PLAC);
+
+        System.out.println("currentSpelling: " + getCurrentSpelling());
+
         lastAssignment = placeName = "";
 
         while(getCurrentToken() == STRING){

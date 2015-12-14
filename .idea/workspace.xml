@@ -3,12 +3,36 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family$Events.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family$Events.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Importer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Importer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Attributes.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Attributes.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Events.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual$Events.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/MySQL_Connector.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/MySQL_Connector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Parser.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Parser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input_log.txt" afterPath="$PROJECT_DIR$/input_log.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
@@ -30,6 +54,7 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DebuggerManager">
+    <ui_properties converted="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -65,125 +90,38 @@
       </breakpoint>
     </breakpoint_any>
     <breakpoint_rules converted="true" />
-    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7240941">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5579487">
-                  <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Output.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="main.gedcom" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.gedcom">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IndividualEventDetail.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Importer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="51" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PersonalNameStructure.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <splitter split-orientation="vertical" split-proportion="0.6615385">
-          <split-first>
-            <leaf>
-              <file leaf-file-name="white.gedcom" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/white.gedcom">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0">
-                      <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="reup.gedcom" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/reup.gedcom">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0">
-                      <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf>
-              <file leaf-file-name="input_log.txt" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/input_log.txt">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.0">
-                      <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="input_log.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/input_log.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySQL_Connector.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36724314">
+              <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+              <folding>
+                <element signature="e#3971#3981#0" expanded="true" />
+                <element signature="e#6628#6638#0" expanded="true" />
+                <element signature="e#8378#8388#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -208,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/AssociationStructure.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/ChangeDate.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualAttributeStructure.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/LDSIndividualOrdinance.java" />
@@ -225,15 +162,10 @@
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Symbols.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Utilities.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/insert_statements.sql" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java" />
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/create_tables.sql" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
         <option value="$PROJECT_DIR$/white.gedcom" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/FileOperations.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/FileOperations.java" />
@@ -243,22 +175,28 @@
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/ChildToFamilyLink.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SpouseToFamilyLink.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/UserInterface/FamilyData.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/AddressStructure.java" />
         <option value="$PROJECT_DIR$/reup.gedcom" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java" />
         <option value="$PROJECT_DIR$/input_log.txt" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java" />
         <option value="$PROJECT_DIR$/main.gedcom" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
       </list>
     </option>
   </component>
@@ -277,8 +215,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -333,7 +271,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -450,6 +387,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -563,6 +502,10 @@
               <option name="myItemId" value="Record" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -588,7 +531,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -612,6 +554,7 @@
     <property name="FullScreen" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Connector.J 5.1" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -851,68 +794,68 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739863" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2980022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="798" y="516" width="128" height="40" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739863" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16130953" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.45059523" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.61353946" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1609808" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937685" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25816023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25816023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2980022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="798" y="516" width="128" height="40" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16259712" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16703662" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25906736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284974" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24972253" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3015544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.2980022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="798" y="516" width="128" height="40" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284974" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.16703662" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="-1567" y="95" width="894" height="1063" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16259712" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25906736" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -937,14 +880,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/input_log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -953,13 +888,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -1018,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/NoteStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6914119">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SourceCitation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6084425">
@@ -1053,13 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_large.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1074,20 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_tables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1977343">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21261445">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNamePieces.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36724314">
@@ -1098,13 +1005,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/tree.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/UserInterface/PersonData.java">
@@ -1121,121 +1021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input_log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reup.gedcom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1891892">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/SpouseToFamilyLink.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6174004">
-          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1341719">
-          <caret line="64" column="62" selection-start-line="64" selection-start-column="62" selection-end-line="64" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09155646">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.gedcom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="329" column="0" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="60" selection-start-line="196" selection-start-column="60" selection-end-line="196" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1246,34 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6830892">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07190413">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/ChildToFamilyLink.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47936085">
@@ -1281,36 +1042,244 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="14" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PersonalNameStructure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/NoteStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Family.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75862">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.137931">
+          <caret line="139" column="68" selection-start-line="139" selection-start-column="68" selection-end-line="139" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/PlaceStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.275862">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_large.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.227875">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/SourceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32858595">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5579487">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/white.gedcom">
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33200794">
+          <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testTree.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="10.91864">
+          <caret line="607" column="38" selection-start-line="607" selection-start-column="38" selection-end-line="607" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_tables.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39134914">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41091657">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.139413">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#1729#1744#0" expanded="true" />
+            <element signature="e#2410#2418#0" expanded="true" />
+            <element signature="e#7366#7374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5269583">
+          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/EventDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20752798">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Header.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33265513">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46388605">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Submitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17395727">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33265513">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Structure/Individual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07731435">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.gedcom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31353134">
+          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reup.gedcom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2992126">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/white.gedcom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7527559">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_log.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36724314">
+          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+          <folding>
+            <element signature="e#3971#3981#0" expanded="true" />
+            <element signature="e#6628#6638#0" expanded="true" />
+            <element signature="e#8378#8388#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

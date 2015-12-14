@@ -1,8 +1,8 @@
 package com.alexwhitecs.Genealogy.Database;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -22,12 +22,21 @@ public class Output {
     private static void printLevel(){
 
         if(treeLevel == 1) {
-            System.out.print("\t");
+            writer.print("\t");
             return;
         }
 
-        for(int i=1; i<treeLevel; i++) System.out.print("\t");
-            System.out.print("|-->");
+        for(int i=1; i<treeLevel; i++) writer.print("\t");
+            writer.print("|-->");
+    }
+
+    private static String dashes(){
+
+        String dashes = "";
+
+        for(int i=1; i<Math.ceil(Math.sqrt(Math.pow(10, 4-treeLevel))); i++) dashes += "-";
+
+        return dashes;
     }
 
     private static String tabs(){
@@ -40,65 +49,89 @@ public class Output {
         return tabs;
     }
 
-    public static void printFamilyTree(String individualXREF){
+    public static void flush(){
+
+        writer.flush();
+    }
+
+    public static void printFamilyTree(File outputfile, String individualXREF){
+
+        try {
+            writer = new PrintWriter(outputfile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("***************************");
-        System.out.println("PRINTING FAMILY TREE OF " +
+        System.out.println("FAMILY TREE OF " +
                 getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                 getResult("surname", "individual", "xref_id", individualXREF).trim());
 
         printTree(individualXREF);
     }
 
+    static int possibleLevels = 5;
+    static Vector<StringBuilder> layers = new Vector<StringBuilder>();
     public static void printTree(String individualXREF){
+
+        for(int i=0; i<10; i++) layers.add(new StringBuilder());
 
         treeLevel = 0;
         System.out.println( getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                 getResult("surname", "individual", "xref_id", individualXREF).trim());
 
         getParents(individualXREF);
+
+        for(StringBuilder layer : layers){
+
+            if(layer.equals("")) continue;
+            System.out.println(layer.toString());
+        }
+
     }
 
-    public static void getParents(String individualXREF){
+    public static void getParents(String individualXREF) {
 
         treeLevel++;
 
-        //System.out.println(individualXREF);
+        Vector<String> parentsof = new Vector<String>();
 
-        if(individualXREF.trim() == "") return;
+        if (individualXREF.trim() == "") return;
 
         String familyXREF = getResult("family_id", "child_family", "individual_id", individualXREF);
 
-        //System.out.println(familyXREF);
-
-        if(familyXREF.trim() == "") return;
+        if (familyXREF.trim() == "") return;
 
         String husband = getResult("husband", "family", "xref_id", familyXREF);
         String wife = getResult("wife", "family", "xref_id", familyXREF);
 
-        //System.out.println(husband);
-        //System.out.println(wife);
+        if (!(husband.trim() == "")) {
+            layers.elementAt(treeLevel).append(dashes() + getResult("given_name", "individual", "xref_id", husband).trim() + " " +
+                    getResult("surname", "individual", "xref_id", husband).trim() + dashes());
 
-        if(!(husband.trim() == "")) {
-            System.out.println(tabs() + getResult("given_name", "individual", "xref_id", husband).trim() + " " +
-                    getResult("surname", "individual", "xref_id", husband).trim());
-            getParents(husband);
-            treeLevel--;
         }
 
-        if(!(wife.trim() == "")) {
-            System.out.println(tabs() + getResult("given_name", "individual", "xref_id", wife).trim() + " " +
-                    getResult("surname", "individual", "xref_id", wife).trim());
-            getParents(wife);
-            treeLevel--;
+        if (!(wife.trim() == "")) {
+            layers.elementAt(treeLevel).append((dashes() + getResult("given_name", "individual", "xref_id", wife).trim() + " " +
+                    getResult("surname", "individual", "xref_id", wife).trim())+ dashes());
+
         }
+
+        getParents(husband);treeLevel--;
+        getParents(wife);treeLevel--;
     }
 
-    public static void printDescendants(String individualXREF){
+    public static void printDescendants(File outputfile, String individualXREF){
+
+        try {
+            writer = new PrintWriter(outputfile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         treeLevel = 0;
-        System.out.println("***************************");
-        System.out.println("PRINTING DESCENDANTS OF " +
+        writer.println("***************************");
+        writer.println("DESCENDANTS OF " +
                 getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                 getResult("surname", "individual", "xref_id", individualXREF).trim());
 
@@ -136,12 +169,12 @@ public class Output {
         ObservableList<String> children = getChildren(individualXREF, spouseInfo[1]);
 
         if(!spouse2.isEmpty()) {
-            System.out.print(spouse1 + "\n" + tabs() + "m. " + spouse2);
-            System.out.println(", " + getResult("date", "family_event", "family_xref",
+            writer.print(spouse1 + "\n" + tabs() + "m. " + spouse2);
+            writer.println(", " + getResult("date", "family_event", "family_xref",
                     getResult("xref_id", "family", spouseInfo[1], individualXREF)));
         }
 
-        else System.out.println(spouse1);
+        else writer.println(spouse1);
 
         for(String child : children) printDescendancy(child);
         treeLevel--;
@@ -201,12 +234,6 @@ public class Output {
 
     public static void printGEDCOM(){
 
-        try {
-
-            writer = new PrintWriter("main.gedcom");
-
-        } catch (FileNotFoundException e) {e.printStackTrace();}
-
         printHeader();
         printIndividuals();
         printFamilies();
@@ -216,7 +243,25 @@ public class Output {
         writer.flush();
         writer.close();
 
-        System.out.println("Data written to main.gedcom");
+        writer.println("Data written to main.gedcom");
+    }
+
+    public static void saveAsGEDCOM(File outputfile){
+
+        try {
+            writer = new PrintWriter(outputfile);
+        } catch (FileNotFoundException e) {e.printStackTrace();}
+
+        printGEDCOM();
+    }
+
+    public static void saveGEDCOM(){
+
+        try {
+            writer = new PrintWriter("main.gedcom");
+        } catch (FileNotFoundException e) {e.printStackTrace();}
+
+        printGEDCOM();
     }
 
     public static void printHeader(){

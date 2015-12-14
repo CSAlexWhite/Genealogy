@@ -18,18 +18,29 @@ public class IndividualEventStructure extends Parser{
     String eventType = "";
     Individual individual;
     IndividualEventDetail eventDetail;
+    String individualID;
+
+    public IndividualEventStructure(String individualID, String eventType, String date, String place){
+
+        this.eventType = eventType;
+        this.eventDetail = new IndividualEventDetail(date, place);
+        this.individualID = individualID;
+        pushToDB();
+    }
 
     public IndividualEventStructure(Individual individual, String eventType, String date, String place) throws GEDCOM_Exception{
 
         this.eventType = eventType;
         this.eventDetail = new IndividualEventDetail(date, place);
         this.individual = individual;
+        individualID = individual.getID();
         pushToDB();
     }
 
     public IndividualEventStructure(Individual individual) throws GEDCOM_Exception {
 
         this.individual = individual;
+        individualID = individual.getID();
         eventType = getCurrentToken().getCode();
         System.out.println(tabs() + eventType );
         accept(getCurrentToken());
@@ -69,7 +80,7 @@ public class IndividualEventStructure extends Parser{
         sql = "INSERT INTO individual_event" +
                 " (individual_xref, type, date, place_id)" +
                 " SELECT * FROM (SELECT " +
-                "\"" + individual.getID() + "\", " +
+                "\"" + individualID + "\", " +
                 "\"" + eventType + "\", " +
                 "\"" + date.replace(" , ", ", ") + "\", " +
                 "\"" + place_id + "\") " +
@@ -77,7 +88,7 @@ public class IndividualEventStructure extends Parser{
                 " WHERE NOT EXISTS (" +
                 " SELECT type FROM individual_event " +
                 " WHERE individual_xref = " +               // NO SAME EVENT SAME DATE
-                "\"" + individual.getID() + "\"" +
+                "\"" + individualID + "\"" +
                 " AND type LIKE \"" + eventType +
                 "\" OR date LIKE \"" + date +
                 "\" ) LIMIT 1;";

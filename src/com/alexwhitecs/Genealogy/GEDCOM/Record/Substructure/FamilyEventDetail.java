@@ -13,6 +13,11 @@ public class FamilyEventDetail extends Parser{
 
     EventDetail eventDetail;
 
+    public FamilyEventDetail(String date, String place){
+
+        this.eventDetail = new EventDetail(date, place);
+    }
+
     public FamilyEventDetail() throws GEDCOM_Exception {
 
         eventDetail = new EventDetail();

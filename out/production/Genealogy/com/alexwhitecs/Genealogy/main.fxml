@@ -94,9 +94,9 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#printoutAllGEDCOM" text="Import GEDCOM" />
-                        <MenuItem mnemonicParsing="false" text="Export Family to File" />
-                        <MenuItem fx:id="exportAll" mnemonicParsing="false" onAction="#printoutAllGEDCOM" text="Export All" />
+                    <MenuItem mnemonicParsing="false" onAction="#loadGEDCOM" text="Load" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveGEDCOMFile" text="Save" />
+                        <MenuItem fx:id="exportAll" mnemonicParsing="false" onAction="#saveAsGEDCOMFile" text="Save As" />
                         <MenuItem mnemonicParsing="false" text="Quit" />
                   </items>
                 </Menu>
@@ -112,9 +112,9 @@
                 </Menu>
                   <Menu mnemonicParsing="false" text="Reports">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#printoutDescendancy" text="Print Descendancy Report" />
-                        <MenuItem mnemonicParsing="false" text="Print Ahnentafel Report" />
-                        <MenuItem mnemonicParsing="false" onAction="#printoutFamilyTree" text="Print Family Tree" />
+                        <MenuItem mnemonicParsing="false" onAction="#printoutDescendancy" text="Descendancy Report" />
+                        <MenuItem mnemonicParsing="false" onAction="#printoutStatistics" text="Family Statistics" />
+                        <MenuItem mnemonicParsing="false" onAction="#printoutFamilyTree" text="Family Tree" />
                     </items>
                   </Menu>
               </menus>
@@ -263,11 +263,65 @@
                         </AnchorPane>
                     </content>
                   </Tab>
+                  <Tab onSelectionChanged="#populateIndividualEvents" text="ADD EVENT">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox layoutX="219.0" layoutY="78.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="individualEvents" prefHeight="300.0" prefWidth="312.0">
+                                      <columns>
+                                        <TableColumn fx:id="eventGivenName" prefWidth="160.0" text="Name" />
+                                        <TableColumn fx:id="eventSurname" prefWidth="149.0" text="Family" />
+                                      </columns>
+                                    </TableView>
+                                    <VBox alignment="CENTER" prefHeight="300.0" prefWidth="288.0">
+                                       <children>
+                                          <Label text="Primary Individual">
+                                             <font>
+                                                <Font name="Courier New" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="txtIndividualA" editable="false" />
+                                          <Button fx:id="setIndividualEventA" mnemonicParsing="false" onAction="#setEventIndividualA" prefHeight="25.0" prefWidth="311.0" text="Set Primary Individual" />
+                                          <Label layoutX="104.0" layoutY="81.0" text="Wife (for joint events)">
+                                             <font>
+                                                <Font name="Courier New" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="txtIndividualB" editable="false" />
+                                          <Button fx:id="setIndividualEventB" mnemonicParsing="false" onAction="#setEventIndividualB" prefHeight="25.0" prefWidth="351.0" text="Set Secondary Individual" />
+                                          <TextField fx:id="txtEventDate" alignment="CENTER" promptText="ENTER DATE MM/DD/YYYY">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="txtEventLocation" alignment="CENTER" layoutX="10.0" layoutY="218.0" promptText="ENTER LOCATION" />
+                                          <HBox alignment="CENTER" prefHeight="51.0" prefWidth="288.0">
+                                             <children>
+                                                <ComboBox fx:id="eventTypes" prefWidth="150.0" promptText="chooseEvent" />
+                                                <Button fx:id="btnAddEvent" mnemonicParsing="false" onAction="#addEvent" text="ADD EVENT" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
                 <Tab text="EDIT / EXTEND DATA">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="370.0">
+                              <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -380,7 +434,7 @@
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowSpan="2147483647">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: gainsboro; -fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowSpan="2147483647">
                            <children>
                               <VBox alignment="TOP_CENTER" layoutX="24.0" layoutY="-54.0" prefHeight="481.0" prefWidth="227.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                  <children>
@@ -392,7 +446,7 @@
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <ListView prefHeight="426.0" prefWidth="207.0" />
+                                    <ListView fx:id="infoList" prefHeight="426.0" prefWidth="207.0" />
                                  </children>
                               </VBox>
                            </children>

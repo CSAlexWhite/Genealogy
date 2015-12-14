@@ -14,10 +14,26 @@ import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.*;
  */
 public class FamilyEventStructure extends Parser{
 
-    String date = "";
     String eventType = "";
     Family family;
     FamilyEventDetail eventDetail;
+
+    String husbandAt;
+    String wifeAt;
+    String familyID;
+
+    public FamilyEventStructure(String familyID, String individualID1,
+                                String individualID2, String eventType,
+                                String date, String place){
+
+        this.eventType = eventType;
+        this.familyID = familyID;
+        this.husbandAt = individualID1;
+        this.wifeAt = individualID2;
+        this.eventDetail = new FamilyEventDetail(date, place);
+
+        pushToDB();
+    }
 
     public FamilyEventStructure(Family family) throws GEDCOM_Exception {
 
@@ -26,6 +42,10 @@ public class FamilyEventStructure extends Parser{
         System.out.println(tabs() + eventType);
         accept(getCurrentToken());
         eventDetail = new FamilyEventDetail();
+
+        husbandAt = family.getHusband();
+        wifeAt = family.getWife();
+        familyID = family.getID();
 
         pushToDB();
     }
@@ -60,21 +80,22 @@ public class FamilyEventStructure extends Parser{
         sql = "INSERT INTO family_event" +
                 " (family_xref, type, date, place_id, event_husband, event_wife)" +
                 " SELECT * FROM (SELECT " +
-                "\"" + family.getID() + "\", " +
+                "\"" + familyID + "\", " +
                 "\"" + eventType + "\", " +
                 "\"" + date.replace(" , ", ", ") + "\", " +
                 "\"" + place_id + "\", " +
-                "\"" + family.getHusband() + "\", " +
-                "\"" + family.getWife() + "\") " +
+                "\"" + husbandAt + "\", " +
+                "\"" + wifeAt + "\") " +
                 " AS tmp" +
                 " WHERE NOT EXISTS (" +
                 " SELECT family_xref FROM family_event " + " " +
                 "WHERE family_xref = " +
-                "\"" + family.getID() + "\"" +
+                "\"" + familyID + "\"" +
                 " AND type = \"" + eventType +
                 "\" OR date = \"" + date +
                 "\" ) LIMIT 1;";
 
+        System.out.println(sql);
         executeSQL_Statement(sql);
     }
 

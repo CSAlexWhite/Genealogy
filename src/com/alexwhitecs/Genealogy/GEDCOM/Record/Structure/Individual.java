@@ -32,16 +32,17 @@ public class Individual extends Parser {
         xref_individual = "@" + detail[0] + detail[1] + detail[2] + "@";
         xref_individual = xref_individual.replace(" ", "");
 
-        try {
+//        try {
         /* attributes 0 and 2 are given name and surname*/
             name = new PersonalNameStructure(detail[0], detail[2]);
             sex = detail[3];
-            lifeEvents.add(new IndividualEventStructure(this, "BIRT", detail[4], detail[5]));
-            lifeEvents.add(new IndividualEventStructure(this, "DEAT", detail[6], detail[7]));
 
-        } catch (GEDCOM_Exception e) {
-            e.printStackTrace();
-        }
+            //lifeEvents.add(new IndividualEventStructure(this, "BIRT", detail[4], detail[5]));
+            //lifeEvents.add(new IndividualEventStructure(this, "DEAT", detail[6], detail[7]));
+
+//        } catch (GEDCOM_Exception e) {
+//            e.printStackTrace();
+//        }
 
         pushToDB();
     }
@@ -64,7 +65,7 @@ public class Individual extends Parser {
 
         while(getCurrentLevel() > 0){
 
-//            if(getCurrentToken() == RESN) readRestrictionNotice();
+            if(getCurrentToken() == RESN) readRestrictionNotice();
             if(getCurrentToken() == NAME) readNameStructure();
             if(getCurrentToken() == SEX) readSex();
 
@@ -74,21 +75,20 @@ public class Individual extends Parser {
             // TODO INDIVIDUAL ATTRIBUTE STRUCTURE
             if(getCurrentToken() == FAMC) readChildToFamilyLink();
             if(getCurrentToken() == FAMS) readSpouseToFamilyLink();
-//            if(getCurrentToken() == REFN) readReferenceNumber();
-//            if(getCurrentToken() == SUBM) readSubmitter();
-//            if(getCurrentToken() == ASSO) readAssociationStructure();
-//            if(getCurrentToken() == ALIA) readAlias();
-//            if(getCurrentToken() == ANCI) readAncestryInterest();
-//            if(getCurrentToken() == DESI) readDescendantInterest();
-//            if(getCurrentToken() == RFN) readRecordFileNumber();
-//            if(getCurrentToken() == AFN) readAncestralFileNumber();
-//            if(getCurrentToken() == REFN) readUserReferenceNumber();
-//            if(getCurrentToken() == RIN) readRecordIDNumber();
-//            if(getCurrentToken() == CHAN) readDateChange();
-//            if(getCurrentToken() == NOTE) readNote();
-//            if(getCurrentToken() == SOUR) readSource();
+            if(getCurrentToken() == REFN) readReferenceNumber();
+            if(getCurrentToken() == SUBM) readSubmitter();
+            if(getCurrentToken() == ASSO) readAssociationStructure();
+            if(getCurrentToken() == ALIA) readAlias();
+            if(getCurrentToken() == ANCI) readAncestryInterest();
+            if(getCurrentToken() == DESI) readDescendantInterest();
+            if(getCurrentToken() == RFN) readRecordFileNumber();
+            if(getCurrentToken() == AFN) readAncestralFileNumber();
+            if(getCurrentToken() == REFN) readUserReferenceNumber();
+            if(getCurrentToken() == RIN) readRecordIDNumber();
+            if(getCurrentToken() == CHAN) readDateChange();
+            if(getCurrentToken() == NOTE) readNote();
+            if(getCurrentToken() == SOUR) readSource();
             // TODO MULTIMEDIA LINK
-
 
             if(getCurrentToken() == CONT) continueLine();
         }

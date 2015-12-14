@@ -40,7 +40,6 @@ public class Header extends Parser {
 //            if(getCurrentToken() == LANG) readLanguage();
 //            if(getCurrentToken() == PLAC) readPlace();
 //            if(getCurrentToken() == NOTE) readNote();
-            System.out.println(getCurrentToken());
             if(getCurrentToken() == CONT) continueLine();
         }
 

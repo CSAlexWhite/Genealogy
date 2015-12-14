@@ -1,8 +1,11 @@
 package com.alexwhitecs.Genealogy;
 
+import com.alexwhitecs.Genealogy.GEDCOM.Importer;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Individual;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Structure.Family;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.ChildToFamilyLink;
+import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.FamilyEventStructure;
+import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.IndividualEventStructure;
 import com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure.SpouseToFamilyLink;
 import com.alexwhitecs.Genealogy.UserInterface.FamilyData;
 import com.alexwhitecs.Genealogy.UserInterface.PersonData;
@@ -13,8 +16,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.*;
@@ -31,10 +38,17 @@ public class Controller implements Initializable{
     @FXML TextField placeOfBirth;
     @FXML TextField dateOfDeath;
     @FXML TextField placeOfDeath;
+    @FXML TextField txtIndividualA;
+    @FXML TextField txtIndividualB;
+    @FXML TextField txtEventDate;
+    @FXML TextField txtEventLocation;
 
     @FXML Button btnInsertIndividual;
     @FXML Button btnRefreshLists;
     @FXML Button btnMakeConnection;
+    @FXML Button setIndividualEventA;
+    @FXML Button setIndividualEventB;
+    @FXML Button btnAddEvent;
 
     @FXML TableView<PersonData> individualsTable1;
     @FXML TableView<String> individualsTable2;
@@ -46,6 +60,7 @@ public class Controller implements Initializable{
     @FXML TableView<PersonData> currentIndividualTable;
     @FXML TableView<PersonData> childrenTable;
     @FXML TableView<PersonData> currentSpouse;
+    @FXML TableView<PersonData> individualEvents;
 
     @FXML TableColumn parentsGivenNameColumn;
     @FXML TableColumn parentsFamilyColumn;
@@ -57,6 +72,10 @@ public class Controller implements Initializable{
     @FXML TableColumn childrenFamilyColumn;
     @FXML TableColumn currentSpouseName;
     @FXML TableColumn currentSpouseFamily;
+    @FXML TableColumn eventGivenName;
+    @FXML TableColumn eventSurname;
+
+    @FXML ListView<String> infoList;
 
     @FXML TableColumn givenNameColumn1;
     @FXML TableColumn surnameColumn1;
@@ -69,10 +88,13 @@ public class Controller implements Initializable{
     @FXML ComboBox<String> chooseSpouseOf = new ComboBox<>();
     @FXML ComboBox<String>  columnName1 = new ComboBox<>();
     @FXML ComboBox<String>  columnName2 = new ComboBox<>();
+    @FXML ComboBox<String>  eventTypes = new ComboBox<>();
 
     @FXML ChoiceBox<String> childOrSpouse = new ChoiceBox<String>();
 
     @FXML CheckBox startFamily = new CheckBox();
+
+    PersonData personA, personB;
 
     public void setup(){
 
@@ -152,6 +174,87 @@ public class Controller implements Initializable{
     }
 
     @FXML
+    public void populateIndividualEvents(){
+
+        ObservableList<PersonData> personData = FXCollections.observableArrayList();
+        ObservableList<String[]> inputPersonData = getTableAsArray("given_name, surname, xref_id", "individual");
+
+        for(String[] datum : inputPersonData){
+
+            personData.add(new PersonData(datum[0], datum[1], datum[2]));
+        }
+
+        eventGivenName.setCellValueFactory(new PropertyValueFactory<PersonData, String>("givenName"));
+        eventSurname.setCellValueFactory(new PropertyValueFactory<PersonData, String>("surname"));
+
+        individualEvents.setItems(personData);
+
+        ObservableList<String> options = FXCollections.observableArrayList("Married", "Born", "Died");
+
+        eventTypes.setItems(options);
+    }
+
+    @FXML
+    public void setEventIndividualA(){
+
+        try {
+            personA = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualA.setText(personA.getGivenName() + " " + personA.getSurname());
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void setEventIndividualB(){
+
+        try {
+            personB = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualB.setText(personB.getGivenName() + " " + personB.getSurname());
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void addEvent(){
+        try {
+
+            String sql = "";
+
+
+            switch (eventTypes.getValue()){
+
+                case "Born": new IndividualEventStructure(personA.getXref(), "BIRT",
+                        txtEventDate.getText(), txtEventLocation.getText());
+
+                case "Died": new IndividualEventStructure(personA.getXref(), "DEAT",
+                        txtEventDate.getText(), txtEventLocation.getText());
+
+                case "Married":
+
+                    String familyID = getResult("xref_id", "family", "husband", personA.getXref());
+                    if(familyID == null) familyID = getResult("xref_id", "family", "husband", personA.getXref());
+                    else {
+
+                        Family temp = new Family(personA.getGivenName(),
+                                personA.getXref(),
+                                personB.getGivenName(),
+                                personB.getXref(),
+                                personA.getSurname());
+
+                        new FamilyEventStructure(temp.getID(), personA.getXref(),
+                                personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
+
+                        new SpouseToFamilyLink(personA.getXref(), familyID);
+                        new SpouseToFamilyLink(personB.getXref(), familyID);
+                    }
+
+                    new FamilyEventStructure(familyID, personA.getXref(),
+                            personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void setIndividual(){
 
         try {
@@ -209,8 +312,8 @@ public class Controller implements Initializable{
         setSiblingsTable(individual_xref);
         setChildrenTable(individual_xref);
         setCurrentSpouseTable(individual_xref);
+        setInfoView(individual_xref);
     }
-
 
     private void populateFamilyTreeView(PersonData tempPerson){
 
@@ -219,6 +322,37 @@ public class Controller implements Initializable{
         setSiblingsTable(individual_xref);
         setChildrenTable(individual_xref);
         setCurrentSpouseTable(individual_xref);
+        setInfoView(individual_xref);
+    }
+
+    private void setInfoView(String individual_xref) {
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String name = getResult("given_name", "individual", "xref_id", individual_xref) +
+                      getResult("surname", "individual", "xref_id", individual_xref);
+
+        results.add(name);
+
+        ObservableList<String> eventNames = getColumnAsArray("type", "individual_event", "individual_xref", individual_xref);
+        ObservableList<String> eventDates = getColumnAsArray("date", "individual_event", "individual_xref", individual_xref);
+        ObservableList<String> eventPlaces = getColumnAsArray("place_id", "individual_event", "individual_xref", individual_xref);
+
+        String type = "";
+        for(int i=0; i<eventNames.size(); i++){
+
+            switch(eventNames.get(i)){
+
+                case "BIRT": type = "b."; break;
+                case "DEAT": type = "d."; break;
+                case "MARR": type = "m.";
+            }
+
+            results.add(type + " " + eventDates.get(i));
+            results.add("\t" + getResult("place_name", "place", "place_id", eventPlaces.get(i)));
+        }
+
+        infoList.setItems(results);
     }
 
     private String setCurrentIndividualTable(PersonData tempPerson){
@@ -454,23 +588,57 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void printoutAllGEDCOM(){
+    public void saveGEDCOMFile(){
 
-        printGEDCOM();
+        saveGEDCOM();
+        flush();
+    }
+
+    @FXML
+    public void saveAsGEDCOMFile(){
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Output Descendancy");
+        File file = fileChooser.showSaveDialog(new Stage());
+        saveAsGEDCOM(file);
+        flush();
     }
 
     @FXML
     public void printoutDescendancy(){
 
-        printDescendants("@GroverWhite@");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Output Descendancy");
+        File file = fileChooser.showSaveDialog(new Stage());
+        printDescendants(file, individualsTable1.getSelectionModel().getSelectedItem().getXref());
+        flush();
     }
 
     @FXML
     public void printoutFamilyTree(){
 
-        printFamilyTree("@AlexanderMalcolmWhite@");
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Output Family Tree");
+//        File file = fileChooser.showSaveDialog(new Stage());
+        printFamilyTree(new File("testTree.txt"), individualsTable1.getSelectionModel().getSelectedItem().getXref());
+        flush();
     }
 
+    @FXML
+    public void printoutStatistics(){
+
+
+    }
+
+    @FXML
+    public void loadGEDCOM(){
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Import GEDCOM File");
+        File file = fileChooser.showOpenDialog(new Stage());
+
+        new Importer(file.getAbsoluteFile().getName());
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
