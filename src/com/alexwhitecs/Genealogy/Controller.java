@@ -154,9 +154,11 @@ public class Controller implements Initializable{
     @FXML
     public void setIndividual(){
 
-        PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
+        try {
+            PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
+            String currentIndividual = tempPerson.getXref();
+            populateFamilyTreeView(tempPerson);
+        } catch (Exception e) {}
     }
 
     @FXML

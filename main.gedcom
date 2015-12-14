@@ -90,23 +90,23 @@
 
 0 @DOUGLASGODDARD_WHITE@ FAM
 1 HUSB @DouglasGoddardWhite@
-1 WIFE -wife-
+1 WIFE @@
 1 CHIL @AlexanderMalcolmWhite@
 1 CHIL @BenjaminArthurWhite@
 1 CHIL @NicholasRobinsonWhite@
 0 @MALCOLMK_WHITE@ FAM
 1 HUSB @MalcolmKWhite@
-1 WIFE -wife-
+1 WIFE @@
 1 CHIL @GerritWhite@
 1 CHIL @JesseAnneWhite@
 1 CHIL @RandallWhite@
 0 @GROVER_WHITE@ FAM
 1 HUSB @GroverWhite@
-1 WIFE -wife-
+1 WIFE @@
 1 CHIL @MalcolmKWhite@
 0 @ARTHUR_ROBINSON@ FAM
 1 HUSB @ArthurDudleyRobinson@
-1 WIFE -wife-
+1 WIFE @@
 1 CHIL @MarthaJaneRobinsonWhite@
 1 CHIL @SallyElizabethRobinson@
 0 TRLR

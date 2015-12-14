@@ -119,7 +119,7 @@
                   </Menu>
               </menus>
             </MenuBar>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
+            <TabPane onMouseClicked="#setIndividual" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
               <tabs>
                 <Tab text="ADD NEW INDIVIDUAL">
                   <content>
@@ -210,7 +210,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="VIEW/CONNECT INDIVIDUALS">
+                  <Tab onSelectionChanged="#populateIndividualsTable1" text="VIEW/CONNECT INDIVIDUALS">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -263,7 +263,7 @@
                         </AnchorPane>
                     </content>
                   </Tab>
-                <Tab text="EXTENDED DATA ENTRY">
+                <Tab text="EDIT / EXTEND DATA">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>

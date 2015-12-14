@@ -42,10 +42,10 @@ public class MySQL_Connector {
         setupDB();
         createTables();
 
-        getTableAsArray("individual");
-        getTableAsArray("family");
-        getTableAsArray("individual_event");
-        getTableAsArray("place");
+//        getTableAsArray("individual");
+//        getTableAsArray("family");
+//        getTableAsArray("individual_event");
+//        getTableAsArray("place");
     }
 
     /**
