@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
+import static com.alexwhitecs.Genealogy.GEDCOM.Parser.accept;
+import static com.alexwhitecs.Genealogy.GEDCOM.Tokenizer.getCurrentToken;
+
 public class Importer {
 
     public PrintWriter output;

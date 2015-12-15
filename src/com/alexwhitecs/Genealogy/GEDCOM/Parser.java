@@ -37,10 +37,12 @@ public class Parser{
      */
     protected static void accept(Symbols expectedToken) throws GEDCOM_Exception {
 
+        //System.out.println("expected: " + expectedToken + "\tgot: " + getCurrentToken() + " value " + getCurrentSpelling());
+
         if(getCurrentToken() == expectedToken) nextToken();
 
-        else throw new GEDCOM_Exception("ERROR: Expected " + expectedToken +
-                                        "\nand found " + getCurrentToken());
+        else throw new GEDCOM_Exception("ERROR: Line " + getLineNumber() + "\nExpected " + expectedToken +
+                                        "\nand found " + getCurrentToken() + ": " + getCurrentSpelling());
     }
 
     /**
@@ -50,7 +52,7 @@ public class Parser{
      */
     protected static void nextLevel() throws GEDCOM_Exception {
 
-        if(getCurrentToken() != LEVEL)
+        if(getCurrentToken() != LEVEL) //accept(getCurrentToken());
             throw new GEDCOM_Exception("ERROR at " + getLineNumber() + ": " +
                                         "Level Unmarked\n" +
                                         "found " + getCurrentToken() +

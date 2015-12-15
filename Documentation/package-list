@@ -1,0 +1,6 @@
+com.alexwhitecs.Genealogy
+com.alexwhitecs.Genealogy.Database
+com.alexwhitecs.Genealogy.GEDCOM
+com.alexwhitecs.Genealogy.GEDCOM.Record.Structure
+com.alexwhitecs.Genealogy.GEDCOM.Record.Substructure
+com.alexwhitecs.Genealogy.UserInterface

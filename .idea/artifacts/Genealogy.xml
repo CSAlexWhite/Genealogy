@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="Genealogy">
+    <output-path>$PROJECT_DIR$/out/artifacts/Genealogy</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="alias" value="" />
+        <option name="appClass" value="com.alexwhitecs.Genealogy.Main" />
+        <option name="description" value="" />
+        <option name="enabledSigning" value="true" />
+        <option name="height" value="768" />
+        <option name="htmlParamFile" value="" />
+        <option name="keystore" value="" />
+        <option name="paramFile" value="" />
+        <option name="title" value="Genea" />
+        <option name="vendor" value="Alex White" />
+        <option name="width" value="1324" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Genealogy.jar">
+        <element id="module-output" name="Genealogy" />
+      </element>
+    </root>
+  </artifact>
+</component>

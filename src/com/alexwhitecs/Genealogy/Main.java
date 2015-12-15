@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import static com.alexwhitecs.Genealogy.Database.Output.printGEDCOM;
+import static com.alexwhitecs.Genealogy.Database.Output.saveGEDCOM;
 
 public class Main extends Application {
 
@@ -42,7 +43,7 @@ public class Main extends Application {
 
             launch(args);
 
-            printGEDCOM();
+            saveGEDCOM();
 
             MySQL_Connector.close();
         }

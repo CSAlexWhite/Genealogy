@@ -342,7 +342,7 @@
                   <Font name="Courier New" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="33.0" prefWidth="613.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH DESCENDANCY" GridPane.rowIndex="3">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="33.0" prefWidth="613.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH / EDIT" GridPane.rowIndex="3">
                <font>
                   <Font name="Courier New" size="18.0" />
                </font>
@@ -446,7 +446,7 @@
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <ListView fx:id="infoList" prefHeight="426.0" prefWidth="207.0" />
+                                    <ListView fx:id="infoList" editable="true" prefHeight="426.0" prefWidth="207.0" />
                                  </children>
                               </VBox>
                            </children>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Genealogy.jnlp">
+  <information>
+    <title>Genea</title>
+    <vendor>Alex White</vendor>
+    <description>Genealogy</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Genealogy.jar" size="297824" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <jfx:javafx-desc  width="1324" height="768" main-class="com.alexwhitecs.Genealogy.Main"  name="Genealogy" />
+  <update check="background"/>
+</jnlp>

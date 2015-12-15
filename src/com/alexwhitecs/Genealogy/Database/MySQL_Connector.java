@@ -175,66 +175,14 @@ public class MySQL_Connector {
         return rowValues;
     }
 
-    public static ObservableList<String> getColumnAsArray(String select, String from, String where, String equals){
-
-        ObservableList<String> results = FXCollections.observableArrayList();
-
-        String query =  "SELECT " + select +
-                " FROM " + from +
-                " WHERE " + where +
-                " LIKE '" + equals +"'";
-        try{
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()) results.add(rs.getString(select));
-
-            rs.close(); statement.close();
-
-        } catch(SQLException error){error.printStackTrace();}
-
-        return results;
-    }
-
-    public static ObservableList<String> getColumnAsArray(String select, String from, String groupBy){
-
-        ObservableList<String> results = FXCollections.observableArrayList();
-
-        String query =  "SELECT " + select +
-                " FROM " + from +
-                " GROUP BY " + groupBy;
-        try{
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()) results.add(rs.getString(select));
-
-            rs.close(); statement.close();
-
-        } catch(SQLException error){error.printStackTrace();}
-
-        return results;
-    }
-
-    public static ObservableList<String> getColumnAsArray(String select, String from){
-
-        ObservableList<String> results = FXCollections.observableArrayList();
-
-        String query =  "SELECT " + select +
-                " FROM " + from;
-        try{
-            statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()) results.add(rs.getString(select));
-
-            rs.close(); statement.close();
-
-        } catch(SQLException error){error.printStackTrace();}
-
-        return results;
-    }
-
+    /**
+     * Given a SELECT FROM WHERE EQUALS statement, retrieves a result as a two-dimensional array
+     * @param select
+     * @param from
+     * @param where
+     * @param equals
+     * @return
+     */
     public static ArrayList<String[]> getTableAsArray(String select, String from, String where, String equals){
 
         ArrayList<String[]> rowValues = new ArrayList<String[]>();
@@ -244,37 +192,6 @@ public class MySQL_Connector {
                     " FROM " + from +
                     " WHERE " + where +
                     " LIKE '" + equals +"'";
-
-            statement = connection.createStatement();
-            ResultSet individualData = statement.executeQuery(query);
-
-            int cols = individualData.getMetaData().getColumnCount();
-            while(individualData.next()){
-
-                String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                   row[i-1] = individualData.getString(i);
-                }
-
-                rowValues.add(row);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return rowValues;
-    }
-
-    public static ObservableList<String[]> getTableAsArray(String select, String from){
-
-        ObservableList<String[]> rowValues =FXCollections.observableArrayList();
-
-        try {
-            String query =  "SELECT " + select +
-                    " FROM " + from;
 
             statement = connection.createStatement();
             ResultSet individualData = statement.executeQuery(query);
@@ -299,6 +216,11 @@ public class MySQL_Connector {
         return rowValues;
     }
 
+    /**
+     * Given a table name, retrieves its 2D array representation
+     * @param tablename
+     * @return
+     */
     public static ArrayList<String[]> getTableAsArray(String tablename){
 
         ArrayList<String[]> rowValues = new ArrayList<String[]>();
@@ -330,6 +252,103 @@ public class MySQL_Connector {
         return rowValues;
     }
 
+    /**
+     * Given a SELECT FROM WHERE EQUALS statement, returns a column as an Observable List
+     * @param select
+     * @param from
+     * @param where
+     * @param equals
+     * @return
+     */
+    public static ObservableList<String> getColumnAsArray(String select, String from, String where, String equals){
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String query =  "SELECT " + select +
+                " FROM " + from +
+                " WHERE " + where +
+                " LIKE '" + equals +"'";
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) results.add(rs.getString(select));
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return results;
+    }
+
+    /**
+     * Given a SELECT FROM statement, returns a column as an Observable List
+     * @param select
+     * @param from
+     * @return
+     */
+    public static ObservableList<String> getColumnAsArray(String select, String from){
+
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        String query =  "SELECT " + select +
+                " FROM " + from;
+        try{
+            statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while(rs.next()) results.add(rs.getString(select));
+
+            rs.close(); statement.close();
+
+        } catch(SQLException error){error.printStackTrace();}
+
+        return results;
+    }
+
+
+    /**
+     * Given a SELECT FROM statement, retrieves a result as an Observable List of arrays
+     * @param select
+     * @param from
+     * @return
+     */
+    public static ObservableList<String[]> getTableAsArray(String select, String from){
+
+        ObservableList<String[]> rowValues =FXCollections.observableArrayList();
+
+        try {
+            String query =  "SELECT " + select +
+                    " FROM " + from;
+
+            statement = connection.createStatement();
+            ResultSet individualData = statement.executeQuery(query);
+
+            int cols = individualData.getMetaData().getColumnCount();
+            while(individualData.next()){
+
+                String[] row = new String[cols];
+
+                for(int i=1; i<=cols; i++){
+
+                    row[i-1] = individualData.getString(i);
+                }
+
+                rowValues.add(row);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rowValues;
+    }
+
+    /**
+     * Given a query, retrieves the result set as an Observable List of arrays
+     * @param query
+     * @return
+     */
     public static ObservableList<String[]> getQueryAsArray(String query){
 
         ObservableList<String[]> rowValues =FXCollections.observableArrayList();
@@ -359,12 +378,21 @@ public class MySQL_Connector {
         return rowValues;
     }
 
+    /**
+     * Sets up the Database
+     * @throws SQLException
+     */
     private static void setupDB()throws SQLException{
 
             executeSQL_Statement("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
             executeSQL_Statement("USE GENEALOGY");
     }
 
+    /**
+     * Builds the necessary tables from a SQL file
+     * @return
+     * @throws SQLException
+     */
     private static boolean createTables() throws SQLException{
 
         String tableFile = "create_tables.sql", line = "", sql = "";

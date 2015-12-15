@@ -61,6 +61,7 @@ public class Tokenizer {
         // TODO print the current token somewhere?
         StringBuffer currentTokenString = new StringBuffer(10);
         while (input.getCurrentChar() == ' ') newLine = input.nextChar();
+        if(input.getCurrentChar() == '\n' || input.getCurrentChar() == '\r') currentToken = STRING;
 
         /* Scan for Tags and strings only, identify as such */
         if (!(input.getCurrentChar() == '_')

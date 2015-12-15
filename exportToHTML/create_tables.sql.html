@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>create_tables.sql</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+create_tables.sql</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">INDIVIDUAL ( 
+individual_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL </span><span class="s1">AUTO_INCREMENT, 
+xref_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+given_name </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+surname </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+sex </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(individual_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">FAMILY ( 
+family_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL </span><span class="s1">AUTO_INCREMENT, 
+xref_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+husband </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+wife </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+number_children </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(family_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">INDIVIDUAL_EVENT ( 
+individual_event_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL </span><span class="s1">AUTO_INCREMENT, 
+individual_xref </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+type </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+</span><span class="s0">date VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+place_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+age_at_event </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+family_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+adopted_by </span><span class="s0">int</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(individual_event_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">FAMILY_EVENT ( 
+family_event_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL </span><span class="s1">AUTO_INCREMENT, 
+family_xref </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+type </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+</span><span class="s0">date VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+place_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">), 
+event_husband </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+event_wife </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(family_event_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">PLACE ( 
+place_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL </span><span class="s1">AUTO_INCREMENT, 
+place_name </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+latitude </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+longitude </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">), 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(place_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">ASSOCIATION ( 
+individual_a_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+individual_b_id </span><span class="s0">INT</span><span class="s1">(</span><span class="s2">10</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(individual_a_id, individual_b_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">CHILD_FAMILY ( 
+individual_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+family_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(individual_id, family_id) 
+); 
+ 
+</span><span class="s0">CREATE TABLE </span><span class="s1">IF </span><span class="s0">NOT EXISTS </span><span class="s1">SPOUSE_FAMILY ( 
+individual_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+family_id </span><span class="s0">VARCHAR</span><span class="s1">(</span><span class="s2">255</span><span class="s1">) </span><span class="s0">NOT NULL</span><span class="s1">, 
+</span><span class="s0">PRIMARY KEY </span><span class="s1">(individual_id, family_id) 
+);</span></pre>
+</body>
+</html>

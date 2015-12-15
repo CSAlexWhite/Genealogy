@@ -230,8 +230,10 @@ public class Controller implements Initializable{
                 case "Married":
 
                     String familyID = getResult("xref_id", "family", "husband", personA.getXref());
-                    if(familyID == null) familyID = getResult("xref_id", "family", "husband", personA.getXref());
-                    else {
+                    if(familyID == null) familyID = getResult("xref_id", "family", "husband", personB.getXref());
+//                    else {
+
+                    System.out.println(familyID);
 
                         Family temp = new Family(personA.getGivenName(),
                                 personA.getXref(),
@@ -244,7 +246,7 @@ public class Controller implements Initializable{
 
                         new SpouseToFamilyLink(personA.getXref(), familyID);
                         new SpouseToFamilyLink(personB.getXref(), familyID);
-                    }
+//                    }
 
                     new FamilyEventStructure(familyID, personA.getXref(),
                             personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());

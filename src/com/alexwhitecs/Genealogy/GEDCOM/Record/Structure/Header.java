@@ -29,17 +29,17 @@ public class Header extends Parser {
         while(getCurrentLevel() > currentLevel){
 
             if(getCurrentToken() == SOUR) readSource();
-//            if(getCurrentToken() == DEST) readDestination();
-//            if(getCurrentToken() == DATE) readHeaderDate();
+            if(getCurrentToken() == DEST) readDestination();
+            if(getCurrentToken() == DATE) readHeaderDate();
             if(getCurrentToken() == SUBM) readSubmitter();
-//            if(getCurrentToken() == SUBN) readSubmission();
-//            if(getCurrentToken() == FILE) readFilename();
-//            if(getCurrentToken() == COPR) readCopyright();
+            if(getCurrentToken() == SUBN) readSubmission();
+            if(getCurrentToken() == FILE) readFilename();
+            if(getCurrentToken() == COPR) readCopyright();
             if(getCurrentToken() == GEDC) readGEDCOM_Info();
             if(getCurrentToken() == CHAR) readCharset();
-//            if(getCurrentToken() == LANG) readLanguage();
-//            if(getCurrentToken() == PLAC) readPlace();
-//            if(getCurrentToken() == NOTE) readNote();
+            if(getCurrentToken() == LANG) readLanguage();
+            if(getCurrentToken() == PLAC) readPlace();
+            if(getCurrentToken() == NOTE) readNote();
             if(getCurrentToken() == CONT) continueLine();
         }
 
