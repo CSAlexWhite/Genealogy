@@ -23,7 +23,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Genea");
-        primaryStage.setScene(new Scene(root, 1324, 768));
+        primaryStage.setScene(new Scene(root, 1324, 770));
         primaryStage.show();
 
         //guiController = new Controller();

@@ -49,6 +49,10 @@ public class Controller implements Initializable{
     @FXML Button setIndividualEventA;
     @FXML Button setIndividualEventB;
     @FXML Button btnAddEvent;
+    @FXML Button btnDisplayFamilyTree;
+    @FXML Button btnDisplayStatistics;
+    @FXML Button btnDisplayDescendancy;
+    @FXML Button btnDisplayAhnentafel;
 
     @FXML TableView<PersonData> individualsTable1;
     @FXML TableView<String> individualsTable2;
@@ -94,6 +98,8 @@ public class Controller implements Initializable{
 
     @FXML CheckBox startFamily = new CheckBox();
 
+    @FXML TextArea graphViewer;
+
     PersonData personA, personB;
 
     public void setup(){
@@ -101,6 +107,61 @@ public class Controller implements Initializable{
         populateChooseFamily1();
         populateChooseFamily2();
         populateSex();
+    }
+
+    @FXML
+    public void insertIndividual(){
+
+        String[] details = {(givenName.getText()+ " " + middleName.getText()),
+                maidenName.getText(),
+                surname.getText(),
+                sex.getValue(),
+                dateOfBirth.getText(),
+                placeOfBirth.getText(),
+                dateOfDeath.getText(),
+                placeOfDeath.getText()};
+
+        Individual newPerson = new Individual(details);
+
+        if(!(chooseChildOf.getValue() == null) && !chooseChildOf.getValue().isEmpty()) {
+
+            System.out.println("choose Child of is: " + chooseChildOf.getValue());
+            new ChildToFamilyLink(newPerson, chooseChildOf.getValue());
+        }
+
+        if(!(chooseSpouseOf.getValue() == null) && !chooseSpouseOf.getValue().isEmpty()){
+
+            System.out.println("choose Spouse of is: " + chooseSpouseOf.getValue());
+            new SpouseToFamilyLink(newPerson, chooseSpouseOf.getValue());
+        }
+
+        if(startFamily.isSelected()) {
+
+            System.out.println("starting new family!");
+
+            String newFamilyXREF = "@" + (givenName.getText() + "_" + surname.getText()).replace(" ", "").toUpperCase() + "@";
+
+            new Family(newFamilyXREF, newPerson.getID(), sex.getValue());
+            new SpouseToFamilyLink(newPerson, newFamilyXREF);
+
+            if (sex.getValue() == "M")
+                updateTable("family", "husband = '" + newPerson.getID() + "'", "xref_id = '" + newFamilyXREF + "'");
+            else updateTable("family", "wife = '" + newPerson.getID() + "'", "xref_id = '" +newFamilyXREF + "'");
+        }
+
+        startFamily.setSelected(false);
+        givenName.setText("");
+        middleName.setText("");
+        maidenName.setText("");
+        surname.setText("");
+        dateOfBirth.setText("");
+        placeOfBirth.setText("");
+        dateOfDeath.setText("");
+        placeOfDeath.setText("");
+
+        chooseChildOf.setValue(null);
+        chooseSpouseOf.setValue(null);
+        sex.setValue(null);
     }
 
     @FXML
@@ -132,24 +193,6 @@ public class Controller implements Initializable{
         }
 
         if(childOrSpouse.getValue() == null) return;
-    }
-
-    @FXML
-    public void setEventIndividualA(){
-
-        try {
-            personA = individualEvents.getSelectionModel().getSelectedItem();
-            txtIndividualA.setText(personA.getGivenName() + " " + personA.getSurname());
-        } catch (Exception e) {}
-    }
-
-    @FXML
-    public void setEventIndividualB(){
-
-        try {
-            personB = individualEvents.getSelectionModel().getSelectedItem();
-            txtIndividualB.setText(personB.getGivenName() + " " + personB.getSurname());
-        } catch (Exception e) {}
     }
 
     @FXML
@@ -204,6 +247,26 @@ public class Controller implements Initializable{
         txtEventLocation.setText("");
 
         resetIndividual();
+    }
+
+    /************* SET DISPLAY FUNCTIONS ************/
+
+    @FXML
+    public void setEventIndividualA(){
+
+        try {
+            personA = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualA.setText(personA.getGivenName() + " " + personA.getSurname());
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void setEventIndividualB(){
+
+        try {
+            personB = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualB.setText(personB.getGivenName() + " " + personB.getSurname());
+        } catch (Exception e) {}
     }
 
     @FXML
@@ -522,61 +585,6 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void insertIndividual(){
-
-        String[] details = {(givenName.getText()+ " " + middleName.getText()),
-                            maidenName.getText(),
-                            surname.getText(),
-                            sex.getValue(),
-                            dateOfBirth.getText(),
-                            placeOfBirth.getText(),
-                            dateOfDeath.getText(),
-                            placeOfDeath.getText()};
-
-        Individual newPerson = new Individual(details);
-
-        if(!(chooseChildOf.getValue() == null) && !chooseChildOf.getValue().isEmpty()) {
-
-            System.out.println("choose Child of is: " + chooseChildOf.getValue());
-            new ChildToFamilyLink(newPerson, chooseChildOf.getValue());
-        }
-
-        if(!(chooseSpouseOf.getValue() == null) && !chooseSpouseOf.getValue().isEmpty()){
-
-            System.out.println("choose Spouse of is: " + chooseSpouseOf.getValue());
-            new SpouseToFamilyLink(newPerson, chooseSpouseOf.getValue());
-        }
-
-        if(startFamily.isSelected()) {
-
-            System.out.println("starting new family!");
-
-            String newFamilyXREF = "@" + (givenName.getText() + "_" + surname.getText()).replace(" ", "").toUpperCase() + "@";
-
-            new Family(newFamilyXREF, newPerson.getID(), sex.getValue());
-            new SpouseToFamilyLink(newPerson, newFamilyXREF);
-
-            if (sex.getValue() == "M")
-                updateTable("family", "husband = '" + newPerson.getID() + "'", "xref_id = '" + newFamilyXREF + "'");
-            else updateTable("family", "wife = '" + newPerson.getID() + "'", "xref_id = '" +newFamilyXREF + "'");
-        }
-
-        startFamily.setSelected(false);
-        givenName.setText("");
-        middleName.setText("");
-        maidenName.setText("");
-        surname.setText("");
-        dateOfBirth.setText("");
-        placeOfBirth.setText("");
-        dateOfDeath.setText("");
-        placeOfDeath.setText("");
-
-        chooseChildOf.setValue(null);
-        chooseSpouseOf.setValue(null);
-        sex.setValue(null);
-    }
-
-    @FXML
     public void populateChooseFamily1(){
 
         ObservableList<String> options = FXCollections.observableArrayList();
@@ -615,6 +623,8 @@ public class Controller implements Initializable{
         columnName2.setItems(options);
     }
 
+    /************* OUTPUT FUNCTIONS ************/
+
     @FXML
     public void saveGEDCOMFile(){
 
@@ -635,6 +645,53 @@ public class Controller implements Initializable{
     @FXML
     public void printoutDescendancy(){
 
+        try {
+            graphViewer.setText(printDescendants(individualsTable1.getSelectionModel().getSelectedItem().getXref()));
+            flush();
+        } catch (Exception e) {
+
+            try {
+                graphViewer.setText(individualEvents.getSelectionModel().getSelectedItem().getXref());
+                flush();
+            } catch (Exception e1) {}
+        }
+    }
+
+    @FXML
+    public void printoutFamilyTree(){
+
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Output Family Tree");
+//        File file = fileChooser.showSaveDialog(new Stage());
+
+        try {
+            graphViewer.setText(printFamilyTree(new File("testTree.txt"),
+                    individualsTable1.
+                            getSelectionModel().
+                            getSelectedItem().
+                            getXref()));
+            flush();
+        } catch (Exception e) {
+
+            graphViewer.setText(printFamilyTree(new File("testTree.txt"),
+                    individualEvents.
+                            getSelectionModel().
+                            getSelectedItem().
+                            getXref()));
+            flush();
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void printoutStatistics(){
+
+
+    }
+
+    @FXML
+    public void saveDescendancy(){
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Output Descendancy");
         File file = fileChooser.showSaveDialog(new Stage());
@@ -648,32 +705,33 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void printoutFamilyTree(){
+    public void saveFamilyTree(){
 
 //        FileChooser fileChooser = new FileChooser();
 //        fileChooser.setTitle("Output Family Tree");
 //        File file = fileChooser.showSaveDialog(new Stage());
+
         try {
-            printFamilyTree(new File("testTree.txt"),
+            graphViewer.setText(printFamilyTree(new File("testTree.txt"),
                     individualsTable1.
                             getSelectionModel().
                             getSelectedItem().
-                            getXref());
+                            getXref()));
             flush();
         } catch (Exception e) {
 
-//            printFamilyTree(new File("testTree.txt"),
-//                    individualEvents.
-//                            getSelectionModel().
-//                            getSelectedItem().
-//                            getXref());
-//            flush();
+            graphViewer.setText(printFamilyTree(new File("testTree.txt"),
+                    individualEvents.
+                            getSelectionModel().
+                            getSelectedItem().
+                            getXref()));
+            flush();
             e.printStackTrace();
         }
     }
 
     @FXML
-    public void printoutStatistics(){
+    public void saveStatistics(){
 
 
     }

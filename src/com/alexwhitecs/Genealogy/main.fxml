@@ -40,7 +40,37 @@
                <children>
                   <TabPane prefHeight="327.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="INDIVIDUAL">
+                        <Tab text="VIEW">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="598.0">
+                                             <children>
+                                                <Button fx:id="btnDisplayFamilyTree" mnemonicParsing="false" onAction="#printoutFamilyTree" text="FAMILY TREE" />
+                                                <Button fx:id="btnDisplayStatistics" mnemonicParsing="false" onAction="#printoutStatistics" text="DATA STATISTICS" />
+                                                <Button fx:id="btnDisplayDescendancy" mnemonicParsing="false" onAction="#printoutDescendancy" text="DESCENDANCY REPORT" />
+                                                <Button fx:id="btnDisplayAhnentafel" mnemonicParsing="false" text="AHNENTAFEL REPORT" />
+                                             </children>
+                                          </HBox>
+                                          <TextArea fx:id="graphViewer" layoutX="87.0" layoutY="31.0" prefHeight="298.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Consolas" size="12.0" />
+                                             </font>
+                                          </TextArea>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="EDIT">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                        </Tab>
+                      <Tab text="SEARCH INDIVIDUALS">
                            <content>
                               <GridPane alignment="CENTER" prefHeight="327.0" prefWidth="369.0">
                                 <columnConstraints>
@@ -110,11 +140,11 @@
                     <MenuItem mnemonicParsing="false" text="About" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Reports">
+                  <Menu mnemonicParsing="false" text="Save Reports">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#printoutDescendancy" text="Descendancy Report" />
-                        <MenuItem mnemonicParsing="false" onAction="#printoutStatistics" text="Family Statistics" />
-                        <MenuItem mnemonicParsing="false" onAction="#printoutFamilyTree" text="Family Tree" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveDescendancy" text="Descendancy Report" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveStatistics" text="Family Statistics" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFamilyTree" text="Family Tree" />
                     </items>
                   </Menu>
               </menus>
@@ -337,7 +367,7 @@
                   <Font name="Courier New" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="33.0" prefWidth="613.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="SEARCH / EDIT" GridPane.rowIndex="3">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="33.0" prefWidth="613.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="VIEW / SEARCH / EDIT" GridPane.rowIndex="3">
                <font>
                   <Font name="Courier New" size="18.0" />
                </font>

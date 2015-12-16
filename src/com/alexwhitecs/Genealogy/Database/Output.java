@@ -25,7 +25,7 @@ public class Output {
      * @param outputfile
      * @param individualXREF
      */
-    public static void printFamilyTree(File outputfile, String individualXREF){
+    public static String printFamilyTree(File outputfile, String individualXREF){
 
         try {
             writer = new PrintWriter(outputfile);
@@ -38,7 +38,7 @@ public class Output {
                 getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                 getResult("surname", "individual", "xref_id", individualXREF).trim());
 
-        printTree(individualXREF);
+        return printTree(individualXREF);
     }
 
     /**
@@ -47,7 +47,7 @@ public class Output {
      */
     static int possibleLevels = 5;
     static Vector<Vector<String>> tree = new Vector<Vector<String>>();
-    public static void printTree(String individualXREF){
+    public static String printTree(String individualXREF){
 
         tree.add(new Vector<String>());
         tree.elementAt(0).add(setLength((getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
@@ -71,17 +71,23 @@ public class Output {
 
         Vector<Vector<String>> newTree = transpose(tree);
 
+        StringBuilder returnString = new StringBuilder("");
+
         for(Vector<String> generation : newTree){
 
             for(String person : generation){
 
+                returnString.append(person + " ");
                 System.out.print(person + " ");
             }
 
+            returnString.append("\n");
             System.out.println();
         }
 
         tree.removeAllElements();
+
+        return returnString.toString();
     }
 
     public static void increaseTreeLevel(){
@@ -207,23 +213,31 @@ public class Output {
         return max;
     }
 
+    static StringBuilder descendancy = new StringBuilder("");
+
     public static void printDescendants(File outputfile, String individualXREF){
 
-        try {
-            writer = new PrintWriter(outputfile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        treeLevel = 0;
-        writer.println("***************************");
-        writer.println("DESCENDANTS OF " +
-                getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
-                getResult("surname", "individual", "xref_id", individualXREF).trim());
-
-        printDescendancy(individualXREF);
+        printDescendants(individualXREF);
+        writer.print(descendancy.toString());
         writer.flush();
         writer.close();
+    }
+
+    public static String printDescendants(String individualXREF){
+
+        treeLevel = 0;
+
+        descendancy.append("***************************\n");
+        descendancy.append("DESCENDANTS OF " +
+                getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+                getResult("surname", "individual", "xref_id", individualXREF).trim() + "\n");
+
+        printDescendancy(individualXREF);
+
+        String toReturn = descendancy.toString();
+        descendancy.setLength(0);
+
+        return toReturn;
     }
 
     public static void printDescendancy(String individualXREF){
@@ -257,12 +271,16 @@ public class Output {
         ObservableList<String> children = getChildren(individualXREF, spouseInfo[1]);
 
         if(!spouse2.isEmpty()) {
-            writer.print(spouse1 + "\n" + tabs() + "m. " + spouse2);
-            writer.println(", " + getResult("date", "family_event", "family_xref",
-                    getResult("xref_id", "family", spouseInfo[1], individualXREF)));
+
+            descendancy.append(spouse1 + "\n" + tabs() + "m. " + spouse2);
+            descendancy.append(", " + getResult("date", "family_event", "family_xref",
+                    getResult("xref_id", "family", spouseInfo[1], individualXREF)) + "\n");
         }
 
-        else writer.println(spouse1);
+        else {
+
+            descendancy.append(spouse1 + "\n");
+        }
 
         for(String child : children) printDescendancy(child);
         treeLevel--;
@@ -462,12 +480,17 @@ public class Output {
     private static void printLevel(){
 
         if(treeLevel == 1) {
-            writer.print("\t");
+
+            descendancy.append("\t");
             return;
         }
 
-        for(int i=1; i<treeLevel; i++) writer.print("\t");
-        writer.print("|-->");
+        for(int i=1; i<treeLevel; i++){
+
+            descendancy.append("\t");
+        }
+
+        descendancy.append("|-->");
     }
 
     private static String dashes(){

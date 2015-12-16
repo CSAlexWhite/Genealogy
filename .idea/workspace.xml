@@ -9,14 +9,15 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Controller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Genealogy/Genealogy.jar" afterPath="$PROJECT_DIR$/out/artifacts/Genealogy/Genealogy.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/Output.class" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/Database/Output.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Genealogy/jb-jfx.jks" afterPath="$PROJECT_DIR$/out/artifacts/Genealogy/jb-jfx.jks" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Genealogy/Genealogy.jnlp" afterPath="$PROJECT_DIR$/out/artifacts/Genealogy/Genealogy.jnlp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/out/production/Genealogy/com/alexwhitecs/Genealogy/main.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" afterPath="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.gedcom" afterPath="$PROJECT_DIR$/main.gedcom" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -87,16 +88,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Output.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4528302">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.49266246">
+              <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1527#1543#0" expanded="true" />
-                <element signature="e#3236#3244#0" expanded="true" />
-                <element signature="e#10390#10398#0" expanded="true" />
+                <element signature="e#1536#1552#0" expanded="true" />
+                <element signature="e#3439#3447#0" expanded="true" />
+                <element signature="e#10849#10857#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,24 +135,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventHandlerManager.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/javafx-src.zip!/com/sun/javafx/event/EventHandlerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.965517">
-              <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+            <state vertical-scroll-proportion="-17.137932">
+              <caret line="332" column="63" selection-start-line="332" selection-start-column="63" selection-end-line="332" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -158,9 +161,40 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.275862">
-              <caret line="656" column="53" selection-start-line="656" selection-start-column="53" selection-end-line="656" selection-end-column="53" />
-              <folding />
+            <state vertical-scroll-proportion="-65.655174">
+              <caret line="641" column="16" selection-start-line="641" selection-start-column="16" selection-end-line="641" selection-end-column="16" />
+              <folding>
+                <element signature="method#setup#0;class#Controller#0" expanded="false" />
+                <element signature="method#insertIndividual#0;class#Controller#0" expanded="false" />
+                <element signature="method#makeConnection#0;class#Controller#0" expanded="false" />
+                <element signature="method#addEvent#0;class#Controller#0" expanded="false" />
+                <element signature="e#7602#7703#0" expanded="false" />
+                <element signature="method#setEventIndividualA#0;class#Controller#0" expanded="false" />
+                <element signature="method#setEventIndividualB#0;class#Controller#0" expanded="false" />
+                <element signature="method#setIndividual#0;class#Controller#0" expanded="false" />
+                <element signature="method#resetIndividual#0;class#Controller#0" expanded="false" />
+                <element signature="method#setChildren#0;class#Controller#0" expanded="false" />
+                <element signature="method#setSiblings#0;class#Controller#0" expanded="false" />
+                <element signature="method#setParents#0;class#Controller#0" expanded="false" />
+                <element signature="method#setSpouse#0;class#Controller#0" expanded="false" />
+                <element signature="method#intializeConnectionOptions#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateIndividualsTable1#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateIndividualEvents#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateFamilyTreeView#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateFamilyTreeView#1;class#Controller#0" expanded="false" />
+                <element signature="method#setInfoView#0;class#Controller#0" expanded="false" />
+                <element signature="method#setCurrentIndividualTable#0;class#Controller#0" expanded="false" />
+                <element signature="method#setCurrentIndividualTable#1;class#Controller#0" expanded="false" />
+                <element signature="method#setSiblingsTable#0;class#Controller#0" expanded="false" />
+                <element signature="method#setChildrenTable#0;class#Controller#0" expanded="false" />
+                <element signature="method#setParentsTable#0;class#Controller#0" expanded="false" />
+                <element signature="method#setCurrentSpouseTable#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateChooseFamily1#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateChooseFamily2#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateSex#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateColumn1#0;class#Controller#0" expanded="false" />
+                <element signature="method#populateColumn2#0;class#Controller#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -265,11 +299,11 @@
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Importer.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Parser.java" />
-        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java" />
         <option value="$PROJECT_DIR$/main.gedcom" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/main.fxml" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java" />
         <option value="$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java" />
       </list>
     </option>
@@ -1237,16 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36842105">
-          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/MySQL_Connector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19328585">
@@ -1270,8 +1294,8 @@
         <state vertical-scroll-proportion="1.2282768">
           <caret line="1672" column="36" selection-start-line="1672" selection-start-column="36" selection-end-line="1672" selection-end-column="36" />
           <folding>
-            <element signature="e#66933#66934#0" expanded="true" />
-            <element signature="e#66978#66979#0" expanded="true" />
+            <element signature="e#66933#66934#0" expanded="false" />
+            <element signature="e#66978#66979#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1284,26 +1308,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventDetail.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1329,8 +1337,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.965517">
-          <caret line="303" column="63" selection-start-line="303" selection-start-column="63" selection-end-line="303" selection-end-column="63" />
+        <state vertical-scroll-proportion="-17.137932">
+          <caret line="332" column="63" selection-start-line="332" selection-start-column="63" selection-end-line="332" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -1343,23 +1351,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/FamilyEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="42" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.275862">
-          <caret line="656" column="53" selection-start-line="656" selection-start-column="53" selection-end-line="656" selection-end-column="53" />
+        <state vertical-scroll-proportion="-65.655174">
+          <caret line="641" column="16" selection-start-line="641" selection-start-column="16" selection-end-line="641" selection-end-column="16" />
+          <folding>
+            <element signature="method#setup#0;class#Controller#0" expanded="false" />
+            <element signature="method#insertIndividual#0;class#Controller#0" expanded="false" />
+            <element signature="method#makeConnection#0;class#Controller#0" expanded="false" />
+            <element signature="method#addEvent#0;class#Controller#0" expanded="false" />
+            <element signature="e#7602#7703#0" expanded="false" />
+            <element signature="method#setEventIndividualA#0;class#Controller#0" expanded="false" />
+            <element signature="method#setEventIndividualB#0;class#Controller#0" expanded="false" />
+            <element signature="method#setIndividual#0;class#Controller#0" expanded="false" />
+            <element signature="method#resetIndividual#0;class#Controller#0" expanded="false" />
+            <element signature="method#setChildren#0;class#Controller#0" expanded="false" />
+            <element signature="method#setSiblings#0;class#Controller#0" expanded="false" />
+            <element signature="method#setParents#0;class#Controller#0" expanded="false" />
+            <element signature="method#setSpouse#0;class#Controller#0" expanded="false" />
+            <element signature="method#intializeConnectionOptions#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateIndividualsTable1#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateIndividualEvents#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateFamilyTreeView#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateFamilyTreeView#1;class#Controller#0" expanded="false" />
+            <element signature="method#setInfoView#0;class#Controller#0" expanded="false" />
+            <element signature="method#setCurrentIndividualTable#0;class#Controller#0" expanded="false" />
+            <element signature="method#setCurrentIndividualTable#1;class#Controller#0" expanded="false" />
+            <element signature="method#setSiblingsTable#0;class#Controller#0" expanded="false" />
+            <element signature="method#setChildrenTable#0;class#Controller#0" expanded="false" />
+            <element signature="method#setParentsTable#0;class#Controller#0" expanded="false" />
+            <element signature="method#setCurrentSpouseTable#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateChooseFamily1#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateChooseFamily2#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateSex#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateColumn1#0;class#Controller#0" expanded="false" />
+            <element signature="method#populateColumn2#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/GEDCOM/Record/Substructure/IndividualEventStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/alexwhitecs/Genealogy/Database/Output.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4528302">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.49266246">
+          <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1527#1543#0" expanded="true" />
-            <element signature="e#3236#3244#0" expanded="true" />
-            <element signature="e#10390#10398#0" expanded="true" />
+            <element signature="e#1536#1552#0" expanded="true" />
+            <element signature="e#3439#3447#0" expanded="true" />
+            <element signature="e#10849#10857#0" expanded="true" />
           </folding>
         </state>
       </provider>
