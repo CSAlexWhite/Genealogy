@@ -62,21 +62,11 @@ public class Output {
 
         tree.add(new Vector<String>());
         tree.elementAt(0).add(setLength((getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
-                getResult("surname", "individual", "xref_id", individualXREF).trim()),20, ' '));
+                getResult("surname", "individual", "xref_id", individualXREF).trim()), 20, '.'));
 
         treeLevel = 0;
 
         getParents(individualXREF);
-
-        for(Vector<String> generation : tree){
-
-            for(String person : generation){
-
-                System.out.print(person + " ");
-            }
-
-            System.out.println();
-        }
 
         Vector<Vector<String>> newTree = transpose(tree);
 
@@ -89,6 +79,8 @@ public class Output {
 
             System.out.println();
         }
+
+        tree.removeAllElements();
     }
 
     public static void increaseTreeLevel(){
@@ -118,20 +110,21 @@ public class Output {
         String husband = getResult("husband", "family", "xref_id", familyXREF);
         String wife = getResult("wife", "family", "xref_id", familyXREF);
 
+
         if (!(husband.trim() == "")) {
 
             tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", husband).trim() + " " +
-                    getResult("surname", "individual", "xref_id", husband).trim()), 20, ' '));
+                    getResult("surname", "individual", "xref_id", husband).trim()), 20, '.'));
 
         }
 
-        for(int i=0; i<(4-treeLevel); i++) tree.elementAt(treeLevel).add("|");
-        //tree.elementAt(treeLevel).add(dashes());
+        if(treeLevel!=1) for(int i=0; i<(4-treeLevel); i++) tree.elementAt(treeLevel).add("");//|\t\t\t\t\t" + spaces());
+
 
         if (!(wife.trim() == "")){
 
             tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", wife).trim() + " " +
-                    getResult("surname", "individual", "xref_id", wife).trim()), 20, ' '));
+                    getResult("surname", "individual", "xref_id", wife).trim()), 20, '.'));
         }
 
         getParents(husband);treeLevel--;
@@ -177,10 +170,17 @@ public class Output {
 
              for(int j=0; j<tree.size(); j++){
 
-                 if(i >= tree.elementAt(j).size()) newTree.elementAt(i).add("");
-                 else newTree.elementAt(i).
-                         add(tree.elementAt(j).
-                                 elementAt(i));
+                 if(i >= tree.elementAt(j).size()) {
+
+                     newTree.elementAt(i).add(spaces(20));
+                 }
+
+                 else if(tree.elementAt(j).elementAt(i) == ""){
+
+                     newTree.elementAt(i).add(spaces(20));
+                 }
+
+                 else newTree.elementAt(i).add("|---" + tree.elementAt(j).elementAt(i));
              }
          }
 
@@ -219,6 +219,7 @@ public class Output {
                 getResult("surname", "individual", "xref_id", individualXREF).trim());
 
         printDescendancy(individualXREF);
+        writer.flush();
     }
 
     public static void printDescendancy(String individualXREF){
@@ -482,6 +483,15 @@ public class Output {
         tabs += "\t";
 
         return tabs;
+    }
+
+    private static String spaces(int n){
+
+        StringBuilder spaces = new StringBuilder("");
+
+        for(int i=1; i<n; i++) spaces.append(" ");
+
+        return spaces.toString();
     }
 
     public static void flush(){
