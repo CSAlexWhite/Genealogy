@@ -17,6 +17,8 @@ public class Output {
 
     static PrintWriter writer;
     static int treeLevel = 0;
+    static int initTreeMax = 0;
+    static int treeMax = 0;
 
     /**
      * Given a person, writes all the parents of parents of parents of parents of... to a file
@@ -39,19 +41,6 @@ public class Output {
         printTree(individualXREF);
     }
 
-//    public static void printTree(String individualXREF, int numGenerations){
-//
-//        String[][] tree = new String[(int)Math.pow(2,numGenerations)][];
-//        for(String[] level : tree) level = new String[numGenerations];
-//
-//
-//
-//        personline.append( getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
-//                getResult("surname", "individual", "xref_id", individualXREF).trim());
-//
-//
-//    }
-
     /**
      * The first call of printFamilyTree, calls getParents which calls itself recursively until there are no more
      * generations left to print
@@ -63,6 +52,18 @@ public class Output {
         tree.add(new Vector<String>());
         tree.elementAt(0).add(setLength((getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
                 getResult("surname", "individual", "xref_id", individualXREF).trim()), 20, '.'));
+
+        treeLevel = 0;
+
+        getParents(individualXREF);
+
+        tree.removeAllElements();
+
+        treeMax = initTreeMax;
+
+        tree.add(new Vector<String>());
+        tree.elementAt(0).add(setLength((getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+                getResult("surname", "individual", "xref_id", individualXREF).trim()), 20, ' '));
 
         treeLevel = 0;
 
@@ -87,6 +88,7 @@ public class Output {
 
         treeLevel++;
         tree.add(new Vector<String>());
+        if(treeLevel >= initTreeMax) initTreeMax = treeLevel;
     }
 
     /**
@@ -110,25 +112,55 @@ public class Output {
         String husband = getResult("husband", "family", "xref_id", familyXREF);
         String wife = getResult("wife", "family", "xref_id", familyXREF);
 
-
         if (!(husband.trim() == "")) {
 
             tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", husband).trim() + " " +
-                    getResult("surname", "individual", "xref_id", husband).trim()), 20, '.'));
+                    getResult("surname", "individual", "xref_id", husband).trim()), 20, ' '));
 
         }
 
-        if(treeLevel!=1) for(int i=0; i<(4-treeLevel); i++) tree.elementAt(treeLevel).add("");//|\t\t\t\t\t" + spaces());
+        else tree.elementAt(treeLevel).add("");
 
+        for(int i=0; i<((treeMax) - treeLevel); i++) tree.elementAt(treeLevel).add("");
 
         if (!(wife.trim() == "")){
 
             tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", wife).trim() + " " +
-                    getResult("surname", "individual", "xref_id", wife).trim()), 20, '.'));
+                    getResult("surname", "individual", "xref_id", wife).trim()), 20, ' '));
         }
 
-        getParents(husband);treeLevel--;
-        getParents(wife);treeLevel--;
+        else tree.elementAt(treeLevel).add("");
+
+        getParents(husband); treeLevel--;
+        getParents(wife); treeLevel--;
+    }
+
+    public static  Vector<Vector<String>> transpose(Vector<Vector<String>> tree){
+
+        int max = getMaxIndividuals();
+        Vector<Vector<String>> newTree = new Vector<>();
+
+        for(int i=0; i<max; i++){
+
+            newTree.add(new Vector<String>());
+
+            for(int j=0; j<tree.size(); j++){
+
+                if(i >= tree.elementAt(j).size()) {
+
+                    newTree.elementAt(i).add(spaces(25));
+                }
+
+                else if(tree.elementAt(j).elementAt(i).trim().isEmpty()){
+
+                    newTree.elementAt(i).add("|" + spaces(24));
+                }
+
+                else newTree.elementAt(i).add("|-->" + tree.elementAt(j).elementAt(i));
+            }
+        }
+
+        return newTree;
     }
 
     public static String setLength(String original, int length, char padChar) {
@@ -156,35 +188,6 @@ public class Output {
         }
 
         return sb.toString();
-    }
-
-
-    public static  Vector<Vector<String>> transpose(Vector<Vector<String>> tree){
-
-        int max = getMaxIndividuals();
-        Vector<Vector<String>> newTree = new Vector<>();
-
-         for(int i=0; i<max; i++){
-
-             newTree.add(new Vector<String>());
-
-             for(int j=0; j<tree.size(); j++){
-
-                 if(i >= tree.elementAt(j).size()) {
-
-                     newTree.elementAt(i).add(spaces(20));
-                 }
-
-                 else if(tree.elementAt(j).elementAt(i) == ""){
-
-                     newTree.elementAt(i).add(spaces(20));
-                 }
-
-                 else newTree.elementAt(i).add("|---" + tree.elementAt(j).elementAt(i));
-             }
-         }
-
-        return newTree;
     }
 
     public static int getMaxIndividuals(){
@@ -220,6 +223,7 @@ public class Output {
 
         printDescendancy(individualXREF);
         writer.flush();
+        writer.close();
     }
 
     public static void printDescendancy(String individualXREF){

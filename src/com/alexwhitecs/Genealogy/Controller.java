@@ -135,6 +135,128 @@ public class Controller implements Initializable{
     }
 
     @FXML
+    public void setEventIndividualA(){
+
+        try {
+            personA = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualA.setText(personA.getGivenName() + " " + personA.getSurname());
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void setEventIndividualB(){
+
+        try {
+            personB = individualEvents.getSelectionModel().getSelectedItem();
+            txtIndividualB.setText(personB.getGivenName() + " " + personB.getSurname());
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void addEvent(){
+        try {
+
+            String sql = "";
+
+
+            switch (eventTypes.getValue()){
+
+                case "Born": new IndividualEventStructure(personA.getXref(), "BIRT",
+                        txtEventDate.getText(), txtEventLocation.getText());
+                        break;
+
+                case "Died": new IndividualEventStructure(personA.getXref(), "DEAT",
+                        txtEventDate.getText(), txtEventLocation.getText());
+                        break;
+
+                case "Married":
+
+                    System.out.println("MARRIAGE?");
+
+//                    String familyID = getResult("xref_id", "family", "husband", personA.getXref());
+//                    if(familyID == null) familyID = getResult("xref_id", "family", "wife", personB.getXref());
+//                    if(familyID == null) familyID = "@" + personA.getGivenName() + personB.getGivenName() + personA.getSurname() + "@";
+
+                    Family temp = new Family(personA.getGivenName(),
+                            personA.getXref(),
+                            personB.getGivenName(),
+                            personB.getXref(),
+                            personA.getSurname());
+
+                    new FamilyEventStructure(temp.getID(), personA.getXref(),
+                            personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
+
+                    new SpouseToFamilyLink(personA.getXref(), temp.getID());
+                    new SpouseToFamilyLink(personB.getXref(), temp.getID());
+
+                    new FamilyEventStructure(temp.getID(), personA.getXref(),
+                            personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        eventTypes.setValue(null);
+        txtIndividualA.setText("");
+        txtIndividualB.setText("");
+        txtEventDate.setText("");
+        txtEventLocation.setText("");
+
+        resetIndividual();
+    }
+
+    @FXML
+    public void setIndividual(){
+
+        try {
+            PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
+            String currentIndividual = tempPerson.getXref();
+            populateFamilyTreeView(tempPerson);
+        } catch (Exception e) {}
+    }
+
+    @FXML
+    public void resetIndividual(){
+
+        PersonData tempPerson = individualEvents.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setChildren(){
+
+        PersonData tempPerson = childrenTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setSiblings(){
+
+        PersonData tempPerson = siblingsTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setParents(){
+
+        PersonData tempPerson = parentsTable.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
+    public void setSpouse(){
+
+        PersonData tempPerson = currentSpouse.getSelectionModel().getSelectedItem();
+        String currentIndividual = tempPerson.getXref();
+        populateFamilyTreeView(tempPerson);
+    }
+
+    @FXML
     public void intializeConnectionOptions(){
 
         ObservableList<String> options = FXCollections.observableArrayList("Child of", "Wife of", "Husband of");
@@ -195,118 +317,6 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    public void setEventIndividualA(){
-
-        try {
-            personA = individualEvents.getSelectionModel().getSelectedItem();
-            txtIndividualA.setText(personA.getGivenName() + " " + personA.getSurname());
-        } catch (Exception e) {}
-    }
-
-    @FXML
-    public void setEventIndividualB(){
-
-        try {
-            personB = individualEvents.getSelectionModel().getSelectedItem();
-            txtIndividualB.setText(personB.getGivenName() + " " + personB.getSurname());
-        } catch (Exception e) {}
-    }
-
-    @FXML
-    public void addEvent(){
-        try {
-
-            String sql = "";
-
-
-            switch (eventTypes.getValue()){
-
-                case "Born": new IndividualEventStructure(personA.getXref(), "BIRT",
-                        txtEventDate.getText(), txtEventLocation.getText());
-
-                case "Died": new IndividualEventStructure(personA.getXref(), "DEAT",
-                        txtEventDate.getText(), txtEventLocation.getText());
-
-                case "Married":
-
-                    String familyID = getResult("xref_id", "family", "husband", personA.getXref());
-                    if(familyID == null) familyID = getResult("xref_id", "family", "husband", personB.getXref());
-//                    else {
-
-                    System.out.println(familyID);
-
-                        Family temp = new Family(personA.getGivenName(),
-                                personA.getXref(),
-                                personB.getGivenName(),
-                                personB.getXref(),
-                                personA.getSurname());
-
-                        new FamilyEventStructure(temp.getID(), personA.getXref(),
-                                personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
-
-                        new SpouseToFamilyLink(personA.getXref(), familyID);
-                        new SpouseToFamilyLink(personB.getXref(), familyID);
-//                    }
-
-                    new FamilyEventStructure(familyID, personA.getXref(),
-                            personB.getXref(), "MARR", txtEventDate.getText(), txtEventLocation.getText());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void setIndividual(){
-
-        try {
-            PersonData tempPerson = individualsTable1.getSelectionModel().getSelectedItem();
-            String currentIndividual = tempPerson.getXref();
-            populateFamilyTreeView(tempPerson);
-        } catch (Exception e) {}
-    }
-
-    @FXML
-    public void resetIndividual(){
-
-        PersonData tempPerson = currentIndividualTable.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
-    }
-
-    @FXML
-    public void setChildren(){
-
-        PersonData tempPerson = childrenTable.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
-    }
-
-    @FXML
-    public void setSiblings(){
-
-        PersonData tempPerson = siblingsTable.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
-    }
-
-    @FXML
-    public void setParents(){
-
-        PersonData tempPerson = parentsTable.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
-    }
-
-    @FXML
-    public void setSpouse(){
-
-        PersonData tempPerson = currentSpouse.getSelectionModel().getSelectedItem();
-        String currentIndividual = tempPerson.getXref();
-        populateFamilyTreeView(tempPerson);
-    }
-
-    @FXML
     public void populateFamilyTreeView(){
 
         String individual_xref = setCurrentIndividualTable();
@@ -334,11 +344,16 @@ public class Controller implements Initializable{
         String name = getResult("given_name", "individual", "xref_id", individual_xref) +
                       getResult("surname", "individual", "xref_id", individual_xref);
 
+        String family_xref = getResult("family_id", "spouse_family", "individual_id", individual_xref);
+
         results.add(name);
 
         ObservableList<String> eventNames = getColumnAsArray("type", "individual_event", "individual_xref", individual_xref);
         ObservableList<String> eventDates = getColumnAsArray("date", "individual_event", "individual_xref", individual_xref);
         ObservableList<String> eventPlaces = getColumnAsArray("place_id", "individual_event", "individual_xref", individual_xref);
+        ObservableList<String> feventNames = getColumnAsArray("type", "family_event", "family_xref", family_xref);
+        ObservableList<String> feventDates = getColumnAsArray("date", "family_event", "family_xref", family_xref);
+        ObservableList<String> feventPlaces = getColumnAsArray("place_id", "family_event", "family_xref", family_xref);
 
         String type = "";
         for(int i=0; i<eventNames.size(); i++){
@@ -346,12 +361,23 @@ public class Controller implements Initializable{
             switch(eventNames.get(i)){
 
                 case "BIRT": type = "b."; break;
-                case "DEAT": type = "d."; break;
-                case "MARR": type = "m.";
+                case "DEAT": type = "d.";
             }
 
             results.add(type + " " + eventDates.get(i));
             results.add("\t" + getResult("place_name", "place", "place_id", eventPlaces.get(i)));
+        }
+
+        type = "";
+        for(int i=0; i<feventNames.size(); i++){
+
+            switch(feventNames.get(i)){
+
+                case "MARR": type = "m.";
+            }
+
+            results.add(type + " " + feventDates.get(i));
+            results.add("\t" + getResult("place_name", "place", "place_id", feventPlaces.get(i)));
         }
 
         infoList.setItems(results);
@@ -612,8 +638,13 @@ public class Controller implements Initializable{
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Output Descendancy");
         File file = fileChooser.showSaveDialog(new Stage());
-        printDescendants(file, individualsTable1.getSelectionModel().getSelectedItem().getXref());
-        flush();
+        try {
+            printDescendants(file, individualsTable1.getSelectionModel().getSelectedItem().getXref());
+            flush();
+        } catch (Exception e) {
+            printDescendants(file, individualEvents.getSelectionModel().getSelectedItem().getXref());
+            flush();
+        }
     }
 
     @FXML
@@ -622,8 +653,23 @@ public class Controller implements Initializable{
 //        FileChooser fileChooser = new FileChooser();
 //        fileChooser.setTitle("Output Family Tree");
 //        File file = fileChooser.showSaveDialog(new Stage());
-        printFamilyTree(new File("testTree.txt"), individualsTable1.getSelectionModel().getSelectedItem().getXref());
-        flush();
+        try {
+            printFamilyTree(new File("testTree.txt"),
+                    individualsTable1.
+                            getSelectionModel().
+                            getSelectedItem().
+                            getXref());
+            flush();
+        } catch (Exception e) {
+
+//            printFamilyTree(new File("testTree.txt"),
+//                    individualEvents.
+//                            getSelectionModel().
+//                            getSelectedItem().
+//                            getXref());
+//            flush();
+            e.printStackTrace();
+        }
     }
 
     @FXML

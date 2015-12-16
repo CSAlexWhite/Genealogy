@@ -154,11 +154,6 @@
                                           <TextField fx:id="placeOfBirth" layoutX="10.0" layoutY="135.0" promptText="Place of Birth" />
                                           <TextField fx:id="dateOfDeath" promptText="Date of Death" />
                                           <TextField fx:id="placeOfDeath" layoutX="10.0" layoutY="160.0" promptText="Place of Death" />
-                                          <CheckBox fx:id="startFamily" mnemonicParsing="false" text="start new family">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </CheckBox>
                                        </children>
                                        <padding>
                                           <Insets left="10.0" />
@@ -269,7 +264,7 @@
                            <children>
                               <HBox layoutX="219.0" layoutY="78.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TableView fx:id="individualEvents" prefHeight="300.0" prefWidth="312.0">
+                                    <TableView fx:id="individualEvents" onMouseClicked="#resetIndividual" prefHeight="300.0" prefWidth="312.0">
                                       <columns>
                                         <TableColumn fx:id="eventGivenName" prefWidth="160.0" text="Name" />
                                         <TableColumn fx:id="eventSurname" prefWidth="149.0" text="Family" />
