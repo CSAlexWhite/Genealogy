@@ -11,49 +11,18 @@ import java.util.Vector;
 import static com.alexwhitecs.Genealogy.Database.MySQL_Connector.*;
 
 /**
- * Created by alexw on 12/12/2015.
+ * Class for file operations.  Outputs GEDCOM, family tree, descendancy, and statistics reports.
  */
 public class Output {
 
     static PrintWriter writer;
-
     static int treeLevel = 0;
 
-    private static void printLevel(){
-
-        if(treeLevel == 1) {
-            writer.print("\t");
-            return;
-        }
-
-        for(int i=1; i<treeLevel; i++) writer.print("\t");
-            writer.print("|-->");
-    }
-
-    private static String dashes(){
-
-        String dashes = "";
-
-        for(int i=1; i<Math.ceil(Math.sqrt(Math.pow(10, 4-treeLevel))); i++) dashes += "-";
-
-        return dashes;
-    }
-
-    private static String tabs(){
-
-        String tabs = "";
-
-        for(int i=1; i<treeLevel; i++) tabs += "\t";
-        tabs += "\t";
-
-        return tabs;
-    }
-
-    public static void flush(){
-
-        writer.flush();
-    }
-
+    /**
+     * Given a person, writes all the parents of parents of parents of parents of... to a file
+     * @param outputfile
+     * @param individualXREF
+     */
     public static void printFamilyTree(File outputfile, String individualXREF){
 
         try {
@@ -70,29 +39,73 @@ public class Output {
         printTree(individualXREF);
     }
 
+//    public static void printTree(String individualXREF, int numGenerations){
+//
+//        String[][] tree = new String[(int)Math.pow(2,numGenerations)][];
+//        for(String[] level : tree) level = new String[numGenerations];
+//
+//
+//
+//        personline.append( getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+//                getResult("surname", "individual", "xref_id", individualXREF).trim());
+//
+//
+//    }
+
+    /**
+     * The first call of printFamilyTree, calls getParents which calls itself recursively until there are no more
+     * generations left to print
+     */
     static int possibleLevels = 5;
-    static Vector<StringBuilder> layers = new Vector<StringBuilder>();
+    static Vector<Vector<String>> tree = new Vector<Vector<String>>();
     public static void printTree(String individualXREF){
 
-        for(int i=0; i<10; i++) layers.add(new StringBuilder());
+        tree.add(new Vector<String>());
+        tree.elementAt(0).add(setLength((getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
+                getResult("surname", "individual", "xref_id", individualXREF).trim()),20, ' '));
 
         treeLevel = 0;
-        System.out.println( getResult("given_name", "individual", "xref_id", individualXREF).trim() + " " +
-                getResult("surname", "individual", "xref_id", individualXREF).trim());
 
         getParents(individualXREF);
 
-        for(StringBuilder layer : layers){
+        for(Vector<String> generation : tree){
 
-            if(layer.equals("")) continue;
-            System.out.println(layer.toString());
+            for(String person : generation){
+
+                System.out.print(person + " ");
+            }
+
+            System.out.println();
         }
 
+        Vector<Vector<String>> newTree = transpose(tree);
+
+        for(Vector<String> generation : newTree){
+
+            for(String person : generation){
+
+                System.out.print(person + " ");
+            }
+
+            System.out.println();
+        }
     }
 
-    public static void getParents(String individualXREF) {
+    public static void increaseTreeLevel(){
 
         treeLevel++;
+        tree.add(new Vector<String>());
+    }
+
+    /**
+     * Main recursive function for use in printing the family tree.  For each individual, produces a list
+     * of individuals one generation before who directly relate to the root individual.  Spacing is accomplished
+     * properly using the dash() function.
+     * @param individualXREF
+     */
+    public static void getParents(String individualXREF) {
+
+        increaseTreeLevel();
 
         Vector<String> parentsof = new Vector<String>();
 
@@ -106,19 +119,89 @@ public class Output {
         String wife = getResult("wife", "family", "xref_id", familyXREF);
 
         if (!(husband.trim() == "")) {
-            layers.elementAt(treeLevel).append(dashes() + getResult("given_name", "individual", "xref_id", husband).trim() + " " +
-                    getResult("surname", "individual", "xref_id", husband).trim() + dashes());
+
+            tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", husband).trim() + " " +
+                    getResult("surname", "individual", "xref_id", husband).trim()), 20, ' '));
 
         }
 
-        if (!(wife.trim() == "")) {
-            layers.elementAt(treeLevel).append((dashes() + getResult("given_name", "individual", "xref_id", wife).trim() + " " +
-                    getResult("surname", "individual", "xref_id", wife).trim())+ dashes());
+        for(int i=0; i<(4-treeLevel); i++) tree.elementAt(treeLevel).add("|");
+        //tree.elementAt(treeLevel).add(dashes());
 
+        if (!(wife.trim() == "")){
+
+            tree.elementAt(treeLevel).add(setLength((getResult("given_name", "individual", "xref_id", wife).trim() + " " +
+                    getResult("surname", "individual", "xref_id", wife).trim()), 20, ' '));
         }
 
         getParents(husband);treeLevel--;
         getParents(wife);treeLevel--;
+    }
+
+    public static String setLength(String original, int length, char padChar) {
+        return justifyLeft(original, length, padChar, false);
+    }
+
+    protected static String justifyLeft(String str, final int width, char padWithChar,
+                                        boolean trimWhitespace) {
+        // Trim the leading and trailing whitespace ...
+        str = str != null ? (trimWhitespace ? str.trim() : str) : "";
+
+        int addChars = width - str.length();
+        if (addChars < 0) {
+            // truncate
+            return str.subSequence(0, width).toString();
+        }
+        // Write the content ...
+        final StringBuilder sb = new StringBuilder();
+        sb.append(str);
+
+        // Append the whitespace ...
+        while (addChars > 0) {
+            sb.append(padWithChar);
+            --addChars;
+        }
+
+        return sb.toString();
+    }
+
+
+    public static  Vector<Vector<String>> transpose(Vector<Vector<String>> tree){
+
+        int max = getMaxIndividuals();
+        Vector<Vector<String>> newTree = new Vector<>();
+
+         for(int i=0; i<max; i++){
+
+             newTree.add(new Vector<String>());
+
+             for(int j=0; j<tree.size(); j++){
+
+                 if(i >= tree.elementAt(j).size()) newTree.elementAt(i).add("");
+                 else newTree.elementAt(i).
+                         add(tree.elementAt(j).
+                                 elementAt(i));
+             }
+         }
+
+        return newTree;
+    }
+
+    public static int getMaxIndividuals(){
+
+        int max = 0;
+        for(Vector<String> generation : tree){
+
+            int current = 0;
+            for(String person : generation){
+
+                current++;
+                if(current > max) max = current;
+            }
+        }
+
+        System.out.println(max);
+        return max;
     }
 
     public static void printDescendants(File outputfile, String individualXREF){
@@ -369,5 +452,40 @@ public class Output {
                 writer.println("1 CHIL " + child[0]);
             }
         }
+    }
+
+    private static void printLevel(){
+
+        if(treeLevel == 1) {
+            writer.print("\t");
+            return;
+        }
+
+        for(int i=1; i<treeLevel; i++) writer.print("\t");
+        writer.print("|-->");
+    }
+
+    private static String dashes(){
+
+        String dashes = "";
+
+        for(int i=1; i<Math.ceil(Math.sqrt(Math.pow(10, 4-treeLevel))); i++) dashes += "-";
+
+        return dashes;
+    }
+
+    private static String tabs(){
+
+        String tabs = "";
+
+        for(int i=1; i<treeLevel; i++) tabs += "\t";
+        tabs += "\t";
+
+        return tabs;
+    }
+
+    public static void flush(){
+
+        writer.flush();
     }
 }

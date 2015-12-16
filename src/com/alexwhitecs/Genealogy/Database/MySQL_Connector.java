@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Observable;
 
 /**
- * Created by alexw on 12/5/2015.
+ * Connects to MySQL database via JDBC
+ * Contains methods to read/write/update given different parameters
  */
 public class MySQL_Connector {
 
@@ -71,11 +72,10 @@ public class MySQL_Connector {
         int lastid = 0;
 
         try{
+
             statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT MAX(" + idname + ") FROM " + tablename);
-
             while(rs.next()) lastid = rs.getInt(1);
-
             rs.close(); statement.close();
 
         } catch(SQLException error){error.printStackTrace();}
@@ -109,11 +109,7 @@ public class MySQL_Connector {
     public static String getResult(String select, String from, String where, String equals){
 
         String result = "";
-        String query =  "SELECT " + select +
-                " FROM " + from +
-                " WHERE " + where +
-                " LIKE '" + equals +"'";
-
+        String query =  "SELECT " + select + " FROM " + from + " WHERE " + where + " LIKE '" + equals +"'";
         return getResult(query);
     }
 
@@ -126,14 +122,10 @@ public class MySQL_Connector {
 
         String result = "";
         try{
+
             statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next()){
-
-                result = rs.getString(1);
-            }
-
+            while(rs.next()) result = rs.getString(1);
             rs.close(); statement.close();
 
         } catch(SQLException error){error.printStackTrace();}
@@ -154,23 +146,14 @@ public class MySQL_Connector {
 
             statement = connection.createStatement();
             ResultSet individualData = statement.executeQuery(query);
-
             int cols = individualData.getMetaData().getColumnCount();
             while(individualData.next()){
-
                 String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                    row[i-1] = individualData.getString(i);
-                }
-
+                for(int i=1; i<=cols; i++) row[i-1] = individualData.getString(i);
                 rowValues.add(row);
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
 
         return rowValues;
     }
@@ -185,35 +168,8 @@ public class MySQL_Connector {
      */
     public static ArrayList<String[]> getTableAsArray(String select, String from, String where, String equals){
 
-        ArrayList<String[]> rowValues = new ArrayList<String[]>();
-
-        try {
-            String query =  "SELECT " + select +
-                    " FROM " + from +
-                    " WHERE " + where +
-                    " LIKE '" + equals +"'";
-
-            statement = connection.createStatement();
-            ResultSet individualData = statement.executeQuery(query);
-
-            int cols = individualData.getMetaData().getColumnCount();
-            while(individualData.next()){
-
-                String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                    row[i-1] = individualData.getString(i);
-                }
-
-                rowValues.add(row);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return rowValues;
+        String query =  "SELECT " + select + " FROM " + from + " WHERE " + where + " LIKE '" + equals +"'";
+        return retrieveQuery(query);
     }
 
     /**
@@ -223,33 +179,8 @@ public class MySQL_Connector {
      */
     public static ArrayList<String[]> getTableAsArray(String tablename){
 
-        ArrayList<String[]> rowValues = new ArrayList<String[]>();
-
-        try {
-            String sql = "SELECT * FROM " + tablename;
-
-            statement = connection.createStatement();
-            ResultSet individualData = statement.executeQuery(sql);
-
-            int cols = individualData.getMetaData().getColumnCount();
-            while(individualData.next()){
-
-                String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                    row[i-1] = individualData.getString(i);
-                }
-
-                rowValues.add(row);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        return rowValues;
+        String query = "SELECT * FROM " + tablename;
+        return retrieveQuery(query);
     }
 
     /**
@@ -290,15 +221,12 @@ public class MySQL_Connector {
     public static ObservableList<String> getColumnAsArray(String select, String from){
 
         ObservableList<String> results = FXCollections.observableArrayList();
+        String query =  "SELECT " + select + " FROM " + from;
 
-        String query =  "SELECT " + select +
-                " FROM " + from;
         try{
             statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
-
             while(rs.next()) results.add(rs.getString(select));
-
             rs.close(); statement.close();
 
         } catch(SQLException error){error.printStackTrace();}
@@ -315,33 +243,8 @@ public class MySQL_Connector {
      */
     public static ObservableList<String[]> getTableAsArray(String select, String from){
 
-        ObservableList<String[]> rowValues =FXCollections.observableArrayList();
-
-        try {
-            String query =  "SELECT " + select +
-                    " FROM " + from;
-
-            statement = connection.createStatement();
-            ResultSet individualData = statement.executeQuery(query);
-
-            int cols = individualData.getMetaData().getColumnCount();
-            while(individualData.next()){
-
-                String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                    row[i-1] = individualData.getString(i);
-                }
-
-                rowValues.add(row);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return rowValues;
+            String query =  "SELECT " + select + " FROM " + from;
+            return getQueryAsArray(query);
     }
 
     /**
@@ -357,23 +260,14 @@ public class MySQL_Connector {
 
             statement = connection.createStatement();
             ResultSet individualData = statement.executeQuery(query);
-
             int cols = individualData.getMetaData().getColumnCount();
             while(individualData.next()){
-
                 String[] row = new String[cols];
-
-                for(int i=1; i<=cols; i++){
-
-                    row[i-1] = individualData.getString(i);
-                }
-
+                for(int i=1; i<=cols; i++) row[i-1] = individualData.getString(i);
                 rowValues.add(row);
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) {e.printStackTrace();}
 
         return rowValues;
     }
@@ -384,8 +278,8 @@ public class MySQL_Connector {
      */
     private static void setupDB()throws SQLException{
 
-            executeSQL_Statement("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
-            executeSQL_Statement("USE GENEALOGY");
+        executeSQL_Statement("CREATE SCHEMA IF NOT EXISTS GENEALOGY");
+        executeSQL_Statement("USE GENEALOGY");
     }
 
     /**
@@ -400,11 +294,8 @@ public class MySQL_Connector {
         try {
 
             BufferedReader tableReader = new BufferedReader(new FileReader(tableFile));
-
             while ((line = tableReader.readLine()) != null) {
-
                 if(line.trim().isEmpty()){
-
                     executeSQL_Statement(sql);
                     sql = "";
                 }
